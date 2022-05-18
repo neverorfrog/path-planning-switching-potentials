@@ -14,7 +14,6 @@ classdef Obstacle < matlab.mixin.Copyable
     properties %wrt its bypassing potential
         gx; gy; %antigradient associated to the bypassing potential
         sense; %bypassing sense (clockwise or counterclockwise)
-        c; %bypassing antigradient modulation
         bypassed;
     end
     
@@ -57,11 +56,11 @@ classdef Obstacle < matlab.mixin.Copyable
             obj.draw();
         end
         
-        function [gx,gy] = antigradient(obj,X,Y,c)
+        function [gx,gy] = antigradient(obj,grid,c)
             %Calcolo del gradiente
-            obj.c = c; 
-            obj.gx = obj.c*(Y(:,1)-obj.yc)./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
-            obj.gy = obj.c*(obj.xc-X(1,:))./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
+            X = grid.X; Y = grid.Y;
+            obj.gx = c*(Y(:,1)-obj.yc)./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
+            obj.gy = c*(obj.xc-X(1,:))./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
             if obj.sense == "counterclock"
                 obj.gx = -obj.gx; obj.gy = -obj.gy;
             end

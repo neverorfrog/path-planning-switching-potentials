@@ -167,18 +167,18 @@ classdef Robot < matlab.mixin.Copyable
         
         
         %% Metodo che calcola il ptoenziale bypassante
-        function  bypass(obj,dO,grid)
+        function bypass(obj,dO,grid)
             
             [vObstacle,h,dOmega] = obj.virtualObstacle(dO,grid.G);
             obj.obstacle = dO; obj.state = State.bypassing; dO.bypassed = false;
             
-            j = coord2index(obj.P2);
-            k = coord2index(obj.P1);
+            j = grid.coord2index(obj.P2);
+            k = grid.coord2index(obj.P1);
             
             cO = norm([grid.agradX(j(2),j(1)) grid.agradY(j(2),j(1))])*h;
-            [obj.gradXO,obj.gradYO] = dO.antigradient(grid.X,grid.Y,cO,ordine,fattore);
+            [obj.gradXO,obj.gradYO] = dO.antigradient(grid,cO);
             cV = norm([obj.gradXO(k(2),k(1)) obj.gradYO(k(2),k(1))])*dOmega;
-            [obj.gradX,obj.gradY] = vObstacle.antigradient(grid.X,grid.Y,cV,ordine,fattore);
+            [obj.gradX,obj.gradY] = vObstacle.antigradient(grid,cV);
         end
         
         function [vObstacle,h,dOmega] = virtualObstacle(obj,dO,G)
@@ -231,11 +231,11 @@ classdef Robot < matlab.mixin.Copyable
             syms xp2; xp2 = obj.P2(1);
             obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
             
-            omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
-            plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
-            obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
-            plot(obst, 'FaceColor', 'r'); hold on;
-            plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2); plot(obj.xc,obj.yc,"+y");
+%             omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
+%             plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
+%             obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
+%             plot(obst, 'FaceColor', 'r'); hold on;
+%             plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2); plot(obj.xc,obj.yc,"+y");
         end
     end
     
