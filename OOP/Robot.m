@@ -63,22 +63,22 @@ classdef Robot < matlab.mixin.Copyable
             rx = obj.xc;
             ry = obj.yc;
             rtheta = obj.theta;
-            [xdot,ydot,thetadot] = obj.derivata(rx,ry,rtheta,tspan,grid);
+            [Xdot] = obj.derivata(rx,ry,rtheta,tspan,grid);
             
-            rx2 = rx + tspan/2*xdot;
-            ry2 = ry + tspan/2*ydot;
-            rtheta2 = rtheta + tspan/2*thetadot;
-            [xdot2,ydot2,thetadot2] = obj.derivata(rx2,ry2,rtheta2,tspan,grid);
+            rx2 = rx + tspan/2*Xdot(1);
+            ry2 = ry + tspan/2*Xdot(2);
+            rtheta2 = rtheta + tspan/2*Xdot(3);
+            [Xdot2] = obj.derivata(rx2,ry2,rtheta2,tspan,grid);
             
-            obj.xc = rx + tspan*xdot2;
-            obj.yc = ry + tspan*ydot2;
-            obj.theta = rtheta + tspan*thetadot2;
+            obj.xc = rx + tspan*Xdot2(1);
+            obj.yc = ry + tspan*Xdot2(2);
+            obj.theta = rtheta + tspan*Xdot2(3);
             
             obj.draw();
         end
         
         
-        function [xdot,ydot,thetadot] = derivata(obj,rx,ry,rtheta,tspan,grid)  
+        function [Xdot] = derivata(obj,rx,ry,rtheta,tspan,grid)
             i = grid.coord2index([rx,ry]);
             thetaN = atan2(obj.gradY(i(2),i(1)),obj.gradX(i(2),i(1)));
             thetaDiff = atan2(sin(thetaN-rtheta),cos(thetaN-rtheta));
@@ -97,9 +97,13 @@ classdef Robot < matlab.mixin.Copyable
             Kw = (thetaDdot + Kc * abs(thetaDiff)^v * sign(thetaDiff))/(thetaDiff+eps);
             wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);
             
-            xdot = vr * cos(rtheta);
-            ydot = vr * sin(rtheta);
-            thetadot = wr;
+            % Modello specifico del Differential Drive
+            r = 0.05; %raggio delle ruote di 5 centimetri
+            L = 0.15; %distanza tra le due ruote di 15 centimetri
+            %K rende possibile esprimere vr e wr in funzione delle due velocitá impresse alle ruote
+            K = [r/2 r/2 ; r/L -r/L];
+            wRwL = K \ [vr ; wr];
+            Xdot = ([cos(rtheta) 0 ; sin(rtheta) 0 ; 0 1] * K * wRwL);
         end
         
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
@@ -231,11 +235,11 @@ classdef Robot < matlab.mixin.Copyable
             syms xp2; xp2 = obj.P2(1);
             obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
             
-%             omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
-%             plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
-%             obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
-%             plot(obst, 'FaceColor', 'r'); hold on;
-%             plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2); plot(obj.xc,obj.yc,"+y");
+            %             omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
+            %             plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
+            %             obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
+            %             plot(obst, 'FaceColor', 'r'); hold on;
+            %             plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2); plot(obj.xc,obj.yc,"+y");
         end
     end
     
