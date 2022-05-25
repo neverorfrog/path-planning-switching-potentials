@@ -59,19 +59,17 @@ classdef Obstacle < matlab.mixin.Copyable
         function [gx,gy] = antigradient(obj,grid,c)
             %Calcolo del gradiente
             X = grid.X; Y = grid.Y;
-            obj.gx = c*(Y(:,1)-obj.yc)./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
-            obj.gy = c*(obj.xc-X(1,:))./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
+            gx = c*(Y(:,1)-obj.yc)./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
+            gy = c*(obj.xc-X(1,:))./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
             if obj.sense == "counterclock"
-                obj.gx = -obj.gx; obj.gy = -obj.gy;
+                gx = -obj.gx; gy = -obj.gy;
             end
-            gx = obj.gx; gy = obj.gy;
         end
         
         function chooseSense(obj,r)
             phi = atan2(obj.yc - r.yc,obj.xc - r.xc);
             alphav = atan2(obj.v(2),obj.v(1));
             vphi = atan2(sin(-phi + pi/2 + alphav),cos(-phi + pi/2 + alphav));
-            
             if obj.v(1) == 0 && obj.v(2) == 0
                 if phi - r.theta > 0
                     obj.sense = "counterclock";

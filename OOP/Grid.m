@@ -7,8 +7,7 @@ classdef Grid < handle
     end
     
     properties
-        G; agradX; agradY; paraboloidal;
-        obstacles;
+        goal; obstacles;
     end
     
     methods
@@ -18,17 +17,16 @@ classdef Grid < handle
         obj.nr = obj.fattore*10 + 1; 
         obj.nc = obj.fattore*10 + 1; 
         [obj.X,obj.Y] = meshgrid(linspace(x0,xf,obj.nc),linspace(x0,xf,obj.nr));
-        obj.paraboloidal = false;
         end
         
-        function obj = setGoal(obj,G)
-            obj.G = G;
-            di = sqrt((G(1)-obj.X).^2 + (G(2)-obj.Y).^2);
-            obj.agradX = (G(1)-obj.X)./di; obj.agradY = (G(2)-obj.Y)./di;
+        function obj = setGoal(obj,goal)
+            obj.goal = goal;
+            di = sqrt((goal(1)-obj.X).^2 + (goal(2)-obj.Y).^2);
+            obj.agradX = (goal(1)-obj.X)./di; obj.agradY = (goal(2)-obj.Y)./di;
         end
         
-        function obj = setGrad(obj,gradX,gradY)
-            obj.agradX = gradX;  obj.agradY = gradY;
+        function obj = addObstacle(obj,o)
+            obj.obstacles = [obj.obstacles , o];
         end
         
         function index = coord2index(obj,point)

@@ -5,9 +5,7 @@ classdef Sense
     end
     
     methods
-        function obj = Sense(robot,grid)
-            obj.robot = robot;
-            obj.grid = grid;
+        function obj = Sense()
         end
         
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
