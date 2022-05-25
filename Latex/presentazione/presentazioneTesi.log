@@ -1,0 +1,121 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  25 MAY 2022 11:38
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**presentazioneTesi.tex
+(./presentazioneTesi.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-04-29>
+(c:/texlive/2022/texmf-dist/tex/latex/base/slides.cls
+Document Class: slides 2021/10/04 v2.4b Standard LaTeX document class
+(c:/texlive/2022/texmf-dist/tex/latex/base/slides.def
+File: slides.def 2021/10/04 v2.4b SLiTeX definitions
+ hacks, slides,
+\c@page=\count185
+ picture,
+mods,
+\@smashboxa=\box50
+\@smashboxb=\box51
+\@smashboxc=\box52
+ output, init) (c:/texlive/2022/texmf-dist/tex/latex/base/sfonts.def
+File: sfonts.def 2019/07/09 v2.2f Standard LaTeX slide font definitions
+
+(c:/texlive/2022/texmf-dist/tex/latex/base/ot1lcmss.fd
+File: ot1lcmss.fd 2019/07/09 v2.2f Standard LaTeX slide font definitions
+))
+\c@minutes=\count186
+\c@seconds=\count187
+\c@mv@invisible=\count188
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lcmss/m/n on input line 360.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lcmm/m/it on input line 363.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lcmsy/m/n on input line 365.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lcmex/m/n on input line 367.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `invisible'
+(Font)                  OT1/cmr/m/n --> OT1/lcmss/m/In on input line 370.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `invisible'
+(Font)                  OML/cmm/m/it --> OML/lcmm/m/Iit on input line 372.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `invisible'
+(Font)                  OMS/cmsy/m/n --> OMS/lcmsy/m/In on input line 374.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `invisibl
+e'
+(Font)                  OMX/cmex/m/n --> OMX/lcmex/m/In on input line 376.
+)
+(c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count189
+\l__pdf_internal_box=\box53
+)
+
+LaTeX Warning: Unused global option(s):
+    [12pt].
+
+(./presentazioneTesi.aux)
+\openout1 = `presentazioneTesi.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/lcmss/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+
+! Improper \prevdepth.
+\newpage ...everypar {}\fi \par \ifdim \prevdepth 
+                                                  >\z@ \vskip -\ifdim \prevd...
+l.8 \frame{\titlepage}
+                      
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.8 \frame{\titlepage}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Too many }'s.
+<recently read> }
+                 
+l.8 \frame{\titlepage}
+                      
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+[0
+
+] (./presentazioneTesi.aux) ) 
+Here is how much of TeX's memory you used:
+ 481 strings out of 478305
+ 9545 string characters out of 5849247
+ 298757 words of memory out of 5000000
+ 18731 multiletter control sequences out of 15000+600000
+ 469561 words of font info for 29 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 33i,5n,39p,157b,107s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on presentazioneTesi.pdf (1 page, 984 bytes).
+PDF statistics:
+ 8 PDF objects out of 1000 (max. 8388607)
+ 4 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

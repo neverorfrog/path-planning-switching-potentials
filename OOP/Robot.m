@@ -166,10 +166,7 @@ classdef Robot < matlab.mixin.Copyable
             end
             result = result1 && result2 && result3;
         end
-        
-        
-        
-        
+             
         %% Metodo che calcola il ptoenziale bypassante
         function bypass(obj,dO,grid)
             

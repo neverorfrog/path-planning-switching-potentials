@@ -7,9 +7,8 @@ classdef Grid < handle
     end
     
     properties
-        G;
-        agradX; agradY;
-        paraboloidal;
+        G; agradX; agradY; paraboloidal;
+        obstacles;
     end
     
     methods

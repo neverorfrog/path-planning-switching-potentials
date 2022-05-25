@@ -1,0 +1,23 @@
+@article{dalfonso,
+  title={Obstacles avoidance based on switching potential functions},
+  author={D’Alfonso, Luigi and Fedele, Giuseppe and  Chiaravalloti, Francesco and D’Aquila, Gaetano},
+  journal={Journal of Intelligent \& Robotic Systems},
+}
+
+@inbook{oriolo,
+author = {Medio, Claudio and Oriolo, Giuseppe},
+year = {1991},
+booktitle = {Advances in Robot Kinematics},
+title = {Robot Obstacle Avoidance Using Vortex Fields}
+}
+
+@article{mac2016,
+title = {Heuristic approaches in robot path planning: A survey},
+journal = {Robotics and Autonomous Systems},
+author = {Thi Thoa Mac and Cosmin Copot and Duc Trung Tran and Robin {De Keyser}}
+}
+
+@book{murphy,
+	author = "Robin Murphy",
+	title = "Introduction to AI Robotics"
+}
