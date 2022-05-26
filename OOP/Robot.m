@@ -1,4 +1,4 @@
-classdef Robot < matlab.mixin.Copyable
+classdef Robot < handle
     
     %Object that represents a robot of triangular shape in position (xc,yc) and a certain orientation
     %theta wrt the positive x axis in R2
@@ -12,14 +12,7 @@ classdef Robot < matlab.mixin.Copyable
         plotobj; %graphic handle
         shape; %circular or triangular
     end
-    
-    properties %bypassing potential
-        obstacle; %the obstacle to be bypassed
-        state; %can be bypassing or attractive
-        gradX; gradY; %the antigradient to be followed
-        gradXO; gradYO; %the bypassing potential of the detected obstacle
-        P1; P2; solxp2; solyp2;
-    end
+   
     
     
     methods
@@ -28,9 +21,6 @@ classdef Robot < matlab.mixin.Copyable
             obj.xc = xc; obj.yc = yc; obj.theta = pi/2;
             obj.shape = "triangular";
             obj.rv = 1.5;
-            obj.obstacle = Obstacle(inf,inf,[0 0]);
-            obj.state = State.attractive;
-            [obj.solxp2 , obj.solyp2] = calcoloP2();
         end
         
         
@@ -51,133 +41,6 @@ classdef Robot < matlab.mixin.Copyable
                 plot(obj.xc,obj.yc,"ob"); hold on; axis equal; axis([-1 11 -1 11]);
                 obj.plotobj = plotobj;
             end
-        end
-        
-        %%
-        function setGrad(obj,gradX,gradY)
-            obj.gradX = gradX; obj.gradY = gradY;
-        end
-        
-        %% Method that moves the robot according to the desired velocity (Runge-Kutta 2 for integration)
-        function move(obj,tspan,grid)
-            rx = obj.xc;
-            ry = obj.yc;
-            rtheta = obj.theta;
-            [Xdot] = obj.derivata(rx,ry,rtheta,tspan,grid);
-            
-            rx2 = rx + tspan/2*Xdot(1);
-            ry2 = ry + tspan/2*Xdot(2);
-            rtheta2 = rtheta + tspan/2*Xdot(3);
-            [Xdot2] = obj.derivata(rx2,ry2,rtheta2,tspan,grid);
-            
-            obj.xc = rx + tspan*Xdot2(1);
-            obj.yc = ry + tspan*Xdot2(2);
-            obj.theta = rtheta + tspan*Xdot2(3);
-            
-            obj.draw();
-        end
-        
-        
-        function [Xdot] = derivata(obj,rx,ry,rtheta,tspan,grid)
-            i = grid.coord2index([rx,ry]);
-            thetaN = atan2(obj.gradY(i(2),i(1)),obj.gradX(i(2),i(1)));
-            thetaDiff = atan2(sin(thetaN-rtheta),cos(thetaN-rtheta));
-            vgrad = [obj.gradX(i(2),i(1)) obj.gradY(i(2),i(1))];
-            Mv = norm(vgrad);
-            vr = (Mv * cos(thetaDiff));
-            
-            rx1 = rx + vgrad(1)*tspan;
-            ry1 = ry + vgrad(2)*tspan;
-            j = grid.coord2index([rx1,ry1]);
-            thetaN1 = atan2(obj.gradY(j(2),j(1)),obj.gradX(j(2),j(1)));
-            
-            thetaDdiff = atan2(sin(thetaN1-thetaN),cos(thetaN1-thetaN));
-            thetaDdot = thetaDdiff/tspan;
-            Kc = 10; eps = 0.001; v = 1;
-            Kw = (thetaDdot + Kc * abs(thetaDiff)^v * sign(thetaDiff))/(thetaDiff+eps);
-            wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);
-            
-            % Modello specifico del Differential Drive
-            r = 0.05; %raggio delle ruote di 5 centimetri
-            L = 0.15; %distanza tra le due ruote di 15 centimetri
-            %K rende possibile esprimere vr e wr in funzione delle due velocitá impresse alle ruote
-            K = [r/2 r/2 ; r/L -r/L];
-            wRwL = K \ [vr ; wr];
-            Xdot = ([cos(rtheta) 0 ; sin(rtheta) 0 ; 0 1] * K * wRwL);
-        end
-        
-             
-        %% Metodo che calcola il ptoenziale bypassante
-        function bypass(obj,dO,grid)
-            
-            [vObstacle,h,dOmega] = obj.virtualObstacle(dO,grid.G);
-            obj.obstacle = dO; obj.state = State.bypassing; dO.bypassed = false;
-            
-            j = grid.coord2index(obj.P2);
-            k = grid.coord2index(obj.P1);
-            
-            cO = norm([grid.agradX(j(2),j(1)) grid.agradY(j(2),j(1))])*h;
-            [obj.gradXO,obj.gradYO] = dO.antigradient(grid,cO);
-            cV = norm([obj.gradXO(k(2),k(1)) obj.gradYO(k(2),k(1))])*dOmega;
-            [obj.gradX,obj.gradY] = vObstacle.antigradient(grid,cV);
-        end
-        
-        function [vObstacle,h,dOmega] = virtualObstacle(obj,dO,G)
-            %calcolo di h (il raggio della circonferenza attorno all'ostacolo reale)
-            dist = norm([dO.xc dO.yc] - [obj.xc obj.yc]);
-            angdiff = abs(atan2(sin(dO.theta-obj.theta),cos(dO.theta-obj.theta)));
-            h = (dist+1+(angdiff/pi))/3;
-            angle = atan2(sin(obj.theta),cos(obj.theta));
-            
-            %substitution of data from detected obstacle to calculate bypass potential
-            xo0 = dO.xc; yo0 = dO.yc; xr = obj.xc; yr = obj.yc;
-            m = tan(obj.theta); xo = xo0 - xr; yo = yo0 - yr; xg = G(1); yg = G(2);
-            
-            %calcolo delle due circonferenze
-            yOmega(1) = ((- h^2 + xo^2 + yo^2)*(m*xo - yo + h*(m^2 + 1)^(1/2)))/(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
-            yOmega(2) = -((-h^2 + xo^2 + yo^2)*(yo - m*xo + h*(m^2 + 1)^(1/2)))/(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
-            xOmega = -m*yOmega;
-            d = double(sqrt(xOmega.^2 + yOmega.^2));
-            
-            %scelta del verso di bypass dell'ostacolo reale
-            dO.chooseSense(obj);
-            
-            %Decido quale circonferenza va bene per il verso di bypass
-            if (abs(norm(xOmega)) > 0.01 && sign(xOmega(1)) == sign(xOmega(2))) ... %due circonferenze dallo stesso lato
-                    || (abs(norm(yOmega)) > 0.01 && sign(yOmega(1)) == sign(yOmega(2)))
-                [~,indiceC] = min(d);
-            else
-                if dO.sense == "clock" %voglio la circonferenza sinistra
-                    indiceC = (sign(sin(angle)) == sign(xOmega(1))) + 1;
-                else %voglio quella destra
-                    indiceC = ~(sign(sin(angle)) == sign(xOmega(1))) + 1;
-                end
-            end
-            
-            xOmega = xOmega(indiceC) + xr; yOmega = yOmega(indiceC) + yr; dOmega = d(indiceC); xo = xo0; yo = yo0;
-            vObstacle = Obstacle(xOmega,yOmega,[0;0]);
-            if dO.sense == "counterclock"
-                vObstacle.sense = "clock"; indiceP2 = 2;
-            else
-                vObstacle.sense = "counterclock"; indiceP2 = 1;
-            end
-            
-            %calcolo P1
-            centerDir = [xo,yo]-[xOmega,yOmega];
-            centerDir = centerDir/norm(centerDir);
-            obj.P1 = [xOmega yOmega] + dOmega*centerDir;
-            
-            %calcolo P2
-            obj.P2(1) = double(subs(obj.solxp2(indiceP2)));
-            syms xp2; xp2 = obj.P2(1);
-            obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
-            
-            %             omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
-            %             plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
-            %             obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
-            %             plot(obst, 'FaceColor', 'r'); hold on;
-            %             plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2); plot(obj.xc,obj.yc,"+y");
-        end
+        end 
     end
-    
 end

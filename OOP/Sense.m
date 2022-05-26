@@ -11,29 +11,32 @@ classdef Sense
         end
         
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
-        function [detections,distances] = scan(robot,grid)
-            n = grid.obstacles.length;
-            detections = zeros(n,1); distances = zeros(n,1);
+        function dObstacle = scan(obj)
+            n = length(obj.grid.obstacles);
+            distances = zeros(n,1);
             for j = 1 : n
-                o = obstacles(j);
-                if o.bypassed == false
-                    distances(j) = inf;
-                else
-                    distances(j) = norm([r.xc r.yc] - [o.xc o.yc]);
-                end
-                detections(j) = (distances(j) <= robot.rv || isinf(distances(j))) && tube(robot,grid.G,o);
+                o = obj.grid.obstacles(j);
+                distances(j) = norm([obj.robot.xc obj.robot.yc] - [o.xc o.yc]);
+            end
+            [distance,pos] = min(distances);
+            dObstacle = [];
+            o = obj.grid.obstacles(pos);
+            if distance <= obj.robot.rv && obj.tube(o)
+                dObstacle = o;
             end
         end
         
         %% Method that builds the tube T(t)
-        function result = tube(robot,goal,obstacle)
+        function result = tube(obj,obstacle)
+            G = obj.grid.goal; r = obj.robot;
+            
             rm = 3.5;
-            angle = atan2(goal(2)-robot.yc,goal(1)-robot.xc);
+            angle = atan2(G(2)-r.yc,G(1)-r.xc);
             deltaX = rm/2*sin(angle); deltaY = rm/2*cos(angle);
-            x1 = robot.xc + deltaX; y1 = robot.yc - deltaY;
-            x4 = robot.xc - deltaX; y4 = robot.yc + deltaY;
-            x2 = goal(1) + deltaX; y2 = goal(2) - deltaY;
-            x3 = goal(1) - deltaX; y3 = goal(2) + deltaY;
+            x1 = r.xc + deltaX; y1 = r.yc - deltaY;
+            x4 = r.xc - deltaX; y4 = r.yc + deltaY;
+            x2 = G(1) + deltaX; y2 = G(2) - deltaY;
+            x3 = G(1) - deltaX; y3 = G(2) + deltaY;
             
             m14 = (y4-y1)/(x4-x1); q14 = m14*x1 - y1;
             if abs(m14) > exp(10)
