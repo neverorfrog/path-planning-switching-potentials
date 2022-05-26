@@ -8,7 +8,6 @@ classdef Plan
         P2; solxp2; solyp2;
         
         robot; grid;
-        act;
         state;
     end
     
@@ -25,18 +24,19 @@ classdef Plan
         end
         %% Per ora solo uno alla volta
         function obj = decide(obj,dObstacle)
+            rx = obj.robot.xc; ry = obj.robot.yc;
             if obj.state == State.attractive
-                if isempty(dObstacle) %obstacle detected
+                if isempty(dObstacle) %obstacle not detected
                     return;
                 end
-                obj.bypass(dObstacle);
+                obj = obj.bypass(dObstacle);
                 obj.state = State.bypassing;
             else
                 if norm([rx ry] - obj.P1) < 0.1
-                    obj.setGrad(r.gradXO,r.gradYO); return;
+                    obj = obj.setGrad(obj.gradXO,obj.gradYO); return;
                 end
-                if norm([rx ry] - r.P2) < 0.1
-                    obj.setGrad(obj.agradX,obj.agradY);
+                if norm([rx ry] - obj.P2) < 0.1
+                    obj = obj.setGrad(obj.agradX,obj.agradY);
                     obj.state = State.attractive; return;
                 end
             end
@@ -112,11 +112,11 @@ classdef Plan
             syms xp2; xp2 = obj.P2(1); %#ok<*NASGU>
             obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
             
-            %omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
-            %plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
-            %obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
-            %plot(obst, 'FaceColor', 'r'); hold on;
-            %plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2); plot(obj.xc,obj.yc,"+y");
+            omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
+            plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
+            obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
+            plot(obst, 'FaceColor', 'r'); hold on;
+            plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2);
         end
         
         %% Scelto del senso (antiorario o orario)

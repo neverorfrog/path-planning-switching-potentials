@@ -21,6 +21,7 @@ classdef Plan
             di = sqrt((grid.goal(1)-grid.X).^2 + (grid.goal(2)-grid.Y).^2);
             obj.agradX = (grid.goal(1)-grid.X)./di; obj.agradY = (grid.goal(2)-grid.Y)./di;
             obj.gradX = obj.agradX; obj.gradY = obj.agradY;
+            [obj.solxp2 , obj.solyp2] = calcoloP2();
         end
         %% Per ora solo uno alla volta
         function obj = decide(obj,dObstacle)
@@ -28,7 +29,7 @@ classdef Plan
                 if isempty(dObstacle) %obstacle detected
                     return;
                 end
-                obj.bypass(dObstacle,obj.grid);
+                obj.bypass(dObstacle);
                 obj.state = State.bypassing;
             else
                 if norm([rx ry] - obj.P1) < 0.1
@@ -46,20 +47,20 @@ classdef Plan
         end
         
         %% Metodo che calcola il ptoenziale bypassante
-        function obj = bypass(obj,dO,grid)
+        function obj = bypass(obj,dO)
             
-            [h,dOmega,oSense,vSense] = obj.virtualObstacle(dO,grid.goal);
+            [obj,vObstacle,h,dOmega,oSense,vSense] = obj.virtualObstacle(dO,obj.grid.goal);
             
-            j = grid.coord2index(obj.P2);
-            k = grid.coord2index(obj.P1);
+            j = obj.grid.coord2index(obj.P2);
+            k = obj.grid.coord2index(obj.P1);
             
             cO = norm([obj.gradX(j(2),j(1)) obj.gradY(j(2),j(1))])*h;
-            [obj.gradXO,obj.gradYO] = antigradient(grid,cO,oSense);
+            [obj.gradXO,obj.gradYO] = obj.antigradient(dO,obj.grid,cO,oSense);
             cV = norm([obj.gradXO(k(2),k(1)) obj.gradYO(k(2),k(1))])*dOmega;
-            [obj.gradX,obj.gradY] = antigradient(grid,cV,vSense);
+            [obj.gradX,obj.gradY] = obj.antigradient(vObstacle,obj.grid,cV,vSense);
         end
         
-        function [h,dOmega,oSense,vSense] = virtualObstacle(obj,dO,G)
+        function [obj,vObstacle,h,dOmega,oSense,vSense] = virtualObstacle(obj,dO,G)
             %posizione del robot e dell'ostacolo
             xr = obj.robot.xc; yr = obj.robot.yc; thetar = obj.robot.theta;
             xo0 = dO.xc; yo0 = dO.yc; thetao0 = dO.theta;
@@ -107,7 +108,7 @@ classdef Plan
             obj.P1 = [xOmega yOmega] + dOmega*centerDir;
             
             %calcolo P2
-            obj.P2(1) = double(subs(obj.solxp2(indiceP2)));
+            obj.P2 = double(subs(obj.solxp2(indiceP2)));
             syms xp2; xp2 = obj.P2(1); %#ok<*NASGU>
             obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
             
@@ -139,13 +140,14 @@ classdef Plan
         end
         
         %% Calcolo antigradiente dato c e il senso
-        function [gx,gy] = antigradient(obj,grid,c,sense)
+        function [gx,gy] = antigradient(~,obstacle,grid,c,sense)
+            xo = obstacle.xc; yo = obstacle.yc;
             %Calcolo del gradiente
             X = grid.X; Y = grid.Y;
-            gx = c*(Y(:,1)-obj.yc)./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
-            gy = c*(obj.xc-X(1,:))./((X(1,:)-obj.xc).^2+(Y(:,1)-obj.yc).^2+0.00001);
+            gx = c*(Y(:,1)-yo)./((X(1,:)-xo).^2+(Y(:,1)-yo).^2+0.00001);
+            gy = c*(xo-X(1,:))./((X(1,:)-xo).^2+(Y(:,1)-yo).^2+0.00001);
             if sense == "counterclock"
-                gx = -obj.gx; gy = -obj.gy;
+                gx = -gx; gy = -gy;
             end
         end
         
