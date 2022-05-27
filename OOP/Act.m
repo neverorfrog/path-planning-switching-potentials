@@ -17,13 +17,13 @@ classdef Act
             ry = obj.robot.yc;
             rtheta = obj.robot.theta;
             [vr,wr] = obj.commands(rx,ry,rtheta,tspan,gradX,gradY);
-            Xdot = obj.moveDD(vr,wr,rtheta);
+            Xdot = obj.odeDD(vr,wr,rtheta);
             
             rx2 = rx + tspan/2*Xdot(1);
             ry2 = ry + tspan/2*Xdot(2);
             rtheta2 = rtheta + tspan/2*Xdot(3);
             [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
-            Xdot = obj.moveDD(vr,wr,rtheta2);
+            Xdot = obj.odeDD(vr,wr,rtheta2);
             
             obj.robot.xc = rx + tspan*Xdot(1);
             obj.robot.yc = ry + tspan*Xdot(2);
@@ -53,7 +53,7 @@ classdef Act
             wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);
         end
         
-        function Xdot = moveDD(~,vr,wr,theta)
+        function Xdot = odeDD(~,vr,wr,theta)
             % Modello specifico del Differential Drive
             r = 0.05; %raggio delle ruote di 5 centimetri
             L = 0.15; %distanza tra le due ruote di 15 centimetri
