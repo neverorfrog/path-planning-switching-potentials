@@ -12,8 +12,7 @@ classdef Act
         end
         
         %% Method that moves the robot according to the desired velocity (Runge-Kutta 2 for integration)
-        function move(obj,gradX,gradY)
-            global tspan;
+        function move(obj,gradX,gradY,tspan)
             rx = obj.robot.xc;
             ry = obj.robot.yc;
             rtheta = obj.robot.theta;

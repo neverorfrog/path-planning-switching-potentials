@@ -31,8 +31,7 @@ classdef Obstacle < handle
             obj.plotobj = plotobj;
         end
         
-        function move(obj)
-            global tspan;
+        function move(obj,tspan)
             movableX = obj.xc + obj.v(1)*tspan >= 0 && obj.xc + obj.v(1)*tspan <= 10;
             movableY = obj.yc + obj.v(2)*tspan >= 0 && obj.yc + obj.v(2)*tspan <= 10;
             if ~movableX && ~movableY
