@@ -1,21 +1,23 @@
 classdef Grid < handle
     
     properties (SetAccess = immutable)
-        ordine; fattore;
+        fattore; %densitá (quante celle per quadratino di coordinata)
+        dx;
         nr; nc;
         X; Y;
     end
     
     properties 
-        goal; obstacles;
+        goal; 
+        obstacles;
     end
     
     methods
-        function obj = Grid(ordine,x0,xf)
-            obj.ordine = ordine;
-            obj.fattore = (10^ordine);
-            obj.nr = obj.fattore*10 + 1;
-            obj.nc = obj.fattore*10 + 1;
+        function obj = Grid(fattore,x0,xf)
+            obj.fattore = fattore;
+            obj.dx = 1/fattore;
+            obj.nr = (xf - x0)*fattore + 1;
+            obj.nc = obj.nr;
             [obj.X,obj.Y] = meshgrid(linspace(x0,xf,obj.nc),linspace(x0,xf,obj.nr));
         end
         
@@ -24,13 +26,17 @@ classdef Grid < handle
         end
         
         function obj = addObstacle(obj,o)
-            obj.obstacles = [obj.obstacles , o];
+            obj.obstacles = [obj.obstacles o];
         end
         
         function index = coord2index(obj,point)
             index = zeros(1,2);
-            index(1) = int16(round(point(1),obj.ordine)*obj.fattore+1);
-            index(2) = int16(round(point(2),obj.ordine)*obj.fattore+1);
+            % x coordinate goes into the column index
+            floorx = floor(point(1));
+            index(2) = (floorx + obj.dx*floor((point(1) - floorx)/obj.dx))*obj.fattore + 1;
+            % x coordinate goes into the row index
+            floory = floor(point(2));
+            index(1) = (floory + obj.dx*floor((point(2) - floory)/obj.dx))*obj.fattore + 1;
         end
     end
 end

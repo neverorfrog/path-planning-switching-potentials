@@ -34,9 +34,10 @@ In questa tesi viene affrontato un problema che rientra nel terzo modulo: il pat
 All'interno dei metodi esistenti (e non), ci sono due importanti distinzioni da fare: sulla formulazione del problema e sulla soluzione al problema.
 \begin{description}
 \item[La prima] é tra online e offline path planning, o anche locale e globale. Il path planning globale riguarda quelle situazioni in cui l'ambiente considerato é interamente noto a priori, per cui é possibile calcolare il percorso da seguire ancor prima che il robot inizi a muoversi; quello locale é inerente ai casi in cui il robot debba fare i conti lungo il suo percorso con eventi inaspettati, quali ostacoli dinamici,per cui é necessario reagire localmente, aggiornando ripetutamente le informazioni derivanti dai sensori e aggiustando la traiettoria al fine di evitare l'ostacolo e poter raggiungere in tempi ottimali l'obiettivo.
-\item[La seconda] distinzione é tra soluzioni basate su tecniche di intelligenza artificiale - la cui trattazione esula dagli scopi di questa tesi - e soluzioni classiche. Quest'ultime possono ulteriormente essere suddivise in :
+\item[La seconda] distinzione é tra soluzioni basate su tecniche di intelligenza artificiale - la cui trattazione esula dagli scopi di questa tesi - e soluzioni classiche. Quest'ultime possono ulteriormente essere suddivise in \cite{siciliano}:
 \begin{itemize}
-\item{Subgoal (o anche roadmap)} Voronoi e grafo di visibilitá
+\item{Subgoal (o anche roadmap)}\\ 
+
 \item{Decomposizione in celle}
 \item{Sampling based} RRT ecc
 \item{Potenziali artificiali} Li descrivo meglio avanti

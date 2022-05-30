@@ -48,41 +48,26 @@ classdef Plan
         
         %% Metodo che calcola il ptoenziale bypassante
         function obj = bypass(obj,dO)
-            
-            [obj,vObstacle,h,dOmega,oSense,vSense] = obj.virtualObstacle(dO,obj.grid.goal);
-            
-            j = obj.grid.coord2index(obj.P2);
-            k = obj.grid.coord2index(obj.P1);
-            
-            cO = norm([obj.gradX(j(2),j(1)) obj.gradY(j(2),j(1))])*h;
-            [obj.gradXO,obj.gradYO] = obj.antigradient(dO,obj.grid,cO,oSense);
-            cV = norm([obj.gradXO(k(2),k(1)) obj.gradYO(k(2),k(1))])*dOmega;
-            [obj.gradX,obj.gradY] = obj.antigradient(vObstacle,obj.grid,cV,vSense);
-        end
-        
-        function [obj,vObstacle,h,dOmega,oSense,vSense] = virtualObstacle(obj,dO,G)
-            %posizione del robot e dell'ostacolo
+            %Posizione del robot,dell'ostacolo e del goal
             xr = obj.robot.xc; yr = obj.robot.yc; thetar = obj.robot.theta;
             xo0 = dO.xc; yo0 = dO.yc; thetao0 = dO.theta;
-            %calcolo di h (il raggio della circonferenza attorno all'ostacolo reale)
+            angle = atan2(sin(thetar),cos(thetar));
+            xg = obj.grid.goal(1); yg = obj.grid.goal(2);
+            
+            %Inizio calcolo potenziale bypassante
+            m = tan(obj.robot.theta); xo = xo0 - xr; yo = yo0 - yr; 
+            %1. Calcolo di h (il raggio della circonferenza attorno all'ostacolo reale)
             dist = norm([xo0 yo0] - [xr yr]);
             angdiff = abs(atan2(sin(thetao0-thetar),cos(thetao0-thetar)));
             h = (dist+1+(angdiff/pi))/3;
-            angle = atan2(sin(thetar),cos(thetar));
-            
-            %substitution of data from detected obstacle to calculate bypass potential
-            m = tan(obj.robot.theta); xo = xo0 - xr; yo = yo0 - yr; xg = G(1); yg = G(2);
-            
-            %calcolo delle due circonferenze
+            %2. Calcolo delle due circonferenze papabili per l'ostacolo virtuale
             yOmega(1) = ((- h^2 + xo^2 + yo^2)*(m*xo - yo + h*(m^2 + 1)^(1/2)))/(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
             yOmega(2) = -((-h^2 + xo^2 + yo^2)*(yo - m*xo + h*(m^2 + 1)^(1/2)))/(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
             xOmega = -m*yOmega;
             d = double(sqrt(xOmega.^2 + yOmega.^2));
-            
-            %scelta del verso di bypass dell'ostacolo reale
-            oSense = obj.chooseSense(dO);
-            
-            %Decido quale circonferenza va bene per il verso di bypass
+            %3. Scelta del verso di bypass dell'ostacolo reale
+            oSense = obj.chooseSense(dO); %dO = detected obstacle
+            %4. Decido quale circonferenza va bene per il verso di bypass
             if (abs(norm(xOmega)) > 0.01 && sign(xOmega(1)) == sign(xOmega(2))) ... %due circonferenze dallo stesso lato
                     || (abs(norm(yOmega)) > 0.01 && sign(yOmega(1)) == sign(yOmega(2)))
                 [~,indiceC] = min(d);
@@ -93,29 +78,37 @@ classdef Plan
                     indiceC = ~(sign(sin(angle)) == sign(xOmega(1))) + 1;
                 end
             end
-            
-            xOmega = xOmega(indiceC) + xr; yOmega = yOmega(indiceC) + yr; dOmega = d(indiceC); xo = xo0; yo = yo0;
+            %5. Estraggo la circonferenza che mi serve
+            xOmega = xOmega(indiceC) + xr; yOmega = yOmega(indiceC) + yr; 
+            dOmega = d(indiceC); xo = xo0; yo = yo0;
+            %6. Decido come sará l'ostacolo virtuale in base al senso di bypass
             vObstacle = Obstacle(xOmega,yOmega,[0;0]);
             if oSense == "counterclock"
                 vSense = "clock"; indiceP2 = 2;
             else
                 vSense = "counterclock"; indiceP2 = 1;
             end
-            
-            %calcolo P1
+            %7. Calcolo P1
             centerDir = [xo,yo]-[xOmega,yOmega];
             centerDir = centerDir/norm(centerDir);
             obj.P1 = [xOmega yOmega] + dOmega*centerDir;
-            
-            %calcolo P2
+            k = obj.grid.coord2index(obj.P1);
+            %8. Calcolo P2
             obj.P2 = double(subs(obj.solxp2(indiceP2)));
             syms xp2; xp2 = obj.P2(1); %#ok<*NASGU>
             obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
+            j = obj.grid.coord2index(obj.P2);
+            %9. Infine calcolo gli antigradienti nell'ostacolo reale e virtuale
+            cO = norm([obj.gradX(j(1),j(2)) obj.gradY(j(1),j(2))])*h;
+            [obj.gradXO,obj.gradYO] = obj.antigradient(dO,obj.grid,cO,oSense);
+            cV = norm([obj.gradXO(k(1),k(2)) obj.gradYO(k(1),k(2))])*dOmega;
+            [obj.gradX,obj.gradY] = obj.antigradient(vObstacle,obj.grid,cV,vSense);
             
+             %Plotting dei risultati per testing
             omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
-            plot(omega, 'FaceColor', 'b'); hold on;  axis equal;
+            plot(omega, 'FaceColor', 'b');
             obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
-            plot(obst, 'FaceColor', 'r'); hold on;
+            plot(obst, 'FaceColor', 'r');
             plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2);
         end
         
@@ -149,9 +142,7 @@ classdef Plan
             if sense == "counterclock"
                 gx = -gx; gy = -gy;
             end
-        end
-        
-        
+        end  
     end
     
 end

@@ -25,20 +25,24 @@ classdef Robot < handle
         
         
         %% Graphic representation of the robot
-        function plotobj = draw(obj)
+        function plotobj = draw(obj,traj)
             if obj.shape == "triangular"
                 o = pi/2 - atan2(sin(obj.theta),cos(obj.theta)); %orientation
                 p = [obj.xc;obj.yc]; %position
                 c = [cos(o) sin(o) ; -sin(o) cos(o)] * [0 1 -1 ; 1 -1 -1] * 0.3 + p; %coordinates
                 delete(obj.plotobj);
                 plotobj = plot(polyshape(c(1,:),c(2,:)),"LineWidth",2,"FaceColor","b");
-                hold on; axis equal; axis([-1 11 -1 11]); plot(obj.xc,obj.yc,"ob");
+                if traj
+                    plot(obj.xc,obj.yc,"ob");
+                end
                 obj.plotobj = plotobj;
             elseif obj.shape == "circular"
                 r = 0.3; x = obj.xc; y = obj.yc; t = 0:0.01:2*pi;
                 delete(obj.plotobj);
                 plotobj = plot(cos(t)*r+x,sin(t)*r+y,"b","linewidth",2);
-                plot(obj.xc,obj.yc,"ob"); hold on; axis equal; axis([-1 11 -1 11]);
+                if traj
+                    plot(obj.xc,obj.yc,"ob"); 
+                end
                 obj.plotobj = plotobj;
             end
         end 

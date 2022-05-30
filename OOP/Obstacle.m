@@ -4,7 +4,8 @@ classdef Obstacle < handle
     
     properties %wrt to its position and movement
         id; %serial number
-        xc; yc; %position
+        xc; %position
+        yc; %position
         theta; %orientation
         raggio; %size
         v; %velocity
@@ -25,12 +26,13 @@ classdef Obstacle < handle
         function plotobj = draw(obj)
             r = obj.raggio; x = obj.xc; y = obj.yc; t = 0:0.01:2*pi;
             delete(obj.plotobj);
-            plotobj = plot(cos(t)*r+x,sin(t)*r+y,"r","linewidth",2); hold on;
-            plot(obj.xc,obj.yc,"or");
+            plotobj = plot(cos(t)*r+x,sin(t)*r+y,"r","linewidth",2);
+%         plot(obj.xc,obj.yc,"or");
             obj.plotobj = plotobj;
         end
         
-        function move(obj,tspan)
+        function move(obj)
+            global tspan;
             movableX = obj.xc + obj.v(1)*tspan >= 0 && obj.xc + obj.v(1)*tspan <= 10;
             movableY = obj.yc + obj.v(2)*tspan >= 0 && obj.yc + obj.v(2)*tspan <= 10;
             if ~movableX && ~movableY

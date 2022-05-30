@@ -11,19 +11,21 @@ classdef Sense
         end
         
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
-        function dObstacle = scan(obj)
+        function [dObstacle] = scan(obj)
             n = length(obj.grid.obstacles);
-            distances = zeros(n,1);
+            distances = zeros(1,n) + inf;
+            dObstacles = cell(1,n);
             for j = 1 : n
                 o = obj.grid.obstacles(j);
-                distances(j) = norm([obj.robot.xc obj.robot.yc] - [o.xc o.yc]);
+                distance = norm([obj.robot.xc obj.robot.yc] - [o.xc o.yc]);
+                if distance <= obj.robot.rv && obj.tube(o)
+                    dObstacles{j} = o;
+                    distances(j) = distance;
+                end
             end
-            [distance,pos] = min(distances);
-            dObstacle = [];
-            o = obj.grid.obstacles(pos);
-            if distance <= obj.robot.rv && obj.tube(o)
-                dObstacle = o;
-            end
+            %Ostacolo tra quelli rilevati a distanza minima
+            [~,pos] = min(distances);
+            dObstacle = dObstacles(pos); dObstacle = dObstacle{1};
         end
         
         %% Method that builds the tube T(t)
