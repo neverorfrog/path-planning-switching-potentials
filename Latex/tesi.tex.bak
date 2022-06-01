@@ -30,41 +30,62 @@ L'architettura utilizzata in questa tesi é la cosiddetta gerarchica: le quattro
 \includegraphics[scale=0.6]{architetturaNavigazione.png}
 \end{figure}
 
-In questa tesi viene affrontato un problema che rientra nel terzo modulo: il path planning, un problema di grande importanza e argomento di molta ricerca. Una sua rapida formulazione potrebbe essere la seguente: data la posizione iniziale (del robot) A e una posizione finale B, imposta da chi fa uso del robot, il path planning consiste nel calcolare un percorso fisicamente realizzabile e ottimale per arrivare da A a B.\\ 
+In questa tesi viene affrontato un problema che rientra nel terzo modulo: il path planning, un problema di grande importanza e argomento di molta ricerca. Una sua rapida formulazione potrebbe essere la seguente: data la posizione iniziale (del robot) A e una posizione finale B, imposta da chi fa uso del robot, il path planning consiste nel calcolare un percorso fisicamente realizzabile e ottimale per arrivare da A a B.  
+
+
+\section{Path planning}
+
 All'interno dei metodi esistenti (e non), ci sono due importanti distinzioni da fare: sulla formulazione del problema e sulla soluzione al problema.
 \begin{description}
-\item[La prima] é tra online e offline path planning, o anche locale e globale. Il path planning globale riguarda quelle situazioni in cui l'ambiente considerato é interamente noto a priori, per cui é possibile calcolare il percorso da seguire ancor prima che il robot inizi a muoversi; quello locale é inerente ai casi in cui il robot debba fare i conti lungo il suo percorso con eventi inaspettati, quali ostacoli dinamici,per cui é necessario reagire localmente, aggiornando ripetutamente le informazioni derivanti dai sensori e aggiustando la traiettoria al fine di evitare l'ostacolo e poter raggiungere in tempi ottimali l'obiettivo.
-\item[La seconda] distinzione é tra soluzioni basate su tecniche di intelligenza artificiale - la cui trattazione esula dagli scopi di questa tesi - e soluzioni classiche. Quest'ultime possono ulteriormente essere suddivise in \cite{siciliano}:
+\item[La prima] é tra online e offline path planning, o anche locale e globale. Il path planning globale riguarda quelle situazioni in cui l'ambiente considerato é interamente noto a priori, per cui é possibile calcolare il percorso da seguire ancor prima che il robot inizi a muoversi; quello locale é inerente ai casi in cui il robot debba fare i conti lungo il suo percorso con eventi inaspettati, quali ostacoli dinamici,per cui é necessario reagire localmente, aggiornando ripetutamente le informazioni derivanti dai sensori e aggiustando la traiettoria al fine di evitare l'ostacolo e poter raggiungere in tempi ottimali l'obiettivo. Chiaramente, la maggior parte dei problemi di robotica autonome deve fare i conti con una situazione del secondo tipo. 
+\item[La seconda] distinzione é tra soluzioni basate su tecniche di intelligenza artificiale - la cui trattazione esula dagli scopi di questa tesi - e soluzioni classiche. Queste ultime possono ulteriormente essere suddivise in \cite{siciliano}:
 \begin{itemize}
-\item{Subgoal (o anche roadmap)}\\ 
-
+\item{Subgoal (o anche roadmap)}
 \item{Decomposizione in celle}
-\item{Sampling based} RRT ecc
-\item{Potenziali artificiali} Li descrivo meglio avanti
+\item{Sampling based}
+\item{Potenziali artificiali}
 \end{itemize}
 \end{description}
 
 Nota : Ancora da fare breve descrizione dei metodi
 
-La totalità dei metodi appena descritti risolvono adeguatamente il problema del path planning globale.\cite{dalfonso} 
+La totalità dei metodi appena descritti risolvono adeguatamente il problema del path planning globale\cite{dalfonso}, ma risultano inefficienti nel caso del path planning locale. Il metodo più versatile e anche più longevo nell'utilizzo é sicuramente quello dei potenziali artificiali.
 
 \begin{figure}[H]
 \caption{Classificazione algoritmi di path planning\cite{mac2016}}
 \includegraphics[width=\textwidth]{algoritmiPP.png}
 \end{figure}
 
-Come da titolo, questa tesi ha come obiettivo specifico quello di esporre un lavoro di progettazione, implementazione e simulazione di un algoritmo di path planning \textbf{locale} basato su \textbf{potenziali artificiali discretizzati e alternati}. 
+Come da titolo, questa tesi ha come obiettivo specifico quello di esporre un lavoro di progettazione, implementazione e simulazione di un algoritmo di path planning \textbf{locale} basato su \textbf{potenziali artificiali alternati}. 
+
+\subsection{Formalizzazione del problema}
+
+Chiamerò \( r(t) = [x_r(t),y_r(t),\theta_r(t)]^T\) la posizione del robot nell'istante attuale t e \( O_i(t) = [x_{O,i}(t),y_{O,i}(t)]^T, i = 1...N\) la posizione degli N ostacoli che, per scopi esemplificativi, saranno di forma circolare e con raggio \(R_i\). Esisterà inoltre un punto \(G = [G_x, G_y]\). Il problema consiste nel voler raggiungere il punto \(G\) dalla posizione iniziale \(r(0)\), tenendo conto degli \(N\) ostacoli in movimento. Il robot é dotato di un raggio di visione di \(R_v\) unità di lunghezza, entro il quale é capace di rilevare un ostacolo. Inoltre, si presuppone che valga la seguente condizione
+\[\begin{Vmatrix}\begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix} - O_j(t)\end{Vmatrix} \leq R_v \], ovvero \( R_i \leq R_v, \forall i\). Ciò vuol dire che nel momento in cui il robot incontra un ostacolo, il centro di quest'ultimo é incluso in \(R_v\).
 
 \section{Potenziali artificiali}
-Illustrazione metodo classico\\
-Illustrazione problema minimi locali\\
-Accenno al metodo dei potenziali artificiali evolutivi\\
-Accenno al metodo limit cycle\\
-Illustrazione potenziale vorticoso (potenziale e antigradiente)
+\subsection{Metodo classico}
+Tradizionalmente, nel path planning basato su potenziali artificiali il robot viene fatto muovere mediante una funzione continua in due variabili, ovvero un potenziale scalare, che nasce dalla somma di due potenziali: attrattivo e repulsivo. Questi due potenziali sono chiamati artificiali perché generano (per l'appunto artificialmente) una forza che guida il robot in ogni sua configurazione \( r(t)\). Nello specifico, la forza generata dal potenziale é il suo antigradiente, ovvero il gradiente cambiato di segno, che indica al robot la direzione di moto localmente più promettente\cite{oriolo}, cioè verso il punto di minimo dello stesso. Di conseguenza il potenziale attrattivo assume una forma tale da avere un unico punto di minimo posizionato proprio nel punto di arrivo, mentre il repulsivo ha un unico punto di massimo corrispondente alla posizione dell'ostacolo. 
+\begin{description}
+\item[Il potenziale attrattivo] ha di solito la forma in figura \ref{potA}
+\begin{figure}[H]
+\caption{Potenziale attrattivo}
+\includegraphics[width=\textwidth]{potA.png}
+\end{figure} 
+a cui corrisponde la funzione \[U_a(r(t),G) = \begin{Vmatrix}G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}\]
+Il suo antigradiente di conseguenza é formato da tanti vettori che, con un'intensità proporzionale alla distanza dal goal, puntano verso quest'ultimo, in figura \ref{antigradA} con coordinate \([1,1.5]\)
+\begin{figure}[H]
+\caption{Antigradiente del potenziale attrattivo}
+\label{antigradA}
+\includegraphics[width=\textwidth]{antigradA.png}
+\end{figure}
+\item[Il potenziale repulsivo] invece 
+\end{description}
 
-\section{Formalizzazione del problema\cite{dalfonso}}
-Chiamerò \( r(t) = [x_r(t),y_r(t),\theta_r(t)]^T\) la posizione del robot nell'istante attuale t e \( O_i(t) = [x_(O,i)(t),y_(O,i)(t)]^T, i = 1...N\) la posizione degli N ostacoli che, per scopi esemplificativi, saranno di forma circolare e con raggio \(R_i\). Esisterà inoltre un punto \(G = [G_x, G_y]\). Il problema consiste nel voler raggiungere il punto \(G\) dalla posizione iniziale \(r(0)\), tenendo conto degli \(N\) ostacoli in movimento. Il robot é dotato di un raggio di visione di \(R_v\) unità di lunghezza, entro il quale é capace di rilevare un ostacolo. Inoltre, si presuppone che valga la seguente condizione
-\[\begin{Vmatrix}\begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix} - O_j(t)\end{Vmatrix} \leq R_v \], ovvero \( R_i \leq R_v, \forall i\). Ciò vuol dire che nel momento in cui il robot incontra un ostacolo, il centro di quest'ultimo é incluso in \(R_v\).
+Illustrazione problema minimi locali\\
+Accenno al metodo dei potenziali artificiali evolutivi?\\
+Accenno al metodo limit cycle?\\
+Illustrazione potenziale bypassante (potenziale e antigradiente)
 
 \section{Algoritmo di navigazione\cite{dalfonso}} 
 La strategia é semplice: nella posizione iniziale, il robot sonda l'ambiente attorno a sé. Se non vi sono presenti ostacoli a impedirne l'avanzamento verso il goal, la traiettoria da seguire é quella imposta dal potenziale attrattivo; altrimenti, é necessario "switchare" dal potenziale attrattivo a quello vorticoso, al fine di aggirare l'ostacolo, per poi tornare a seguire la traiettoria. Perciò, la peculiarità di questo algoritmo é che in ogni istante il robot seguirà un solo potenziale alla volta, evitando così il problema dei minimi locali. Inoltre, le informazioni necessarie a pianificare lo switch non richiedono informazioni globali, ma solo quelle riguardanti l'ostacolo da aggirare.
@@ -95,13 +116,13 @@ Note	: caso 1 sto seguendo il potenziale attrattivo e passo al vorticoso (calcol
 \includegraphics[width=0.8\textwidth]{flowchartDiagram.png}
 \end{figure}
 
+\section{Simulazione sul Turtlebot}
+
 \section{Testing e risultati}
 Parametri utilizzati\\
 Un ostacolo fermo e in movimento\\
 Minimi locali e confronto con potenziali artificiali classici\\
 Tre in movimento\\
-
-\section{Simulazione con Gazebo (o Turtlesim)}
 
 \section{Applicazioni e sviluppi futuri}
 
