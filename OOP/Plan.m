@@ -22,6 +22,7 @@ classdef Plan
             obj.gradX = obj.agradX; obj.gradY = obj.agradY;
             [obj.solxp2 , obj.solyp2] = calcoloP2();
         end
+        
         %% Per ora solo uno alla volta
         function obj = decide(obj,dObstacle)
             rx = obj.robot.xc; ry = obj.robot.yc;

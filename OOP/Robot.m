@@ -12,8 +12,6 @@ classdef Robot < handle
         plotobj; %graphic handle
         shape; %circular or triangular
     end
-   
-    
     
     methods
         %% Constructor

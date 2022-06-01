@@ -48,6 +48,7 @@ classdef Obstacle < handle
             obj.xc = obj.xc + obj.v(1)*tspan;
             obj.yc = obj.yc + obj.v(2)*tspan;
             obj.draw();
+            
         end 
         
     end
