@@ -27,7 +27,6 @@ classdef Obstacle < handle
             r = obj.raggio; x = obj.xc; y = obj.yc; t = 0:0.01:2*pi;
             delete(obj.plotobj);
             plotobj = plot(cos(t)*r+x,sin(t)*r+y,"r","linewidth",2);
-%         plot(obj.xc,obj.yc,"or");
             obj.plotobj = plotobj;
         end
         

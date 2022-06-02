@@ -1,0 +1,17 @@
+classdef ClassicalRobot < Robot
+    
+    methods
+        function obj = ClassicalRobot(xc,yc,grid)
+            obj@Robot(xc,yc,grid);
+            obj.plan = ClassicalPlan(grid);
+            obj.act = Act(grid);
+        end
+        
+        function [gradX,gradY] = totalPotential(obj)
+            
+            %Attractive potential
+            fatt = 1/2*( (obj.grid.X - obj.grid.goal(1)).^2 + (obj.grid.Y - obj.grid.goal(2)).^2 );
+            agradX = obj.grid.goal(1)-obj.grid.X; agradY = grid.goal(2)-grid.Y;
+        end
+    end
+end

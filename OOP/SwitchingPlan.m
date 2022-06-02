@@ -10,6 +10,8 @@ classdef SwitchingPlan < handle
         grid;
         state;
         obstacle;
+        
+        paraboloidal;
     end
     
     methods
@@ -21,11 +23,18 @@ classdef SwitchingPlan < handle
             obj.agradX = (grid.goal(1)-grid.X)./di; obj.agradY = (grid.goal(2)-grid.Y)./di;
             obj.gradX = obj.agradX; obj.gradY = obj.agradY;
             [obj.solxp2 , obj.solyp2] = calcoloP2();
+            obj.paraboloidal = false;
         end
         
         %% Per ora solo uno alla volta
         function obj = decide(obj,dObstacle,pose)
             rx = pose(1); ry = pose(2);
+            %Cambio al potenziale paraboloide
+            if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
+                obj.agradX = obj.grid.goal(1)-obj.grid.X;
+                obj.agradY = obj.grid.goal(2)-obj.grid.Y;
+                obj.setGrad(obj.agradX,obj.agradY);
+            end
             %Ostacolo rilevato in modalitá attrattiva
             if obj.state == State.attractive && ~isempty(dObstacle)
                 obj = obj.bypass(dObstacle,pose);
