@@ -1,5 +1,9 @@
 classdef ClassicalRobot < Robot
     
+    properties
+        path;
+    end
+    
     methods
         function obj = ClassicalRobot(xc,yc,grid)
             obj@Robot(xc,yc,grid);
@@ -7,32 +11,29 @@ classdef ClassicalRobot < Robot
             obj.act = Act(grid);
         end
         
-        function [gradX,gradY] = totalPotential(obj)
-            grid = obj.grid;
-            %Attractive potential
-            fatt = 1/2*( (grid.X - grid.goal(1)).^2 + (grid.Y - grid.goal(2)).^2 );
-            agradX = grid.goal(1)-grid.X; agradY = grid.goal(2)-grid.Y;
-            %Repulsive potential
-            rgradX = zeros(grid.nc); rgradY = zeros(grid.nc); frep = zeros(grid.nc);
-            for i = 1 : n
-                %Distanza rispetto agli ostacoli
-                dx = abs(grid.X - grid.obstacles(i).xc);
-                dy = abs(grid.Y - grid.obstacles(i).yc);
-                d = sqrt(dx.^2 + dy.^2);
-                %Potenziale
-                freptemp = 1/2*((1./d - 1/2).^2);
-                freptemp(d > 2) = 0;
-                freptemp(isinf(freptemp)) = 10;
-                frep = frep + freptemp;
-                %Antigradiente
-                [rgradXtemp, rgradYtemp] = gradient(-frep,1/1000);
-                %Lo sommo ai precedenti
-                rgradX = rgradX + rgradXtemp;
-                rgradY = rgradY + rgradYtemp;
+        function obj = start(obj)
+            %Plotting data
+            %quiver(obj.grid.X,obj.grid.Y,obj.plan.gradX,obj.plan.gradY);
+            mesh(obj.plan.potential); view([-122.4 43.8]); hold on;
+            %samples = 0;
+            %Simulation data
+            e = norm([obj.xc,obj.yc]-obj.grid.goal); tspan = 0.05; tsim = 0;
+            %Starting simulation
+            while(e > 0.1 && tsim < 15)
+                pose = obj.getPose();
+                rx = pose(1); ry = pose(2);
+                rp = obj.grid.coord2index([rx,ry]);
+                z = obj.plan.potential(rp(1),rp(2));
+                scatter3(rp(1),rp(2),z,"filled","linewidth",3);
+                obj.path = [obj.path ; [rp(2) rp(1) z]];
+                newPose = obj.act.move(pose,obj.plan.gradX,obj.plan.gradY,tspan);
+                obj.xc = newPose(1); obj.yc = newPose(2); obj.theta = newPose(3);
+                e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + tspan; pause(0);
+                %Creazione sequenza png della figura
+                %samples = samples + 1;
+                %filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/simulazione1/pic%d.png', samples);
+                %saveas(gcf, filename);
             end
-            gradX = rgradX + agradX;
-            gradY = rgradY + agradY;
-            potential = frep + fatt;
         end
     end
 end
