@@ -30,7 +30,7 @@ classdef Act
             obj.robot.theta = rtheta + tspan*Xdot(3);
         end
         
-        %%
+        %% Metodo che genera velocitá lineare e angolare per il robot
         function [vr,wr] = commands(obj,rx,ry,rtheta,tspan,gradX,gradY)
             i = obj.grid.coord2index([rx,ry]);
             thetaN = atan2(gradY(i(1),i(2)),gradX(i(1),i(2)));

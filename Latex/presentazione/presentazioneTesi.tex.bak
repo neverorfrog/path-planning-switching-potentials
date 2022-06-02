@@ -11,7 +11,7 @@
 
 \begin{frame}{Simulazione in MATLAB}
 \graphicspath{ {./figure/simulazione1} }
-\animategraphics[loop,width=8cm]{20}{pic}{1}{292}
+\animategraphics[loop,width=8cm]{20}{pic}{1}{256}
 \end{frame}
 
 
