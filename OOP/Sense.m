@@ -1,24 +1,23 @@
 classdef Sense
     properties
-        robot;
         grid;
     end
     
     methods
-        function obj = Sense(robot,grid)
-            obj.robot = robot;
+        function obj = Sense(grid)
             obj.grid = grid;
         end
         
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
-        function [dObstacle] = scan(obj)
+        function [dObstacle] = scan(obj,pose,rv)
+            rx = pose(1); ry = pose(2);
             n = length(obj.grid.obstacles);
             distances = zeros(1,n) + inf;
             dObstacles = cell(1,n);
             for j = 1 : n
                 o = obj.grid.obstacles(j);
-                distance = norm([obj.robot.xc obj.robot.yc] - [o.xc o.yc]);
-                if distance <= obj.robot.rv && obj.tube(o)
+                distance = norm([rx ry] - [o.xc o.yc]);
+                if distance <= rv && obj.tube(pose,o)
                     dObstacles{j} = o;
                     distances(j) = distance;
                 end
@@ -29,14 +28,15 @@ classdef Sense
         end
         
         %% Method that builds the tube T(t)
-        function result = tube(obj,obstacle)
-            G = obj.grid.goal; r = obj.robot;
+        function result = tube(obj,pose,obstacle)
+            rx = pose(1); ry = pose(2);
+            G = obj.grid.goal;
             
             rm = 3.5;
-            angle = atan2(G(2)-r.yc,G(1)-r.xc);
+            angle = atan2(G(2)-ry,G(1)-rx);
             deltaX = rm/2*sin(angle); deltaY = rm/2*cos(angle);
-            x1 = r.xc + deltaX; y1 = r.yc - deltaY;
-            x4 = r.xc - deltaX; y4 = r.yc + deltaY;
+            x1 = rx + deltaX; y1 = ry - deltaY;
+            x4 = rx - deltaX; y4 = ry + deltaY;
             x2 = G(1) + deltaX; y2 = G(2) - deltaY;
             x3 = G(1) - deltaX; y3 = G(2) + deltaY;
             

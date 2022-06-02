@@ -27,7 +27,7 @@ classdef SwitchingPlan < handle
         end
         
         %% Per ora solo uno alla volta
-        function obj = decide(obj,dObstacle,pose)
+        function obj = decide(obj,pose,dObstacle)
             rx = pose(1); ry = pose(2);
             %Cambio al potenziale paraboloide
             if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1

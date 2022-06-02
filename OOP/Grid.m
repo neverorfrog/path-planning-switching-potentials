@@ -37,6 +37,7 @@ classdef Grid < handle
             % x coordinate goes into the row index
             floory = floor(point(2));
             index(1) = (floory + obj.dx*floor((point(2) - floory)/obj.dx))*obj.fattore + 1;
+            index = floor(index);
         end
     end
 end

@@ -20,20 +20,14 @@ classdef SwitchingRobot < Robot
                 pose = [obj.xc obj.yc obj.theta];
                 %Control loop
                 dObstacle = obj.sense.scan(pose,obj.rv);
-                obj.plan.decide(dObstacle,pose);
-                newPose = obj.act.move(obj.plan.gradX,obj.plan.gradY,tspan,pose);
+                obj.plan.decide(pose,dObstacle);
+                newPose = obj.act.move(pose,obj.plan.gradX,obj.plan.gradY,tspan);
                 obj.xc = newPose(1); obj.yc = newPose(2); obj.theta = newPose(3);
                 obj.draw(true);
                 %Moving obstacles 
                 for k = 1 : length(obj.grid.obstacles)
                     obj.grid.obstacles(k).move(tspan);
                 end
-                %Paraboloidal potential
-%                 if e <= 1 && e >= 0.9
-%                     agradX = obj.grid.goal(1)-obj.grid.X; 
-%                     agradY = obj.grid.goal(2)-obj.grid.Y;
-%                     obj.plan.setGrad(agradX,agradY);
-%                 end
                 %Simulation data
                 e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + tspan; pause(0);
                 %Creazione sequenza png della figura

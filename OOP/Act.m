@@ -6,16 +6,15 @@ classdef Act
     
     methods
         %% Constructor
-        function obj = Act(robot,grid)
-            obj.robot = robot;
+        function obj = Act(grid)
             obj.grid = grid;
         end
         
         %% Method that moves the robot according to the desired velocity (Runge-Kutta 2 for integration)
-        function move(obj,gradX,gradY,tspan)
-            rx = obj.robot.xc;
-            ry = obj.robot.yc;
-            rtheta = obj.robot.theta;
+        function newPose = move(obj,pose,gradX,gradY,tspan)
+            rx = pose(1);
+            ry = pose(2);
+            rtheta = pose(3);
             [vr,wr] = obj.commands(rx,ry,rtheta,tspan,gradX,gradY);
             Xdot = obj.odeDD(vr,wr,rtheta);
             
@@ -25,9 +24,9 @@ classdef Act
             [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
             Xdot = obj.odeDD(vr,wr,rtheta2);
             
-            obj.robot.xc = rx + tspan*Xdot(1);
-            obj.robot.yc = ry + tspan*Xdot(2);
-            obj.robot.theta = rtheta + tspan*Xdot(3);
+            newPose(1) = rx + tspan*Xdot(1);
+            newPose(2) = ry + tspan*Xdot(2);
+            newPose(3) = rtheta + tspan*Xdot(3);
         end
         
         %% Metodo che genera velocitá lineare e angolare per il robot

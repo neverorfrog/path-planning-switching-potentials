@@ -6,6 +6,7 @@ classdef Robot < handle
     properties %position
         xc; yc; theta; %position and orientation
         rv; %vision radius
+        grid; %grid representation of the world
     end
     
     properties %plotting
@@ -13,14 +14,24 @@ classdef Robot < handle
         shape; %circular or triangular
     end
     
+    properties
+        sense;
+        plan;
+        act;
+    end
+  
+    methods(Abstract)
+        obj = start(obj)
+    end
+    
     methods
         %% Constructor
-        function obj = Robot(xc,yc)
+        function obj = Robot(xc,yc,grid)
             obj.xc = xc; obj.yc = yc; obj.theta = pi/2;
             obj.shape = "triangular";
             obj.rv = 1.5;
+            obj.grid = grid;
         end
-        
         
         %% Graphic representation of the robot
         function plotobj = draw(obj,traj)
