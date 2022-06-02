@@ -2,5 +2,9 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Classificazione algoritmi di path planning\blx@tocontentsinit {0}\cite {mac2016}}}{5}{}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Potenziale attrattivo}}{7}{}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Antigradiente del potenziale attrattivo}}{8}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Statechart Diagram}}{9}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Flowchart Diagram}}{10}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Potenziale repulsivo}}{9}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Antigradiente del potenziale repulsivo}}{10}{}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Potenziale totale}}{11}{}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Antigradiente del potenziale totale}}{12}{}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Statechart Diagram}}{13}{}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Flowchart Diagram}}{14}{}%

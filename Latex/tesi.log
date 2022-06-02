@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  1 JUN 2022 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  2 JUN 2022 17:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -534,16 +534,10 @@ File: figure//algoritmiPP.png Graphic file (type png)
 Package pdftex.def Info: figure//algoritmiPP.png  used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 119.49852pt.
  [5 <./figure//algoritmiPP.png>]
-
-LaTeX Warning: Citation 'oriolo' on page 6 undefined on input line 68.
-
-
-LaTeX Warning: Reference `potA' on page 6 undefined on input line 70.
-
 <figure//potA.png, id=26, 363.2772pt x 276.0714pt>
 File: figure//potA.png Graphic file (type png)
 <use figure//potA.png>
-Package pdftex.def Info: figure//potA.png  used on input line 73.
+Package pdftex.def Info: figure//potA.png  used on input line 74.
 (pdftex.def)             Requested size: 455.24411pt x 345.98564pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -552,59 +546,92 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <figure//antigradA.png, id=32, 348.8232pt x 277.9986pt>
 File: figure//antigradA.png Graphic file (type png)
 <use figure//antigradA.png>
-Package pdftex.def Info: figure//antigradA.png  used on input line 80.
+Package pdftex.def Info: figure//antigradA.png  used on input line 87.
 (pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./figure//potA.png (PNG copy)>] [8 <./figure//antigradA.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+ [7 <./figure//potA.png (PNG copy)>]
+<figure//potR.png, id=38, 370.0224pt x 274.1442pt>
+File: figure//potR.png Graphic file (type png)
+<use figure//potR.png>
+Package pdftex.def Info: figure//potR.png  used on input line 100.
+(pdftex.def)             Requested size: 455.24411pt x 337.29991pt.
+
+Underfull \vbox (badness 5771) has occurred while \output is active []
+
+ [8 <./figure//antigradA.png (PNG copy)>]
+<figure//antigradR.png, id=42, 348.8232pt x 277.9986pt>
+File: figure//antigradR.png Graphic file (type png)
+<use figure//antigradR.png>
+Package pdftex.def Info: figure//antigradR.png  used on input line 120.
+(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
+
+Underfull \vbox (badness 1596) has occurred while \output is active []
+
+ [9 <./figure//potR.png (PNG copy)>]
+<figure//pot.png, id=47, 367.1316pt x 277.5168pt>
+File: figure//pot.png Graphic file (type png)
+<use figure//pot.png>
+Package pdftex.def Info: figure//pot.png  used on input line 135.
+(pdftex.def)             Requested size: 455.24411pt x 344.12573pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./figure//antigradR.png (PNG copy)>]
+<figure//antigrad.png, id=51, 348.8232pt x 277.9986pt>
+File: figure//antigrad.png Graphic file (type png)
+<use figure//antigrad.png>
+Package pdftex.def Info: figure//antigrad.png  used on input line 141.
+(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./figure//pot.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \vbox (badness 4084) has occurred while \output is active []
+
+ [12 <./figure//antigrad.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
 
  []
 
-<figure//stateDiagram.png, id=40, 978.65625pt x 390.45876pt>
+<figure//stateDiagram.png, id=60, 978.65625pt x 390.45876pt>
 File: figure//stateDiagram.png Graphic file (type png)
 <use figure//stateDiagram.png>
-Package pdftex.def Info: figure//stateDiagram.png  used on input line 108.
+Package pdftex.def Info: figure//stateDiagram.png  used on input line 164.
 (pdftex.def)             Requested size: 455.24411pt x 181.63293pt.
-[9 <./figure//stateDiagram.png>]
-<figure//flowchartDiagram.png, id=46, 506.89375pt x 475.7775pt>
+<figure//flowchartDiagram.png, id=61, 506.89375pt x 475.7775pt>
 File: figure//flowchartDiagram.png Graphic file (type png)
 <use figure//flowchartDiagram.png>
-Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 116.
+Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 172.
 (pdftex.def)             Requested size: 364.19667pt x 341.84807pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--126
+[13 <./figure//stateDiagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 178--182
 
  []
 
-[10 <./figure//flowchartDiagram.png>] (./tesi.lof)
+[14 <./figure//flowchartDiagram.png>] (./tesi.lof)
 \tf@lof=\write5
 \openout5 = `tesi.lof'.
 
- [11] (./tesi.aux)
+ [15] (./tesi.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                tesi
-(biblatex)                and rerun LaTeX afterwards.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package logreq Info: Writing requests to 'tesi.run.xml'.
 \openout1 = `tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10731 strings out of 478305
- 202631 string characters out of 5849247
- 912331 words of memory out of 5000000
- 28811 multiletter control sequences out of 15000+600000
+ 10771 strings out of 478305
+ 203479 string characters out of 5849247
+ 912403 words of memory out of 5000000
+ 28847 multiletter control sequences out of 15000+600000
  475105 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,13n,68p,1777b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -613,14 +640,16 @@ live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c
-:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on tesi.pdf (11 pages, 450441 bytes).
+lic/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2
+022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf
+-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
+Output written on tesi.pdf (15 pages, 685249 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

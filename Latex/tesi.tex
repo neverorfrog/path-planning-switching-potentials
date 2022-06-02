@@ -30,11 +30,11 @@ L'architettura utilizzata in questa tesi é la cosiddetta gerarchica: le quattro
 \includegraphics[scale=0.6]{architetturaNavigazione.png}
 \end{figure}
 
-In questa tesi viene affrontato un problema che rientra nel terzo modulo: il path planning, un problema di grande importanza e argomento di molta ricerca. Una sua rapida formulazione potrebbe essere la seguente: data la posizione iniziale (del robot) A e una posizione finale B, imposta da chi fa uso del robot, il path planning consiste nel calcolare un percorso fisicamente realizzabile e ottimale per arrivare da A a B.  
+In questa tesi viene affrontato un problema che rientra nel terzo modulo: il path planning, un problema di grande importanza e argomento di molta ricerca.
 
+\subsection{Path planning}
 
-\section{Path planning}
-
+Una sua rapida formulazione potrebbe essere la seguente: data la posizione iniziale (del robot) A e una posizione finale B, imposta da chi fa uso del robot, il path planning consiste nel calcolare un percorso fisicamente realizzabile e ottimale per arrivare da A a B.
 All'interno dei metodi esistenti (e non), ci sono due importanti distinzioni da fare: sulla formulazione del problema e sulla soluzione al problema.
 \begin{description}
 \item[La prima] é tra online e offline path planning, o anche locale e globale. Il path planning globale riguarda quelle situazioni in cui l'ambiente considerato é interamente noto a priori, per cui é possibile calcolare il percorso da seguire ancor prima che il robot inizi a muoversi; quello locale é inerente ai casi in cui il robot debba fare i conti lungo il suo percorso con eventi inaspettati, quali ostacoli dinamici,per cui é necessario reagire localmente, aggiornando ripetutamente le informazioni derivanti dai sensori e aggiustando la traiettoria al fine di evitare l'ostacolo e poter raggiungere in tempi ottimali l'obiettivo. Chiaramente, la maggior parte dei problemi di robotica autonome deve fare i conti con una situazione del secondo tipo. 
@@ -47,9 +47,9 @@ All'interno dei metodi esistenti (e non), ci sono due importanti distinzioni da 
 \end{itemize}
 \end{description}
 
-Nota : Ancora da fare breve descrizione dei metodi
+Nota : ancora da fare breve descrizione dei metodi
 
-La totalità dei metodi appena descritti risolvono adeguatamente il problema del path planning globale\cite{dalfonso}, ma risultano inefficienti nel caso del path planning locale. Il metodo più versatile e anche più longevo nell'utilizzo é sicuramente quello dei potenziali artificiali.
+La totalità dei metodi appena descritti risolvono adeguatamente il problema del path planning globale\cite{dalfonso}, ma risultano inefficienti nel caso del path planning locale. Il metodo più versatile e anche più longevo nell'utilizzo é sicuramente quello dei potenziali artificiali. 
 
 \begin{figure}[H]
 \caption{Classificazione algoritmi di path planning\cite{mac2016}}
@@ -60,31 +60,99 @@ Come da titolo, questa tesi ha come obiettivo specifico quello di esporre un lav
 
 \subsection{Formalizzazione del problema}
 
-Chiamerò \( r(t) = [x_r(t),y_r(t),\theta_r(t)]^T\) la posizione del robot nell'istante attuale t e \( O_i(t) = [x_{O,i}(t),y_{O,i}(t)]^T, i = 1...N\) la posizione degli N ostacoli che, per scopi esemplificativi, saranno di forma circolare e con raggio \(R_i\). Esisterà inoltre un punto \(G = [G_x, G_y]\). Il problema consiste nel voler raggiungere il punto \(G\) dalla posizione iniziale \(r(0)\), tenendo conto degli \(N\) ostacoli in movimento. Il robot é dotato di un raggio di visione di \(R_v\) unità di lunghezza, entro il quale é capace di rilevare un ostacolo. Inoltre, si presuppone che valga la seguente condizione
+Chiamerò \( r(t) = [x_r(t),y_r(t),\theta_r(t)]^T\) la posizione del robot nell'istante t e \( O_i(t) = [x_{O,i}(t),y_{O,i}(t)]^T, i = 1...N\) la posizione degli N ostacoli che, per scopi esemplificativi in fase di prototipazione dell'algoritmo, saranno di forma circolare e con raggio \(R_i\). Quest'ultima ipotesi non provoca una perdita di generalità, visto che per un ostacolo di forma generica si può considerare la sua circonferenza circoscritta. Esisterà inoltre un punto \(G = [G_x, G_y]\) che indica l'obiettivo del robot. Il problema consiste nel voler raggiungere il punto \(G\) dalla posizione iniziale \(r(0)\), tenendo conto degli \(N\) ostacoli in movimento. Il robot é dotato di un raggio di visione di \(R_v\) metri, entro il quale é capace di rilevare un ostacolo. Inoltre, si presuppone che valga la seguente condizione
 \[\begin{Vmatrix}\begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix} - O_j(t)\end{Vmatrix} \leq R_v \], ovvero \( R_i \leq R_v, \forall i\). Ciò vuol dire che nel momento in cui il robot incontra un ostacolo, il centro di quest'ultimo é incluso in \(R_v\).
 
 \section{Potenziali artificiali}
+
 \subsection{Metodo classico}
-Tradizionalmente, nel path planning basato su potenziali artificiali il robot viene fatto muovere mediante una funzione continua in due variabili, ovvero un potenziale scalare, che nasce dalla somma di due potenziali: attrattivo e repulsivo. Questi due potenziali sono chiamati artificiali perché generano (per l'appunto artificialmente) una forza che guida il robot in ogni sua configurazione \( r(t)\). Nello specifico, la forza generata dal potenziale é il suo antigradiente, ovvero il gradiente cambiato di segno, che indica al robot la direzione di moto localmente più promettente\cite{oriolo}, cioè verso il punto di minimo dello stesso. Di conseguenza il potenziale attrattivo assume una forma tale da avere un unico punto di minimo posizionato proprio nel punto di arrivo, mentre il repulsivo ha un unico punto di massimo corrispondente alla posizione dell'ostacolo. 
+Tradizionalmente, nel path planning basato su potenziali artificiali il robot viene fatto muovere mediante una funzione continua in due variabili, ovvero un potenziale scalare, che nasce dalla somma di due potenziali: attrattivo e repulsivo. Questi due potenziali sono chiamati artificiali perché generano (per l'appunto artificialmente) una forza che guida il robot in ogni sua configurazione \( r(t)\). Nello specifico, la forza generata dal potenziale é il suo antigradiente, ovvero il gradiente cambiato di segno, che indica al robot la direzione di moto localmente più promettente\cite{oriolo}, cioè verso il punto di minimo della funzione. Di conseguenza il potenziale attrattivo assume una forma tale da avere un unico punto di minimo posizionato proprio nel punto di arrivo, mentre il repulsivo ha un unico punto di massimo corrispondente alla posizione dell'ostacolo. 
 \begin{description}
 \item[Il potenziale attrattivo] ha di solito la forma in figura \ref{potA}
 \begin{figure}[H]
 \caption{Potenziale attrattivo}
 \includegraphics[width=\textwidth]{potA.png}
-\end{figure} 
-a cui corrisponde la funzione \[U_a(r(t),G) = \begin{Vmatrix}G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}\]
+\label{potA}
+\end{figure}
+a cui corrisponde la funzione 
+
+\begin{equation}
+U_a(r(t),G) = \frac{1}{2} \begin{Vmatrix}G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}^2
+\end{equation}
+
 Il suo antigradiente di conseguenza é formato da tanti vettori che, con un'intensità proporzionale alla distanza dal goal, puntano verso quest'ultimo, in figura \ref{antigradA} con coordinate \([1,1.5]\)
 \begin{figure}[H]
 \caption{Antigradiente del potenziale attrattivo}
 \label{antigradA}
 \includegraphics[width=\textwidth]{antigradA.png}
+\end{figure} e matematicamente si esprime come il vettore delle derivate parziali (del potenziale) cambiato di segno, ovvero 
+
+\begin{equation}
+-\nabla U_a(r(t),G) = \begin{Vmatrix}G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}
+\end{equation}
+
+Perciò, la forza esercitata dal potenziale sul robot punta verso il goal e converge a zero quando la configurazione \(r(t)\) tende alla destinazione \(G\), esprimendo difatti un errore lineare tra goal e posizione del robot. 
+
+\item[Il potenziale repulsivo] ha una forma duale a quello attrattivo, come in figura \ref{potR}
+
+\begin{figure}[H]
+\caption{Potenziale repulsivo}
+\includegraphics[width=\textwidth]{potR.png}
+\label{potR}
 \end{figure}
-\item[Il potenziale repulsivo] invece 
+
+a cui corrisponde la seguente funzione a tratti 
+
+\begin{equation}
+U_r(r(t),O_j(t)) = 
+\begin{cases}
+\frac{1}{2} \left( \frac{1}{d(r(t),O_j(t)} - \frac{1}{\eta} \right) \quad &d(r(t),O_j(t)) \leq \eta \\
+0 \quad &altrimenti
+\end{cases}
+\end{equation}
+dove \[ d(r(t),O_j(t) = \begin{Vmatrix}O_j(t) - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}\]
+
+Il compito della forza generata dal potenziale repulsivo é quello di spingere via il robot dalla posizione dell'ostacolo. In figura \ref{antigradR} si vedono le linee di campo dell'antigradiente che puntono verso fuori rispetto alla posizione dell'ostacolo, qui con coordinate \([1.5, 1]\).
+
+\begin{figure}[H]
+\caption{Antigradiente del potenziale repulsivo}
+\label{antigradR}
+\includegraphics[width=\textwidth]{antigradR.png}
+\end{figure}
 \end{description}
 
-Illustrazione problema minimi locali\\
-Accenno al metodo dei potenziali artificiali evolutivi?\\
-Accenno al metodo limit cycle?\\
+Una volta calcolato il potenziale repulsivo per ogni singolo ostacolo (in questo caso uno solo), si ottiene il potenziale totale:
+
+\begin{equation}
+U(t) = U_a(r(t),G) + \sum_{j=1}^{n} U_r(r(t),O_j(t))
+\end{equation}
+
+Il robot in ogni sua configurazione \(r(t)\), seguendo l'antigradiente di questo potenziale, viene guidato verso il goal e \textbf{contemporaneamente} allontanato dagli ostacoli. Chiaramente, il metodo é idoneo sia al path planning globale che a quello locale (basta ricalcolare il potenziale totale in presenza di ostacoli).
+
+\begin{figure}[H]
+\caption{Potenziale totale}
+\label{pot}
+\includegraphics[width=\textwidth]{pot.png}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Antigradiente del potenziale totale}
+\label{antigrad}
+\includegraphics[width=\textwidth]{antigrad.png}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Potenziale con minimo locale}
+\label{minloc}
+\includegraphics[width=\textwidth]{minimoLocale.png}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Antigradiente del potenziale con minimo locale}
+\label{antiminloc}
+\includegraphics[width=\textwidth]{antigradMinimoLocale.png}
+\end{figure}
+
 Illustrazione potenziale bypassante (potenziale e antigradiente)
 
 \section{Algoritmo di navigazione\cite{dalfonso}} 

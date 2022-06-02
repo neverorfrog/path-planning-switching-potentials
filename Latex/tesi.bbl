@@ -91,6 +91,33 @@
       \field{journaltitle}{Robotics and Autonomous Systems}
       \field{title}{Heuristic approaches in robot path planning: A survey}
     \endentry
+    \entry{oriolo}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=f23c6b75fe58059d36857d506e9b5c9e}{%
+           family={Medio},
+           familyi={M\bibinitperiod},
+           given={Claudio},
+           giveni={C\bibinitperiod}}}%
+        {{hash=dcc89269b2eb1155024b2da9fd7c68eb}{%
+           family={Oriolo},
+           familyi={O\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{2670817af3452c495308aae17b067838}
+      \strng{fullhash}{2670817af3452c495308aae17b067838}
+      \strng{bibnamehash}{2670817af3452c495308aae17b067838}
+      \strng{authorbibnamehash}{2670817af3452c495308aae17b067838}
+      \strng{authornamehash}{2670817af3452c495308aae17b067838}
+      \strng{authorfullhash}{2670817af3452c495308aae17b067838}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Robot Kinematics}
+      \field{title}{Robot Obstacle Avoidance Using Vortex Fields}
+      \field{year}{1991}
+    \endentry
     \entry{murphy}{book}{}
       \name{author}{1}{}{%
         {{hash=3b87439030346f637577ecebaa55f1c3}{%

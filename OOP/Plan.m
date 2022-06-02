@@ -6,9 +6,9 @@ classdef Plan
         gradXO; gradYO; %the bypassing potential of the detected obstacle at time tau
         P1;
         P2; solxp2; solyp2;
+        state;
         
         robot; grid;
-        state;
     end
     
     methods
