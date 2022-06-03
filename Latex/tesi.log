@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  2 JUN 2022 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  3 JUN 2022 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -579,7 +579,7 @@ Package pdftex.def Info: figure//pot.png  used on input line 135.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./figure//antigradR.png (PNG copy)>]
-<figure//antigrad.png, id=51, 348.8232pt x 277.9986pt>
+<figure//antigrad.png, id=52, 348.8232pt x 277.9986pt>
 File: figure//antigrad.png Graphic file (type png)
 <use figure//antigrad.png>
 Package pdftex.def Info: figure//antigrad.png  used on input line 141.
@@ -587,39 +587,58 @@ Package pdftex.def Info: figure//antigrad.png  used on input line 141.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11 <./figure//pot.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
+ [11 <./figure//pot.png>]
+<figure//minimoLocale.png, id=57, 367.1316pt x 277.5168pt>
+File: figure//minimoLocale.png Graphic file (type png)
+<use figure//minimoLocale.png>
+Package pdftex.def Info: figure//minimoLocale.png  used on input line 147.
+(pdftex.def)             Requested size: 455.24411pt x 344.12573pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./figure//antigrad.png (PNG copy)>]
+<figure//antigradMinimoLocale.png, id=61, 348.8232pt x 277.9986pt>
+File: figure//antigradMinimoLocale.png Graphic file (type png)
+<use figure//antigradMinimoLocale.png>
+Package pdftex.def Info: figure//antigradMinimoLocale.png  used on input line 1
+53.
+(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13 <./figure//minimoLocale.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
 
 Underfull \vbox (badness 4084) has occurred while \output is active []
 
- [12 <./figure//antigrad.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 152--154
+ [14 <./figure//antigradMinimoLocale.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
 
  []
 
-<figure//stateDiagram.png, id=60, 978.65625pt x 390.45876pt>
+<figure//stateDiagram.png, id=70, 978.65625pt x 390.45876pt>
 File: figure//stateDiagram.png Graphic file (type png)
 <use figure//stateDiagram.png>
-Package pdftex.def Info: figure//stateDiagram.png  used on input line 164.
+Package pdftex.def Info: figure//stateDiagram.png  used on input line 176.
 (pdftex.def)             Requested size: 455.24411pt x 181.63293pt.
-<figure//flowchartDiagram.png, id=61, 506.89375pt x 475.7775pt>
+<figure//flowchartDiagram.png, id=71, 506.89375pt x 475.7775pt>
 File: figure//flowchartDiagram.png Graphic file (type png)
 <use figure//flowchartDiagram.png>
-Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 172.
+Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 184.
 (pdftex.def)             Requested size: 364.19667pt x 341.84807pt.
-[13 <./figure//stateDiagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 178--182
+[15 <./figure//stateDiagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
 
  []
 
-[14 <./figure//flowchartDiagram.png>] (./tesi.lof)
+[16 <./figure//flowchartDiagram.png>] (./tesi.lof)
 \tf@lof=\write5
 \openout5 = `tesi.lof'.
 
- [15] (./tesi.aux)
+ [17] (./tesi.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -628,10 +647,10 @@ Package logreq Info: Writing requests to 'tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10771 strings out of 478305
- 203479 string characters out of 5849247
+ 10789 strings out of 478305
+ 204001 string characters out of 5849247
  912403 words of memory out of 5000000
- 28847 multiletter control sequences out of 15000+600000
+ 28863 multiletter control sequences out of 15000+600000
  475105 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,13n,68p,1777b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -646,10 +665,10 @@ ts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2
 022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf
 -dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on tesi.pdf (15 pages, 685249 bytes).
+Output written on tesi.pdf (17 pages, 800777 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
