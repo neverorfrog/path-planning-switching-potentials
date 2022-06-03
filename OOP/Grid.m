@@ -5,6 +5,7 @@ classdef Grid < handle
         dx;
         nr; nc;
         X; Y;
+        x; y;
     end
     
     properties 
@@ -19,6 +20,8 @@ classdef Grid < handle
             obj.nr = (xf - x0)*fattore + 1;
             obj.nc = obj.nr;
             [obj.X,obj.Y] = meshgrid(linspace(x0,xf,obj.nc),linspace(x0,xf,obj.nr));
+            obj.x = linspace(x0,xf,obj.nc);
+            obj.y = linspace(x0,xf,obj.nr)';
         end
         
         function obj = setGoal(obj,goal)

@@ -20,13 +20,13 @@ classdef ClassicalPlan < handle
             rgradX = zeros(obj.grid.nc); rgradY = zeros(obj.grid.nc); frep = zeros(obj.grid.nc);
             for i = 1 : length(obj.grid.obstacles)
                 %Distanza rispetto agli ostacoli
-                dx = abs(obj.grid.X - obj.grid.obstacles(i).xc);
-                dy = abs(obj.grid.Y - obj.grid.obstacles(i).yc);
-                d = sqrt(dx.^2 + dy.^2);
+                xo = obj.grid.obstacles(i).xc;
+                yo = obj.grid.obstacles(i).yc;
+                d = sqrt((obj.grid.x - xo).^2 + (obj.grid.y - yo).^2);
                 %Potenziale
                 freptemp = 1/2*((1./d - 1/2).^2);
                 freptemp(d > 2) = 0;
-                freptemp(isinf(freptemp)) = 10;
+                freptemp(freptemp > 30) = 5;
                 frep = frep + freptemp;
                 %Antigradiente
                 [rgradXtemp, rgradYtemp] = gradient(-frep,1/1000);
@@ -37,6 +37,8 @@ classdef ClassicalPlan < handle
             obj.gradX = rgradX + agradX;
             obj.gradY = rgradY + agradY;
             obj.potential = frep + fatt;
+            figure;
+            quiver(obj.grid.X,obj.grid.Y,obj.gradX,obj.gradY)
         end
     end
 end
