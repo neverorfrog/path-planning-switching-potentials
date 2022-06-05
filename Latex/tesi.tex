@@ -5,6 +5,7 @@
 \usepackage[backend=biber]{biblatex}
 \usepackage{subcaption} \usepackage{caption}
 \usepackage[export]{adjustbox}
+\usepackage{mathtools}
 \addbibresource{bibliografia.bib}
 
 \title{Path planning locale per robot mobili \\ basato su potenziali artificiali alternati}
@@ -159,17 +160,16 @@ U_r(r(t),O_j(t)) =
 dove \[ d(r(t),O_j(t) = \begin{Vmatrix}O_j(t) - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}\]
 
 Dunque, il compito della forza generata é quello di spingere via il robot dalla posizione dell'ostacolo tanto più che il robot si avvicina entro la soglia \(\eta\) a quest'ultimo. In figura \ref{antigradR} si vedono le linee di campo dell'antigradiente che puntano radialmente verso l'esterno rispetto alla posizione dell'ostacolo, qui con coordinate \([1.5, 1]\).
-
 \end{description}
 
-Una volta calcolato il potenziale repulsivo per ogni singolo ostacolo (in questo caso uno solo), si ottiene il potenziale totale:
+Una volta calcolato il potenziale repulsivo per ogni singolo ostacolo, si ottiene il potenziale totale:
 
 \begin{equation}
+\label{antigradeq}
 U(r(t)) = U_a(r(t),G) + \sum_{j=1}^{n} U_r(r(t),O_j(t))
 \end{equation}
 
-In figura \ref{pot} si vede un possibile percorso del robot per arrivare dal punto di partenza al goal. Il vettore velocità del robot \([v_x(t) , v_y(t)]\) ha come riferimento in ogni istante t il valore dell'antigradiente (che é un vettore) in \(r(t)\). Lontano dagli ostacoli, il vettore velocità ha una direzione che punta al goal e un'intensità che diminuisce man mano che ci si avvicina al goal. Più il robot si avvicina ad un ostacolo, più la direzione del vettore velocità vira verso il verso opposto rispetto a \(\theta = \tan \left( \frac{y_{O,j}(t)-y_r(t)}{x_{O,j}(t)-x_r(t)} \right) \) (ovvero la direzione del vettore che collega il robot all'ostacolo), spostando così temporaneamente la traiettoria desiderata e aumentando "l'intensità della virata" lontano dall'ostacolo man mano che si avvicina ad esso.
-Il robot dunque, seguendo l'antigradiente, viene in ogni sua configurazione \(r(t)\) - usando l'analogia con il campo gravitazionale - attratto dal goal e \textbf{contemporaneamente} respinto dagli ostacoli. Chiaramente, il metodo é idoneo sia al path planning globale che a quello locale (basta ricalcolare il potenziale totale in presenza di ostacoli). Volendo, però, dare un'etichetta dal punto di vista dell'architettura di navigazione, i potenziali artificiali tradizionali obbediscono ad una di tipo reattivo: considerando la figura \ref{arch}, il modulo di mapping e path planning sono praticamente assenti. Gli attuatori del robot, che sono collegati ai sensori tramite una funzione di trasferimento \cite{kim}, ricevono direttamente il comando derivante dal calcolo del potenziale artificiale, quasi senza alcun tipo di pianificazione algoritmica. 
+In figura \ref{pot} si vede un possibile percorso del robot per arrivare dal punto di partenza al goal. Dalla \ref{antigradeq} si vede che l'antigradiente è una funzione di \(r(t)\): vuol dire che in ogni sua configurazione, siccome l'antigradiente si suppone già calcolato, il robot può ottenere informazioni su quest'ultimo riferendosi soltanto alla sua stessa posizione. Quindi, il vettore velocità del robot \([v_x(t) , v_y(t)]\) ha come riferimento in ogni istante t il valore dell'antigradiente (che é un vettore) in \([r_x(t),r_y(t)]\). Lontano dagli ostacoli, il vettore velocità ha una direzione che punta al goal e un'intensità che diminuisce man mano che ci si avvicina al goal. Più il robot si avvicina ad un ostacolo, più la direzione del vettore velocità vira verso il verso opposto rispetto a \(\theta = \tan \left( \frac{y_{O,j}(t)-y_r(t)}{x_{O,j}(t)-x_r(t)} \right) \) (ovvero la direzione del vettore che collega il robot all'ostacolo), spostando così temporaneamente la traiettoria desiderata e aumentando "l'intensità della virata" lontano dall'ostacolo man mano che si avvicina ad esso. Il robot dunque, seguendo l'antigradiente, viene in ogni sua configurazione \(r(t)\) - usando l'analogia con il campo gravitazionale - attratto dal goal e \textbf{contemporaneamente} respinto dagli ostacoli. Chiaramente, il metodo é idoneo sia al path planning globale che a quello locale (basta ricalcolare il potenziale totale in presenza di ostacoli). Volendo, d'altra parte, dare un'etichetta dal punto di vista dell'architettura di navigazione, i potenziali artificiali tradizionali obbediscono ad una di tipo reattivo: considerando la figura \ref{arch}, il modulo di mapping e path planning sono praticamente assenti. Gli attuatori del robot, che sono collegati ai sensori tramite una funzione di trasferimento \cite{kim}, ricevono direttamente il comando derivante dal calcolo precedente del potenziale artificiale, senza alcun tipo di pianificazione algoritmica. 
 
 \begin{figure}[H]
 \centering
@@ -228,7 +228,7 @@ Applicando nella terza equazione la tangente da entrambe le parti, otteniamo \(\
 \caption{Potenziale bypassante}
 \end{figure}
 
-Da notare che il potenziale in figura \ref{potB} ha una discontinuità per \(x=x_0\), per cui la funzione é continua per \((x,y) neq (x_0,y_0)\). Siccome il robot non può mai andare esattamente nella stessa posizione dell'ostacolo, non c'è perdita di generalità nell'ignorare la discontinuità e di conseguenza il robot sarà sempre in grado di seguire la forza generata dal potenziale. Il potenziale con equazione \ref{potBeq} può essere visto come una funzione della posizione del robot e dell'ostacolo da aggirare \[\Gamma(x,y,x_0,y_0) = \Gamma(x_r(t),y_r(t),x_{O,j}(t),y_{O,j}(t))\] Dunque, la forza generata dal potenziale bypassante é esprimibile come il suo antigradiente
+Da notare che il potenziale in figura \ref{potB} ha una discontinuità per \(x=x_0\), per cui la funzione é continua per \((x,y) \neq (x_0,y_0)\). Siccome il robot non può mai andare esattamente nella stessa posizione dell'ostacolo, non c'è perdita di generalità nell'ignorare la discontinuità e di conseguenza il robot sarà sempre in grado di seguire la forza generata dal potenziale. Il potenziale con equazione \ref{potBeq} può essere visto come una funzione della posizione del robot e dell'ostacolo da aggirare \[\Gamma(x,y,x_0,y_0) = \Gamma(x_r(t),y_r(t),x_{O,j}(t),y_{O,j}(t))\] Dunque, la forza generata dal potenziale bypassante é esprimibile come il suo antigradiente
 
 \begin{equation}
 -\nabla U_b(r(t),O_j(t)) =
@@ -251,46 +251,149 @@ Quindi, l'antigradiente é formato da tanti vettori che
 \includegraphics[width=0.8\textwidth]{antigradB.png}
 \end{figure}
 
-Questo tipo di potenziale, chiaramente, é intrinsecamente adatto adatto ad ostacoli di forma circolare, motivo per cui nel lavoro di tesi si é considerato soltanto questo tipo di ostacoli.
+Questo tipo di potenziale, chiaramente, é intrinsecamente adatto ad ostacoli di forma circolare, motivo per cui nel lavoro di tesi si é considerato soltanto questo tipo di ostacoli.
 
 \section{Algoritmo di navigazione\cite{dalfonso}} 
-La strategia é semplice: nella posizione iniziale, il robot sonda l'ambiente attorno a sé. Se non vi sono presenti ostacoli a impedirne l'avanzamento verso il goal, la traiettoria da seguire é quella imposta dal potenziale attrattivo; altrimenti, é necessario "switchare" dal potenziale attrattivo a quello vorticoso, al fine di aggirare l'ostacolo, per poi tornare a seguire la traiettoria. Perciò, la peculiarità di questo algoritmo é che in ogni istante il robot seguirà un solo potenziale alla volta, evitando così il problema dei minimi locali. Inoltre, le informazioni necessarie a pianificare lo switch non richiedono informazioni globali, ma solo relative all'ostacolo da aggirare.
+La strategia é semplice: nella posizione iniziale, il robot sonda l'ambiente attorno a sé: se non vi sono presenti ostacoli a impedirne l'avanzamento verso il goal, la traiettoria da seguire é quella imposta dal potenziale attrattivo; altrimenti, é necessario "switchare" dal potenziale attrattivo a quello bypassante, al fine di aggirare l'ostacolo, per poi tornare a seguire la traiettoria. Perciò, la peculiarità di questo algoritmo é che in ogni istante di tempo il robot seguirà un solo potenziale alla volta, evitando così il problema dei minimi locali. Inoltre, le informazioni necessarie a pianificare lo switch non richiedono informazioni globali, ma solo relative all'ostacolo da aggirare. 
 
-\subsection{Interazione con l'ambiente}
-Come viene costruito l'ambiente (grid)\\
-\subsubsection{Percezione}
-Come vengono percepiti gli ostacoli e le loro velocità\\
-Come viene percepita la propria posizione (accenno localizzazione)\\
-\subsubsection{Azione}
-Modello cinematico\\
-Legge di controllo\\
-Come faccio muovere il robot nella grid
-
-\subsection{Pianificazione}
-Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente l'algoritmo é lo statechart diagram in figura \ref{state}. Il robot può trovarsi o nello stato corrispondente al potenziale attrattivo, oppure in quello corrispondente al potenziale bypassante. In quest'ultimo esistono altri due sottostati, la cui natura verrà spiegata meglio in seguito.
-	
-\begin{figure}[H]
-\caption{Statechart Diagram} \label{state}
-\includegraphics[width=\textwidth]{stateDiagram.png}
-\end{figure}
-	
-Note	: caso 1 sto seguendo il potenziale attrattivo e passo al vorticoso (calcolo verso, calcolo xOmega e yOmega, calcolo P1 e P2, calcolo due potenziali con relativi c), caso 2 sto seguendo il vorticoso e passo all'attrattivo (reimposto attrattivo)
-	
 \begin{figure}[H]
 \caption{Flowchart Diagram} \label{flow}
 \centering
-\includegraphics[width=0.8\textwidth]{flowchartDiagram.png}
+\includegraphics[width=0.8\textwidth]{flowchart.png}
 \end{figure}
 
-\section{Simulazione sul Turtlebot}
+\subsection{Considerazioni implementative}
 
-\section{Testing e risultati}
-Parametri utilizzati\\
-Un ostacolo fermo e in movimento\\
-Minimi locali e confronto con potenziali artificiali classici\\
-Tre in movimento\\
+%Figura class-diagram
+
+%Modularizzazione
+
+%Discretizzazione
+
+\paragraph{Costruzione dell'ambiente}
+Come viene costruito l'ambiente (grid)\newpage
+
+\subsection{Azione}
+Questo modulo riceve un comando dal modulo di pianificazione, ovvero l'antigradiente da seguire. Il suo compito é quello di inoltrare il comando agli attuatori a basso livello (i motori).
+
+\subsubsection{Modello cinematico}
+Si é ipotizzato in questa tesi di usare un modello cinematico anolonomo di tipo differential drive. 
+\begin{figure}[H]
+\centering
+\caption{Modello Differential-Drive \cite{toolbox}} \label{dd}
+\includegraphics[width=0.8\textwidth]{DD.png}
+\end{figure}
+Il fatto che sia anolonomo vuol dire che obbedisce ad un vincolo sulla velocitá e non sulla posizione, ovvero \[\theta(t) = \arctan \left( \frac{\dot{y}(t)}{\dot{x}(t)} \right) \] Praticamente, al robot é impossibile muoversi in ogni direzione con la stessa velocità; per mantenerla, deve continuare a mantenere il suo orientamento invariato. Le equazioni differenziali che modellano un generale robot che obbedisce a vincolo anolonomo é
+\begin{equation}
+\label{anolomeq}
+\begin{cases}
+\dot{x}(t) = v(t)\cos(\theta(t)) \\
+\dot{y}(t) = v(t)\sin(\theta(t)) \\
+\dot{\theta}(t) = \omega(t)
+\end{cases}
+\end{equation} 
+Quindi, secondo questo modello, un robot può essere completamente caratterizzato mediante la sua posizione \([x,y,\theta]\) e la sua velocità \([v,\omega]\), dove \(v\) indica la velocità lineare (di traslazione) e \(\omega\) quella angolare (di rotazione).\\
+In particolare nel modello differential drive il robot, come mostrato in figura \ref{DD}, viene mosso da due ruote laterali (ogni ruota ha il suo motore) di raggio \(R\), posizionate sullo stesso asse e distanti tra di loro \(L\). Detto ciò, si può scrivere la velocità lineare come la media tra le velocità lineari delle due ruote \[v(t)=\frac{R\cdot\omega_R(t)+R\cdot\omega_L(t)}{2}\] e quella angolare come la differenza tra le due velocità lineari normalizzata per la distanza tra le ruote \[\omega(t)=\frac{R\cdot\omega_R(t)-R\cdot\omega_L(t)}{L}\] Riunite in forma matriciale, queste due relazioni danno la seguente
+\begin{equation}
+\begin{bmatrix}
+v(t) \\
+\omega(t)
+\end{bmatrix}
+=
+\begin{bmatrix*}[r]
+\frac{R}{2} & \frac{R}{2} \\
+\frac{R}{L} & -\frac{R}{L}
+\end{bmatrix*}
+\begin{bmatrix}
+\omega_R(t) \\
+\omega_L(t)
+\end{bmatrix}
+\end{equation} 
+
+Invertendo questa relazione, si può ottenere la velocitá delle due ruote a partire dalla velocità lineare e angolare di riferimento.
+\begin{equation}
+\label{wrwl}
+\begin{bmatrix}
+\omega_R(t) \\
+\omega_L(t)
+\end{bmatrix}
+=
+\begin{bmatrix*}[r]
+\frac{R}{2} & \frac{R}{2} \\
+\frac{R}{L} & -\frac{R}{L}
+\end{bmatrix*}^{-1}
+\begin{bmatrix}
+v(t) \\
+\omega(t)
+\end{bmatrix}
+\end{equation}
+
+Questa inversione é sempre possibile, visto che
+\[det\begin{bmatrix*}[r]
+\frac{R}{2} & \frac{R}{2} \\
+\frac{R}{L} & -\frac{R}{L}
+\end{bmatrix*} = \frac{-R^2}{L}\] che é sempre non nullo, per cui la matrice é invertibile.
+
+%Dunque, il modello \ref{anolomeq} diventerá
+%\begin{equation}
+%\label{DDeq}
+%\begin{cases}
+%\dot{x}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right) \cos(\theta(t)) \\
+%\dot{y}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right)\sin(\theta(t)) \\
+%\dot{\theta}(t) = \frac{R}{L} \left( \omega_R(t)-\omega_L(t) \right)
+%\end{cases}
+%\end{equation} 
+
+\subsubsection{Legge di controllo \cite{dalfonso}}
+
+Nel caso specifico del path planning con potenziali artificiali, la velocità di riferimento é data dall'antigradiente relativo alla posa del robot, cioè \(v_\nabla(t) = -\nabla U(r(t))\). Con la legge di controllo viene stabilita una velocità lineare e angolare da imporre al robot e viene stabilito che
+\begin{equation}
+v(t) = M_v \cos(\theta_{\nabla}(t) - \theta_r(t))
+\end{equation} 
+\begin{equation}
+\omega(t) = K_{\omega}(\theta_{\nabla}(t) - \theta_r(t))
+\end{equation} dove \(M_v=\begin{Vmatrix}v_{\nabla}(t)\end{Vmatrix}\), \(\theta_{\nabla}=\angle v_{\nabla}(t)\) e 
+\[K_{\omega}(t)= \begin{cases}
+\frac{\dot{\theta}_{\nabla}(t) + K_c|\theta_{\nabla}(t)-\theta_r(t)|^{\nu} \cdot sign(\theta_{\nabla}(t) - \theta_r(t))}{\theta_{\nabla}(t) - \theta_r(t)} \quad &|\theta_{\nabla}(t)-\theta_r(t)| \geq \xi \\
+0 \quad &altrimenti
+\end{cases}\]
+
+Una volta ottenute le velocità \(v(t)\) e \(\omega(t)\), basta applicare la relazione \ref{wrwl} per ottenere le velocitá relative alle due ruote del differential drive.
+
+\subsubsection{Codice MATLAB}
+%Spiegare la classe ACT
+
+
+\subsection{Pianificazione}
+Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati dai sensori e in base a loro decide a quale potenziale il robot deve fare riferimento, informazione che sarà inoltrata al modulo di azione. Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente il modulo di pianificazione é lo statechart diagram in figura \ref{state}. Il robot può trovarsi o nello stato corrispondente al potenziale attrattivo, oppure in quello relativo al potenziale bypassante. In quest'ultimo esistono altri due sottostati, la cui natura verrà spiegata meglio in seguito.\\
+
+Si ipotizza che il robot parta sempre 
+
+Note	: caso 1 sto seguendo il potenziale attrattivo e passo al vorticoso (calcolo verso, calcolo xOmega e yOmega, calcolo P1 e P2, calcolo due potenziali con relativi c), caso 2 sto seguendo il vorticoso e passo all'attrattivo (reimposto attrattivo)
+
+\begin{figure}[H]
+\caption{Statechart Diagram} \label{state}
+\includegraphics[width=\textwidth]{statechart.png}
+\end{figure}
+
+\subsection{Percezione}
+%Come vengono percepiti gli ostacoli e le loro velocità
+%Come viene percepita la propria posizione (localizzazion)
+
+\section{Simulazione}
+
+\subsection{Sequence diagram}
+
+\subsection{Risultati}
+%Parametri utilizzati
+%Un ostacolo fermo e in movimento
+%Minimi locali e confronto con potenziali artificiali classici
+%Tre in movimento
 
 \section{Applicazioni e sviluppi futuri}
+%Rimozione di alcune ipotesi semplificative
+%Situazioni di stallo
+%Ostacoli di forma diversa
 
 \newpage
 \listoffigures

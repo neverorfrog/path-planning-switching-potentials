@@ -29,13 +29,13 @@ classdef ClassicalRobot < Robot
                 %%Quiver
                 figure(1); obj.draw(true);
                 %Creazione sequenza png della figura
-                filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/minimiLocaliQuiver/pic%d.png', samples);
-                saveas(gcf, filename);
+%                 filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/minimiLocaliQuiver/pic%d.png', samples);
+%                 saveas(gcf, filename);
                 %%Mesh
                 figure(2); scatter3(rp(2),rp(1),z,"filled","b","linewidth",3);
                 %Creazione sequenza png della figura
-                filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/minimiLocaliMesh/pic%d.png', samples);
-                saveas(gcf, filename);
+%                 filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/minimiLocaliMesh/pic%d.png', samples);
+%                 saveas(gcf, filename);
                 %Aggiornamento traiettoria
                 obj.path = [obj.path ; [rp(2) rp(1) z]];
                 newPose = obj.act.move(pose,obj.plan.gradX,obj.plan.gradY,tspan);

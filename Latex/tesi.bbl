@@ -19,6 +19,24 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{toolbox}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c3a3a4f1d724c86eabc5b2f9c4345e62}{%
+           family={(https://github.com/mathworks-robotics/mobile-robotics-simulation-toolbox)},
+           familyi={(\bibinithyphendelim r\bibinithyphendelim r\bibinithyphendelim s\bibinithyphendelim t\bibinitperiod},
+           given={MathWorks\bibnamedelimb Student\bibnamedelimb Competitions\bibnamedelimb Team\bibnamedelimb (2022).\bibnamedelimi Mobile\bibnamedelimb Robotics\bibnamedelimb Simulation\bibnamedelima Toolbox},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim (\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c3a3a4f1d724c86eabc5b2f9c4345e62}
+      \strng{fullhash}{c3a3a4f1d724c86eabc5b2f9c4345e62}
+      \strng{bibnamehash}{c3a3a4f1d724c86eabc5b2f9c4345e62}
+      \strng{authorbibnamehash}{c3a3a4f1d724c86eabc5b2f9c4345e62}
+      \strng{authornamehash}{c3a3a4f1d724c86eabc5b2f9c4345e62}
+      \strng{authorfullhash}{c3a3a4f1d724c86eabc5b2f9c4345e62}
+      \field{sortinit}{h}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+    \endentry
     \entry{dalfonso}{article}{}
       \name{author}{4}{}{%
         {{hash=997f5c8b457e792de6bbf18eed00b60a}{%

@@ -44,8 +44,6 @@ classdef Grid < handle
             index(1) = (floory + obj.dx*floor((point(2) - floory)/obj.dx))*obj.fattore + 1;
             index = floor(index);
         end
-        
-        function checkOccupancy
     end
 end
 

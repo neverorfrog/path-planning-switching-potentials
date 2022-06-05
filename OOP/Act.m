@@ -52,8 +52,8 @@ classdef Act
         
         function [Xdot,wRwL] = odeDD(~,vr,wr,theta)
             % Modello specifico del Differential Drive
-            r = 0.05; %raggio delle ruote di 5 centimetri
-            L = 0.15; %distanza tra le due ruote di 15 centimetri
+            r = 0.1; %raggio delle ruote di 10 centimetri
+            L = 0.25; %distanza tra le due ruote di 25 centimetri
             %K rende possibile esprimere vr e wr in funzione delle due velocitá impresse alle ruote
             K = [r/2 r/2 ; r/L -r/L];
             wRwL = K \ [vr ; wr];

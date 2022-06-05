@@ -8,10 +8,15 @@
 \contentsline {subsection}{\numberline {2.1}Metodo classico}{8}{}%
 \contentsline {subsection}{\numberline {2.2}Potenziale bypassante}{12}{}%
 \contentsline {section}{\numberline {3}Algoritmo di navigazione\blx@tocontentsinit {0}\cite {dalfonso}}{15}{}%
-\contentsline {subsection}{\numberline {3.1}Interazione con l'ambiente}{15}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Percezione}{15}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Azione}{15}{}%
-\contentsline {subsection}{\numberline {3.2}Pianificazione}{15}{}%
-\contentsline {section}{\numberline {4}Simulazione sul Turtlebot}{17}{}%
-\contentsline {section}{\numberline {5}Testing e risultati}{17}{}%
-\contentsline {section}{\numberline {6}Applicazioni e sviluppi futuri}{17}{}%
+\contentsline {subsection}{\numberline {3.1}Considerazioni implementative}{16}{}%
+\contentsline {paragraph}{Costruzione dell'ambiente}{16}{}%
+\contentsline {subsection}{\numberline {3.2}Azione}{17}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Modello cinematico}{17}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Legge di controllo \blx@tocontentsinit {0}\cite {dalfonso}}{18}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Codice MATLAB}{19}{}%
+\contentsline {subsection}{\numberline {3.3}Pianificazione}{19}{}%
+\contentsline {subsection}{\numberline {3.4}Percezione}{20}{}%
+\contentsline {section}{\numberline {4}Simulazione}{20}{}%
+\contentsline {subsection}{\numberline {4.1}Sequence diagram}{20}{}%
+\contentsline {subsection}{\numberline {4.2}Risultati}{20}{}%
+\contentsline {section}{\numberline {5}Applicazioni e sviluppi futuri}{20}{}%

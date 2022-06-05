@@ -67,7 +67,6 @@ classdef Robot < handle
                 dObstacle = obj.sense.scan(pose,obj.rv);
                 %New command 
                 obj.plan.decide(pose,dObstacle);
-                %Executing the command
                 newPose = obj.act.move(pose,obj.plan.gradX,obj.plan.gradY,tspan);
                 obj.xc = newPose(1); obj.yc = newPose(2); obj.theta = newPose(3);
                 obj.draw(true);

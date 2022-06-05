@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  4 JUN 2022 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  5 JUN 2022 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -493,25 +493,56 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen179
 \@vwid@roff=\dimen180
 ))
-\@quotelevel=\count409
-\@quotereset=\count410
+(c:/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
+
+(c:/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count409
+\calc@Bcount=\count410
+\calc@Adimen=\dimen181
+\calc@Bdimen=\dimen182
+\calc@Askip=\skip74
+\calc@Bskip=\skip75
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count411
+\calc@Cskip=\skip76
+)
+(c:/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count412
+\l_MT_multwidth_dim=\dimen183
+\origjot=\skip77
+\l_MT_shortvdotswithinadjustabove_dim=\dimen184
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen185
+\l_MT_above_intertext_sep=\dimen186
+\l_MT_below_intertext_sep=\dimen187
+\l_MT_above_shortintertext_sep=\dimen188
+\l_MT_below_shortintertext_sep=\dimen189
+\xmathstrut@box=\box57
+\xmathstrut@dim=\dimen190
+)
+\@quotelevel=\count413
+\@quotereset=\count414
  (./tesi.aux)
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -549,16 +580,16 @@ LaTeX Font Info:    ... okay on input line 14.
 
 (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count411
-\scratchdimen=\dimen181
-\scratchbox=\box57
-\nofMPsegments=\count412
-\nofMParguments=\count413
+\scratchcounter=\count415
+\scratchdimen=\dimen191
+\scratchbox=\box58
+\nofMPsegments=\count416
+\nofMParguments=\count417
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count414
-\MPscratchDim=\dimen182
-\MPnumerator=\count415
-\makeMPintoPDFobject=\count416
+\MPscratchCnt=\count418
+\MPscratchDim=\dimen192
+\MPnumerator=\count419
+\makeMPintoPDFobject=\count420
 \everyMPtoPDFconversion=\toks28
 ) (c:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -583,8 +614,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'tesi.bbl' found.
  (./tesi.bbl)
-Package biblatex Info: Reference section=0 on input line 14.
-Package biblatex Info: Reference segment=0 on input line 14.
+Package biblatex Info: Reference section=0 on input line 15.
+Package biblatex Info: Reference segment=0 on input line 15.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -596,7 +627,7 @@ Package caption Info: End \AtBeginDocument code.
 
 
 [2]
-Overfull \hbox (8.37541pt too wide) in paragraph at lines 23--24
+Overfull \hbox (8.37541pt too wide) in paragraph at lines 24--25
 []\OT1/cmr/m/n/14.4 Con le in-for-mazioni sen-so-ri-ali, il robot costru-
  []
 
@@ -605,26 +636,26 @@ Overfull \hbox (8.37541pt too wide) in paragraph at lines 23--24
 File: figure//architetturaNavigazione.png Graphic file (type png)
 <use figure//architetturaNavigazione.png>
 Package pdftex.def Info: figure//architetturaNavigazione.png  used on input lin
-e 32.
+e 33.
 (pdftex.def)             Requested size: 370.9865pt x 178.26624pt.
  [4 <./figure//architetturaNavigazione.png>] [5]
 <figure//voronoi.png, id=28, 523.7166pt x 520.8258pt>
 File: figure//voronoi.png Graphic file (type png)
 <use figure//voronoi.png>
-Package pdftex.def Info: figure//voronoi.png  used on input line 68.
+Package pdftex.def Info: figure//voronoi.png  used on input line 69.
 (pdftex.def)             Requested size: 227.62206pt x 226.36665pt.
 <figure//celldecomp.png, id=29, 523.7166pt x 520.8258pt>
 File: figure//celldecomp.png Graphic file (type png)
 <use figure//celldecomp.png>
-Package pdftex.def Info: figure//celldecomp.png  used on input line 75.
+Package pdftex.def Info: figure//celldecomp.png  used on input line 76.
 (pdftex.def)             Requested size: 227.62206pt x 226.36665pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 65--78
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 66--79
 [][]  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
@@ -632,23 +663,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
 <figure//algoritmiPP.png, id=33, 768.62157pt x 201.75375pt>
 File: figure//algoritmiPP.png Graphic file (type png)
 <use figure//algoritmiPP.png>
-Package pdftex.def Info: figure//algoritmiPP.png  used on input line 88.
+Package pdftex.def Info: figure//algoritmiPP.png  used on input line 89.
 (pdftex.def)             Requested size: 455.24411pt x 119.49852pt.
 
 [7 <./figure//algoritmiPP.png>]
 <figure//potA.png, id=38, 363.2772pt x 275.5896pt>
 File: figure//potA.png Graphic file (type png)
 <use figure//potA.png>
-Package pdftex.def Info: figure//potA.png  used on input line 108.
+Package pdftex.def Info: figure//potA.png  used on input line 109.
 (pdftex.def)             Requested size: 364.19667pt x 276.30379pt.
  [8 <./figure//potA.png (PNG copy)>]
 <figure//antigradA.png, id=42, 348.8232pt x 277.9986pt>
 File: figure//antigradA.png Graphic file (type png)
 <use figure//antigradA.png>
-Package pdftex.def Info: figure//antigradA.png  used on input line 123.
+Package pdftex.def Info: figure//antigradA.png  used on input line 124.
 (pdftex.def)             Requested size: 273.14923pt x 217.69489pt.
 
-Overfull \hbox (18.76112pt too wide) in paragraph at lines 132--133
+Overfull \hbox (18.76112pt too wide) in paragraph at lines 133--134
 \OT1/cmr/m/n/14.4 mostrato in figura 6a[]. Esso im-pone che en-tro uno dis-tanz
 a $\OML/cmm/m/it/14.4 ^^Q$ \OT1/cmr/m/n/14.4 dall'ostacolo
  []
@@ -656,20 +687,27 @@ a $\OML/cmm/m/it/14.4 ^^Q$ \OT1/cmr/m/n/14.4 dall'ostacolo
 <figure//potR.png, id=43, 370.0224pt x 274.1442pt>
 File: figure//potR.png Graphic file (type png)
 <use figure//potR.png>
-Package pdftex.def Info: figure//potR.png  used on input line 137.
+Package pdftex.def Info: figure//potR.png  used on input line 138.
 (pdftex.def)             Requested size: 227.62206pt x 168.64159pt.
 <figure//antigradR.png, id=44, 348.8232pt x 277.9986pt>
 File: figure//antigradR.png Graphic file (type png)
 <use figure//antigradR.png>
-Package pdftex.def Info: figure//antigradR.png  used on input line 144.
+Package pdftex.def Info: figure//antigradR.png  used on input line 145.
 (pdftex.def)             Requested size: 227.62206pt x 181.40958pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 135--146
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 136--147
 [][]  [] 
  []
 
-[9 <./figure//antigradA.png (PNG copy)>] [10 <./figure//potR.png (PNG copy)> <.
-/figure//antigradR.png (PNG copy)>]
+[9 <./figure//antigradA.png (PNG copy)>]
+Overfull \hbox (33.04666pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/14.4 robot $[\OML/cmm/m/it/14.4 v[]\OT1/cmr/m/n/14.4 (\OML/cmm/m/i
+t/14.4 t\OT1/cmr/m/n/14.4 )\OML/cmm/m/it/14.4 ; v[]\OT1/cmr/m/n/14.4 (\OML/cmm/
+m/it/14.4 t\OT1/cmr/m/n/14.4 )]$ ha come rifer-i-mento in ogni is-tante t il va
+l-ore dell'antigradiente
+ []
+
+[10 <./figure//potR.png (PNG copy)> <./figure//antigradR.png (PNG copy)>]
 <figure//pot.png, id=52, 367.1316pt x 277.5168pt>
 File: figure//pot.png Graphic file (type png)
 <use figure//pot.png>
@@ -719,49 +757,64 @@ File: figure//antigradB.png Graphic file (type png)
 Package pdftex.def Info: figure//antigradB.png  used on input line 251.
 (pdftex.def)             Requested size: 364.19667pt x 290.25702pt.
 [14 <./figure//antigradB.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 262--264
-
- []
-
-<figure//stateDiagram.png, id=75, 978.65625pt x 390.45876pt>
-File: figure//stateDiagram.png Graphic file (type png)
-<use figure//stateDiagram.png>
-Package pdftex.def Info: figure//stateDiagram.png  used on input line 274.
-(pdftex.def)             Requested size: 455.24411pt x 181.63293pt.
-[15]
-<figure//flowchartDiagram.png, id=79, 506.89375pt x 475.7775pt>
-File: figure//flowchartDiagram.png Graphic file (type png)
-<use figure//flowchartDiagram.png>
-Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 282.
+<figure//flowchart.png, id=75, 506.89375pt x 475.7775pt>
+File: figure//flowchart.png Graphic file (type png)
+<use figure//flowchart.png>
+Package pdftex.def Info: figure//flowchart.png  used on input line 262.
 (pdftex.def)             Requested size: 364.19667pt x 341.84807pt.
+ [15 <./figure//flowchart.png>]
+[16]
+<figure//DD.png, id=83, 604.50844pt x 534.49687pt>
+File: figure//DD.png Graphic file (type png)
+<use figure//DD.png>
+Package pdftex.def Info: figure//DD.png  used on input line 284.
+(pdftex.def)             Requested size: 364.19667pt x 322.01367pt.
+ [17 <./figure//DD.png>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--292
+LaTeX Warning: Reference `DD' on page 18 undefined on input line 296.
+
+[18]
+<figure//statechart.png, id=91, 978.65625pt x 386.44376pt>
+File: figure//statechart.png Graphic file (type png)
+<use figure//statechart.png>
+Package pdftex.def Info: figure//statechart.png  used on input line 374.
+(pdftex.def)             Requested size: 455.24411pt x 179.76524pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
 
  []
 
-[16 <./figure//stateDiagram.png> <./figure//flowchartDiagram.png>] [17]
-(./tesi.lof)
+[19 <./figure//statechart.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 388--392
+
+ []
+
+[20] (./tesi.lof)
 \tf@lof=\write5
 \openout5 = `tesi.lof'.
 
- [18] (./tesi.aux)
+
+Overfull \hbox (30.72968pt too wide) in paragraph at lines 398--398
+\OT1/cmr/m/n/14.4 u-la-tion Tool-box (https://github.com/mathworks-robotics/mob
+ile-robotics-
+ []
+
+[21] (./tesi.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package logreq Info: Writing requests to 'tesi.run.xml'.
 \openout1 = `tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13400 strings out of 478305
- 252997 string characters out of 5849247
- 956247 words of memory out of 5000000
- 31420 multiletter control sequences out of 15000+600000
+ 14026 strings out of 478305
+ 264603 string characters out of 5849247
+ 973171 words of memory out of 5000000
+ 32034 multiletter control sequences out of 15000+600000
  477378 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,77p,1777b,1458s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,13n,77p,2047b,1485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-di
@@ -772,12 +825,13 @@ ts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 2.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/
 texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/202
 2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts
-/type1/public/cm-super/sfrm1440.pfb>
-Output written on tesi.pdf (18 pages, 1179732 bytes).
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1440.pfb>
+Output written on tesi.pdf (21 pages, 1245339 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 161 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
