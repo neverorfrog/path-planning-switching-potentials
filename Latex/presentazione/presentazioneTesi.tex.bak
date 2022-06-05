@@ -9,10 +9,33 @@
 
 \frame{\titlepage}
 
+\begin{frame}{Path planning}
+\end{frame}
+
+\begin{frame}{Perché i potenziali artificiali}
+\end{frame}
+
+\begin{frame}{Potenziale bypassante}
+\end{frame}
+
+\begin{frame}{Struttura dell'algoritmo
+\end{frame}
+
+\begin{frame}{Percezione e azione}
+\end{frame}
+
+\begin{frame}{Pianificazione 1}
+\end{frame}
+
+\begin{frame}{Pianificazione 2}
+\end{frame}
+
 \begin{frame}{Simulazione in MATLAB}
 \graphicspath{ {./figure/simulazione1} }
-\animategraphics[loop,width=8cm]{20}{pic}{1}{256}
+\animategraphics[loop,width=8cm]{20}{pic}{1}{292}
 \end{frame}
+
+
 
 
 \end{document}

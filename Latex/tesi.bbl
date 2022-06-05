@@ -55,6 +55,32 @@
       \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
       \field{title}{Obstacles avoidance based on switching potential functions}
     \endentry
+    \entry{kim}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ca62be1ff713d543cac61cc71bb3d671}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Dong-Han},
+           giveni={D\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=d736303e6fdf4a44d4d501a0f1e14c5b}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Jong-Hwan},
+           giveni={J\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2a90d295bedb870a94e678957088852}
+      \strng{fullhash}{e2a90d295bedb870a94e678957088852}
+      \strng{bibnamehash}{e2a90d295bedb870a94e678957088852}
+      \strng{authorbibnamehash}{e2a90d295bedb870a94e678957088852}
+      \strng{authornamehash}{e2a90d295bedb870a94e678957088852}
+      \strng{authorfullhash}{e2a90d295bedb870a94e678957088852}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Robotics \& Autonomous Systems}
+      \field{title}{A real-time limit-cycle navigation method for fast mobile robots and its application to robot soccer}
+    \endentry
     \entry{mac2016}{article}{}
       \name{author}{4}{}{%
         {{hash=6d1ff8a71b56dfa936205bacd28a303f}{%

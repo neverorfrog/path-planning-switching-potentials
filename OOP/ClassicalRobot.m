@@ -13,7 +13,7 @@ classdef ClassicalRobot < Robot
         
         function obj = start(obj)
             %Plotting data
-            figure(1); axis equal; axis([-0.5 10.5 -0.5 10.5]); axis manual; hold on;
+            figure(1); axis equal; axis([0 obj.grid.width 0 obj.grid.width]); axis manual; hold on;
             quiver(obj.grid.X,obj.grid.Y,obj.plan.gradX,obj.plan.gradY); 
             figure(2); mesh(obj.plan.potential); view([-186.2 31.3]); hold on;
             %samples = 0;

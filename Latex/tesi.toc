@@ -1,13 +1,17 @@
 \contentsline {section}{\numberline {1}Introduzione}{3}{}%
 \contentsline {subsection}{\numberline {1.1}Path planning}{4}{}%
-\contentsline {subsection}{\numberline {1.2}Formalizzazione del problema}{5}{}%
-\contentsline {section}{\numberline {2}Potenziali artificiali}{6}{}%
-\contentsline {subsection}{\numberline {2.1}Metodo classico}{6}{}%
-\contentsline {section}{\numberline {3}Algoritmo di navigazione\blx@tocontentsinit {0}\cite {dalfonso}}{14}{}%
+\contentsline {paragraph}{Voronoi}{5}{}%
+\contentsline {paragraph}{Decomposizione esatta in celle}{5}{}%
+\contentsline {paragraph}{Sampling based}{6}{}%
+\contentsline {subsection}{\numberline {1.2}Formalizzazione del problema}{7}{}%
+\contentsline {section}{\numberline {2}Potenziali artificiali}{8}{}%
+\contentsline {subsection}{\numberline {2.1}Metodo classico}{8}{}%
+\contentsline {subsection}{\numberline {2.2}Potenziale bypassante}{12}{}%
+\contentsline {section}{\numberline {3}Algoritmo di navigazione\blx@tocontentsinit {0}\cite {dalfonso}}{15}{}%
 \contentsline {subsection}{\numberline {3.1}Interazione con l'ambiente}{15}{}%
 \contentsline {subsubsection}{\numberline {3.1.1}Percezione}{15}{}%
 \contentsline {subsubsection}{\numberline {3.1.2}Azione}{15}{}%
 \contentsline {subsection}{\numberline {3.2}Pianificazione}{15}{}%
-\contentsline {section}{\numberline {4}Simulazione sul Turtlebot}{16}{}%
-\contentsline {section}{\numberline {5}Testing e risultati}{16}{}%
-\contentsline {section}{\numberline {6}Applicazioni e sviluppi futuri}{16}{}%
+\contentsline {section}{\numberline {4}Simulazione sul Turtlebot}{17}{}%
+\contentsline {section}{\numberline {5}Testing e risultati}{17}{}%
+\contentsline {section}{\numberline {6}Applicazioni e sviluppi futuri}{17}{}%

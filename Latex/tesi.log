@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  3 JUN 2022 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  4 JUN 2022 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -414,26 +414,104 @@ Package: xparse 2022-01-12 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 ))
-\@quotelevel=\count402
-\@quotereset=\count403
+(c:/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
 
-(./tesi.aux)
+(c:/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(c:/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen159
+\captionmargin=\dimen160
+\caption@leftmargin=\dimen161
+\caption@rightmargin=\dimen162
+\caption@width=\dimen163
+\caption@indent=\dimen164
+\caption@parindent=\dimen165
+\caption@hangindent=\dimen166
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count402
+\c@continuedfloat=\count403
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count404
+\c@subtable=\count405
+)
+(c:/texlive/2022/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+
+(c:/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(c:/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(c:/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks25
+\XKV@tempa@toks=\toks26
+)
+\XKV@depth=\count406
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(c:/texlive/2022/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(c:/texlive/2022/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(c:/texlive/2022/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box55
+)
+\tc@llx=\dimen167
+\tc@lly=\dimen168
+\tc@urx=\dimen169
+\tc@ury=\dimen170
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(c:/texlive/2022/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen171
+\adjbox@Height=\dimen172
+\adjbox@Depth=\dimen173
+\adjbox@Totalheight=\dimen174
+\adjbox@pwidth=\dimen175
+\adjbox@pheight=\dimen176
+\adjbox@pdepth=\dimen177
+\adjbox@ptotalheight=\dimen178
+
+(c:/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count407
+)
+(c:/texlive/2022/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box56
+\sift@deathcycles=\count408
+\@vwid@loff=\dimen179
+\@vwid@roff=\dimen180
+))
+\@quotelevel=\count409
+\@quotereset=\count410
+ (./tesi.aux)
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -442,7 +520,7 @@ LaTeX Font Info:    ... okay on input line 12.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
@@ -456,7 +534,7 @@ LaTeX Font Info:    ... okay on input line 12.
 * \headsep=25.0pt
 * \topskip=14.0pt
 * \footskip=30.0pt
-* \marginparwidth=61.0pt
+* \marginparwidth=15.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=12.0pt plus 4.0pt minus 2.0pt
@@ -464,24 +542,24 @@ LaTeX Font Info:    ... okay on input line 12.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count404
-\scratchdimen=\dimen159
-\scratchbox=\box55
-\nofMPsegments=\count405
-\nofMParguments=\count406
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count407
-\MPscratchDim=\dimen160
-\MPnumerator=\count408
-\makeMPintoPDFobject=\count409
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count411
+\scratchdimen=\dimen181
+\scratchbox=\box57
+\nofMPsegments=\count412
+\nofMParguments=\count413
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count414
+\MPscratchDim=\dimen182
+\MPnumerator=\count415
+\makeMPintoPDFobject=\count416
+\everyMPtoPDFconversion=\toks28
 ) (c:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -505,8 +583,10 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'tesi.bbl' found.
  (./tesi.bbl)
-Package biblatex Info: Reference section=0 on input line 12.
-Package biblatex Info: Reference segment=0 on input line 12.
+Package biblatex Info: Reference section=0 on input line 14.
+Package biblatex Info: Reference segment=0 on input line 14.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 [1
 
@@ -516,7 +596,7 @@ Package biblatex Info: Reference segment=0 on input line 12.
 
 
 [2]
-Overfull \hbox (8.37541pt too wide) in paragraph at lines 21--22
+Overfull \hbox (8.37541pt too wide) in paragraph at lines 23--24
 []\OT1/cmr/m/n/14.4 Con le in-for-mazioni sen-so-ri-ali, il robot costru-
  []
 
@@ -525,135 +605,163 @@ Overfull \hbox (8.37541pt too wide) in paragraph at lines 21--22
 File: figure//architetturaNavigazione.png Graphic file (type png)
 <use figure//architetturaNavigazione.png>
 Package pdftex.def Info: figure//architetturaNavigazione.png  used on input lin
-e 30.
-(pdftex.def)             Requested size: 278.24164pt x 133.70053pt.
- [4 <./figure//architetturaNavigazione.png>]
-<figure//algoritmiPP.png, id=19, 768.62157pt x 201.75375pt>
+e 32.
+(pdftex.def)             Requested size: 370.9865pt x 178.26624pt.
+ [4 <./figure//architetturaNavigazione.png>] [5]
+<figure//voronoi.png, id=28, 523.7166pt x 520.8258pt>
+File: figure//voronoi.png Graphic file (type png)
+<use figure//voronoi.png>
+Package pdftex.def Info: figure//voronoi.png  used on input line 68.
+(pdftex.def)             Requested size: 227.62206pt x 226.36665pt.
+<figure//celldecomp.png, id=29, 523.7166pt x 520.8258pt>
+File: figure//celldecomp.png Graphic file (type png)
+<use figure//celldecomp.png>
+Package pdftex.def Info: figure//celldecomp.png  used on input line 75.
+(pdftex.def)             Requested size: 227.62206pt x 226.36665pt.
+
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 65--78
+[][]  [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+
+ []
+
+[6 <./figure//voronoi.png (PNG copy)> <./figure//celldecomp.png (PNG copy)>]
+<figure//algoritmiPP.png, id=33, 768.62157pt x 201.75375pt>
 File: figure//algoritmiPP.png Graphic file (type png)
 <use figure//algoritmiPP.png>
-Package pdftex.def Info: figure//algoritmiPP.png  used on input line 56.
+Package pdftex.def Info: figure//algoritmiPP.png  used on input line 88.
 (pdftex.def)             Requested size: 455.24411pt x 119.49852pt.
- [5 <./figure//algoritmiPP.png>]
-<figure//potA.png, id=26, 363.2772pt x 276.0714pt>
+
+[7 <./figure//algoritmiPP.png>]
+<figure//potA.png, id=38, 363.2772pt x 275.5896pt>
 File: figure//potA.png Graphic file (type png)
 <use figure//potA.png>
-Package pdftex.def Info: figure//potA.png  used on input line 74.
-(pdftex.def)             Requested size: 455.24411pt x 345.98564pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-<figure//antigradA.png, id=32, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//potA.png  used on input line 108.
+(pdftex.def)             Requested size: 364.19667pt x 276.30379pt.
+ [8 <./figure//potA.png (PNG copy)>]
+<figure//antigradA.png, id=42, 348.8232pt x 277.9986pt>
 File: figure//antigradA.png Graphic file (type png)
 <use figure//antigradA.png>
-Package pdftex.def Info: figure//antigradA.png  used on input line 87.
-(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
+Package pdftex.def Info: figure//antigradA.png  used on input line 123.
+(pdftex.def)             Requested size: 273.14923pt x 217.69489pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (18.76112pt too wide) in paragraph at lines 132--133
+\OT1/cmr/m/n/14.4 mostrato in figura 6a[]. Esso im-pone che en-tro uno dis-tanz
+a $\OML/cmm/m/it/14.4 ^^Q$ \OT1/cmr/m/n/14.4 dall'ostacolo
+ []
 
- [7 <./figure//potA.png (PNG copy)>]
-<figure//potR.png, id=38, 370.0224pt x 274.1442pt>
+<figure//potR.png, id=43, 370.0224pt x 274.1442pt>
 File: figure//potR.png Graphic file (type png)
 <use figure//potR.png>
-Package pdftex.def Info: figure//potR.png  used on input line 100.
-(pdftex.def)             Requested size: 455.24411pt x 337.29991pt.
-
-Underfull \vbox (badness 5771) has occurred while \output is active []
-
- [8 <./figure//antigradA.png (PNG copy)>]
-<figure//antigradR.png, id=42, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//potR.png  used on input line 137.
+(pdftex.def)             Requested size: 227.62206pt x 168.64159pt.
+<figure//antigradR.png, id=44, 348.8232pt x 277.9986pt>
 File: figure//antigradR.png Graphic file (type png)
 <use figure//antigradR.png>
-Package pdftex.def Info: figure//antigradR.png  used on input line 120.
-(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
+Package pdftex.def Info: figure//antigradR.png  used on input line 144.
+(pdftex.def)             Requested size: 227.62206pt x 181.40958pt.
 
-Underfull \vbox (badness 1596) has occurred while \output is active []
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 135--146
+[][]  [] 
+ []
 
- [9 <./figure//potR.png (PNG copy)>]
-<figure//pot.png, id=47, 367.1316pt x 277.5168pt>
+[9 <./figure//antigradA.png (PNG copy)>] [10 <./figure//potR.png (PNG copy)> <.
+/figure//antigradR.png (PNG copy)>]
+<figure//pot.png, id=52, 367.1316pt x 277.5168pt>
 File: figure//pot.png Graphic file (type png)
 <use figure//pot.png>
-Package pdftex.def Info: figure//pot.png  used on input line 135.
-(pdftex.def)             Requested size: 455.24411pt x 344.12573pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 <./figure//antigradR.png (PNG copy)>]
-<figure//antigrad.png, id=52, 348.8232pt x 277.9986pt>
-File: figure//antigrad.png Graphic file (type png)
-<use figure//antigrad.png>
-Package pdftex.def Info: figure//antigrad.png  used on input line 141.
-(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11 <./figure//pot.png>]
-<figure//minimoLocale.png, id=57, 367.1316pt x 277.5168pt>
+Package pdftex.def Info: figure//pot.png  used on input line 178.
+(pdftex.def)             Requested size: 318.66948pt x 240.88716pt.
+<figure//minimoLocale.png, id=54, 367.1316pt x 277.5168pt>
 File: figure//minimoLocale.png Graphic file (type png)
 <use figure//minimoLocale.png>
-Package pdftex.def Info: figure//minimoLocale.png  used on input line 147.
-(pdftex.def)             Requested size: 455.24411pt x 344.12573pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./figure//antigrad.png (PNG copy)>]
-<figure//antigradMinimoLocale.png, id=61, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//minimoLocale.png  used on input line 187.
+(pdftex.def)             Requested size: 227.62206pt x 172.06287pt.
+<figure//antigradMinimoLocale.png, id=55, 348.8232pt x 277.9986pt>
 File: figure//antigradMinimoLocale.png Graphic file (type png)
 <use figure//antigradMinimoLocale.png>
 Package pdftex.def Info: figure//antigradMinimoLocale.png  used on input line 1
-53.
-(pdftex.def)             Requested size: 455.24411pt x 362.81917pt.
+92.
+(pdftex.def)             Requested size: 227.62206pt x 181.40958pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 185--194
+[][]  [] 
+ []
 
- [13 <./figure//minimoLocale.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+[11 <./figure//pot.png>] [12 <./figure//minimoLocale.png (PNG copy)> <./figure/
+/antigradMinimoLocale.png>]
+<figure//elicoide.png, id=64, 361.8318pt x 273.1806pt>
+File: figure//elicoide.png Graphic file (type png)
+<use figure//elicoide.png>
+Package pdftex.def Info: figure//elicoide.png  used on input line 220.
+(pdftex.def)             Requested size: 227.62206pt x 171.8504pt.
+<figure//potB.png, id=65, 365.2044pt x 274.1442pt>
+File: figure//potB.png Graphic file (type png)
+<use figure//potB.png>
+Package pdftex.def Info: figure//potB.png  used on input line 225.
+(pdftex.def)             Requested size: 227.62206pt x 170.86281pt.
+
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 218--228
+[][]  [] 
+ []
+
+[13 <./figure//elicoide.png (PNG copy)> <./figure//potB.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
+
+ []
+
+<figure//antigradB.png, id=70, 348.8232pt x 277.9986pt>
+File: figure//antigradB.png Graphic file (type png)
+<use figure//antigradB.png>
+Package pdftex.def Info: figure//antigradB.png  used on input line 251.
+(pdftex.def)             Requested size: 364.19667pt x 290.25702pt.
+[14 <./figure//antigradB.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
 
-Underfull \vbox (badness 4084) has occurred while \output is active []
-
- [14 <./figure//antigradMinimoLocale.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
 
  []
 
-<figure//stateDiagram.png, id=70, 978.65625pt x 390.45876pt>
+<figure//stateDiagram.png, id=75, 978.65625pt x 390.45876pt>
 File: figure//stateDiagram.png Graphic file (type png)
 <use figure//stateDiagram.png>
-Package pdftex.def Info: figure//stateDiagram.png  used on input line 176.
+Package pdftex.def Info: figure//stateDiagram.png  used on input line 274.
 (pdftex.def)             Requested size: 455.24411pt x 181.63293pt.
-<figure//flowchartDiagram.png, id=71, 506.89375pt x 475.7775pt>
+[15]
+<figure//flowchartDiagram.png, id=79, 506.89375pt x 475.7775pt>
 File: figure//flowchartDiagram.png Graphic file (type png)
 <use figure//flowchartDiagram.png>
-Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 184.
+Package pdftex.def Info: figure//flowchartDiagram.png  used on input line 282.
 (pdftex.def)             Requested size: 364.19667pt x 341.84807pt.
-[15 <./figure//stateDiagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--292
 
  []
 
-[16 <./figure//flowchartDiagram.png>] (./tesi.lof)
+[16 <./figure//stateDiagram.png> <./figure//flowchartDiagram.png>] [17]
+(./tesi.lof)
 \tf@lof=\write5
 \openout5 = `tesi.lof'.
 
- [17] (./tesi.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+ [18] (./tesi.aux)
 Package logreq Info: Writing requests to 'tesi.run.xml'.
 \openout1 = `tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10789 strings out of 478305
- 204001 string characters out of 5849247
- 912403 words of memory out of 5000000
- 28863 multiletter control sequences out of 15000+600000
- 475105 words of font info for 48 fonts, out of 8000000 for 9000
+ 13400 strings out of 478305
+ 252997 string characters out of 5849247
+ 956247 words of memory out of 5000000
+ 31420 multiletter control sequences out of 15000+600000
+ 477378 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,68p,1777b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,13n,77p,1777b,1458s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-di
@@ -662,13 +770,14 @@ type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 2.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2
-022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf
--dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on tesi.pdf (17 pages, 800777 bytes).
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/202
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts
+/type1/public/cm-super/sfrm1440.pfb>
+Output written on tesi.pdf (18 pages, 1179732 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
+ 144 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

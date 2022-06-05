@@ -2,10 +2,11 @@ classdef Grid < handle
     
     properties (SetAccess = immutable)
         fattore; %densitá (quante celle per quadratino di coordinata)
-        dx;
         nr; nc;
+        dx;
         X; Y;
         x; y;
+        width;
     end
     
     properties 
@@ -22,6 +23,7 @@ classdef Grid < handle
             [obj.X,obj.Y] = meshgrid(linspace(x0,xf,obj.nc),linspace(x0,xf,obj.nr));
             obj.x = linspace(x0,xf,obj.nc);
             obj.y = linspace(x0,xf,obj.nr)';
+            obj.width = xf - x0;
         end
         
         function obj = setGoal(obj,goal)
@@ -42,6 +44,8 @@ classdef Grid < handle
             index(1) = (floory + obj.dx*floor((point(2) - floory)/obj.dx))*obj.fattore + 1;
             index = floor(index);
         end
+        
+        function checkOccupancy
     end
 end
 

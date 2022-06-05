@@ -4,6 +4,12 @@
   journal={Journal of Intelligent \& Robotic Systems},
 }
 
+@article{kim,
+  title={A real-time limit-cycle navigation method for fast mobile robots and its application to robot soccer},
+  author={Kim, Dong-Han and Kim, Jong-Hwan},
+  journal={Journal of Robotics \& Autonomous Systems},
+}
+
 @inbook{oriolo,
 author = {Medio, Claudio and Oriolo, Giuseppe},
 year = {1991},
