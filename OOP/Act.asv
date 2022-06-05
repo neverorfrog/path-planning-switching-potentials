@@ -11,24 +11,27 @@ classdef Act
         end
         
         %% Method that moves the robot according to the 
-        % desired velocity (Runge-Kutta 2 for integration)
-%         function newPose = move(obj,pose,gradX,gradY,tspan)
-%             rx = pose(1);
-%             ry = pose(2);
-%             rtheta = pose(3);
-%             [vr,wr] = obj.commands(rx,ry,rtheta,tspan,gradX,gradY);
-%             Xdot = obj.ode(vr,wr,rtheta);
-%             
-%             rx2 = rx + tspan/2*Xdot(1);
-%             ry2 = ry + tspan/2*Xdot(2);
-%             rtheta2 = rtheta + tspan/2*Xdot(3);
-%             [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
-%             Xdot = obj.ode(vr,wr,rtheta2);
-%             
-%             newPose(1) = rx + tspan*Xdot(1);
-%             newPose(2) = ry + tspan*Xdot(2);
-%             newPose(3) = rtheta + tspan*Xdot(3);
-%         end
+        %desired velocity (Runge-Kutta 2 for integration)
+        function newPose = move(obj,pose,gradX,gradY,tspan)
+            rx = pose(1);
+            ry = pose(2);
+            rtheta = pose(3);
+            [vr,wr] = obj.commands(rx,ry,rtheta,tspan,gradX,gradY);
+            Xdot = obj.odeDD(vr,wr,rtheta);
+            
+            rx2 = rx + tspan/2*Xdot(1);
+            ry2 = ry + tspan/2*Xdot(2);
+            rtheta2 = rtheta + tspan/2*Xdot(3);
+            [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
+            Xdot = obj.odeDD(vr,wr,rtheta2);
+            
+            newPose(1) = rx + tspan*Xdot(1);
+            newPose(2) = ry + tspan*Xdot(2);
+            newPose(3) = rtheta + tspan*Xdot(3);
+        end
+    end
+    
+    methods(A
         
         %% Metodo che genera velocita lineare e angolare per il robot
         function [vr,wr] = commands(obj,rx,ry,rtheta,tspan,gradX,gradY)
@@ -50,9 +53,7 @@ classdef Act
             Kw = (thetaDdot + Kc * abs(thetaDiff)^v * sign(thetaDiff))/(thetaDiff+eps);
             wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);
         end
-    end
-    
-    methods(Access = private)
+        
         function [Xdot,wRwL] = odeDD(~,vr,wr,theta)
             % Modello specifico del Differential Drive
             r = 0.1; %raggio delle ruote di 10 centimetri

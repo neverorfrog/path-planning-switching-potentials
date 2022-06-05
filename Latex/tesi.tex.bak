@@ -1,11 +1,28 @@
 \documentclass[14pt,a4paper]{extarticle}
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{graphicx} \graphicspath{{figure/}}
-\usepackage{float} \usepackage{amsmath}
+\usepackage[margin=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{listings} \usepackage{color} 
+\usepackage{graphicx} \graphicspath{{figure/}}\usepackage{float} 
 \usepackage[backend=biber]{biblatex}
 \usepackage{subcaption} \usepackage{caption}
 \usepackage[export]{adjustbox}
-\usepackage{mathtools}
+\usepackage{mathtools} \usepackage{amsmath}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{ 
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},                 
+    numbers=left                   
+}
+
+\lstset{style=mystyle}
 \addbibresource{bibliografia.bib}
 
 \title{Path planning locale per robot mobili \\ basato su potenziali artificiali alternati}
@@ -28,9 +45,9 @@
 L'architettura utilizzata in questa tesi é la cosiddetta gerarchica: le quattro primitive vengono eseguite in ordine e in loop. È particolarmente indicata per problemi in cui l'obiettivo finale é ben definito a priori. In altre parole, non vi é nessun meccanismo di apprendimento nel robot, ma semplicemente pianificazione deterministica orientata al goal. In figura é visivamente sintetizzato quanto appena detto.
 
 \begin{figure}[H]
-\caption{Architettura di navigazione\cite{mac2016}}
+\caption{Architettura di navigazione}
 \centering
-\includegraphics[scale=0.8]{architetturaNavigazione.png}
+\includegraphics[width=\textwidth]{architecture.png}
 \label{arch}
 \end{figure}
 
@@ -334,15 +351,15 @@ Questa inversione é sempre possibile, visto che
 \frac{R}{L} & -\frac{R}{L}
 \end{bmatrix*} = \frac{-R^2}{L}\] che é sempre non nullo, per cui la matrice é invertibile.
 
-%Dunque, il modello \ref{anolomeq} diventerá
-%\begin{equation}
-%\label{DDeq}
-%\begin{cases}
-%\dot{x}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right) \cos(\theta(t)) \\
-%\dot{y}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right)\sin(\theta(t)) \\
-%\dot{\theta}(t) = \frac{R}{L} \left( \omega_R(t)-\omega_L(t) \right)
-%\end{cases}
-%\end{equation} 
+Dunque, il modello \ref{anolomeq} diventerá
+\begin{equation}
+\label{DDeq}
+\begin{cases}
+\dot{x}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right) \cos(\theta(t)) \\
+\dot{y}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right)\sin(\theta(t)) \\
+\dot{\theta}(t) = \frac{R}{L} \left( \omega_R(t)-\omega_L(t) \right)
+\end{cases}
+\end{equation} 
 
 \subsubsection{Legge di controllo \cite{dalfonso}}
 
@@ -358,23 +375,31 @@ v(t) = M_v \cos(\theta_{\nabla}(t) - \theta_r(t))
 0 \quad &altrimenti
 \end{cases}\]
 
-Una volta ottenute le velocità \(v(t)\) e \(\omega(t)\), basta applicare la relazione \ref{wrwl} per ottenere le velocitá relative alle due ruote del differential drive.
+Una volta calcolate le velocità di riferimento \(v(t)\) e \(\omega(t)\), basta applicare la relazione \ref{wrwl} per avere le velocitá di riferimento relative alle due ruote del differential drive, ottenendo cosí i comandi da impartire agli attuatori del robot.
 
 \subsubsection{Codice MATLAB}
-%Spiegare la classe ACT
-
+Le funzionalità legate al modulo in esame sono tutte racchiuse nella classe Act, riportata nel code listing \ref{act}. 
 
 \subsection{Pianificazione}
-Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati dai sensori e in base a loro decide a quale potenziale il robot deve fare riferimento, informazione che sarà inoltrata al modulo di azione. Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente il modulo di pianificazione é lo statechart diagram in figura \ref{state}. Il robot può trovarsi o nello stato corrispondente al potenziale attrattivo, oppure in quello relativo al potenziale bypassante. In quest'ultimo esistono altri due sottostati, la cui natura verrà spiegata meglio in seguito.\\
-
-Si ipotizza che il robot parta sempre 
-
-Note	: caso 1 sto seguendo il potenziale attrattivo e passo al vorticoso (calcolo verso, calcolo xOmega e yOmega, calcolo P1 e P2, calcolo due potenziali con relativi c), caso 2 sto seguendo il vorticoso e passo all'attrattivo (reimposto attrattivo)
+Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati dai sensori e in base a ciò decide a quale potenziale il robot deve fare riferimento, informazione che sarà inoltrata al modulo di azione. Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente il modulo di pianificazione é lo statechart diagram in figura \ref{state}. Il robot può trovarsi o nello stato corrispondente al potenziale attrattivo, oppure in quello relativo al potenziale bypassante.
 
 \begin{figure}[H]
 \caption{Statechart Diagram} \label{state}
 \includegraphics[width=\textwidth]{statechart.png}
 \end{figure}
+
+%Metodo decide 
+
+%Caso Attrattivo (modificare statechart)
+	%Sono vicino al goal? --> Devo cambiare il potenziale
+	%Ho rilevato un ostacolo --> Devo bypassarlo
+		%Scelta verso
+		%Continuitá della traiettoria
+	
+%Caso Bypassante
+	%Controllo ostacolo diverso
+	%Controllo P1
+	%Controllo P2
 
 \subsection{Percezione}
 %Come vengono percepiti gli ostacoli e le loro velocità
@@ -396,7 +421,16 @@ Note	: caso 1 sto seguendo il potenziale attrattivo e passo al vorticoso (calcol
 %Ostacoli di forma diversa
 
 \newpage
+
+\begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
+\lstinputlisting[caption=Classe per il modulo di Azione, label={act},language=Matlab]{"../OOP/Act.m"}
+\end{adjustbox}
+
 \listoffigures
+\lstlistoflistings
+
+\newpage
+
 \printbibliography
 
 \end{document}

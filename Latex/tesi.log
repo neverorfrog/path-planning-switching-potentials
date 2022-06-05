@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  5 JUN 2022 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  5 JUN 2022 22:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -58,6 +58,47 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutvoffset=\dimen147
 \Gm@dimlist=\toks17
 )
+(c:/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
+)
+(c:/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count196
+\lst@gtempboxa=\box50
+\lst@token=\toks20
+\lst@length=\count197
+\lst@currlwidth=\dimen148
+\lst@column=\count198
+\lst@pos=\count199
+\lst@lostspace=\dimen149
+\lst@width=\dimen150
+\lst@newlines=\count266
+\lst@lineno=\count267
+\lst@maxwidth=\dimen151
+
+(c:/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count268
+\lst@skipnumbers=\count269
+\lst@framebox=\box51
+)
+(c:/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(c:/texlive/2022/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+
+(c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(c:/texlive/2022/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
 (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -71,78 +112,17 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
-
-(c:/texlive/2022/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen148
-\Gin@req@width=\dimen149
+)
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
 )
 (c:/texlive/2022/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count196
-\float@exts=\toks18
-\float@box=\box50
-\@float@everytoks=\toks19
-\@floatcapt=\box51
-)
-(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/10/15 v2.17l AMS math features
-\@mathmargin=\skip49
-
-For additional information on amsmath, use the `?' option.
-(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
-
-(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
-\ex@=\dimen150
-))
-(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen151
-)
-(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2021/08/26 v2.02 operator names
-)
-\inf@bad=\count197
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count198
-\leftroot@=\count199
-LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count266
-\DOTSCASE@=\count267
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box52
-\strutbox@=\box53
-\big@size=\dimen152
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count268
-\c@MaxMatrixCols=\count269
-\dotsspace@=\muskip16
-\c@parentequation=\count270
-\dspbrk@lvl=\count271
-\tag@help=\toks21
-\row@=\count272
-\column@=\count273
-\maxfields@=\count274
-\andhelp@=\toks22
-\eqnshift@=\dimen153
-\alignsep@=\dimen154
-\tagshift@=\dimen155
-\tagwidth@=\dimen156
-\totwidth@=\dimen157
-\lineht@=\dimen158
-\@envbody=\toks23
-\multlinegap=\skip50
-\multlinetaggap=\skip51
-\mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2938.
-LaTeX Info: Redefining \] on input line 2939.
+\c@float@type=\count270
+\float@exts=\toks21
+\float@box=\box52
+\@float@everytoks=\toks22
+\@floatcapt=\box53
 )
 (c:/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/02/02 v3.17 programmable bibliographies (PK/MW)
@@ -163,7 +143,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )
 (c:/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count275
+\etb@tempcnta=\count271
 )
 (c:/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
@@ -173,7 +153,7 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
 (c:/texlive/2022/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count276
+\lrq@indent=\count272
 
 (c:/texlive/2022/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -182,65 +162,65 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (c:/texlive/2022/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip17
+\Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count277
-\c@listtotal=\count278
-\c@listcount=\count279
-\c@liststart=\count280
-\c@liststop=\count281
-\c@citecount=\count282
-\c@citetotal=\count283
-\c@multicitecount=\count284
-\c@multicitetotal=\count285
-\c@instcount=\count286
-\c@maxnames=\count287
-\c@minnames=\count288
-\c@maxitems=\count289
-\c@minitems=\count290
-\c@citecounter=\count291
-\c@maxcitecounter=\count292
-\c@savedcitecounter=\count293
-\c@uniquelist=\count294
-\c@uniquename=\count295
-\c@refsection=\count296
-\c@refsegment=\count297
-\c@maxextratitle=\count298
-\c@maxextratitleyear=\count299
-\c@maxextraname=\count300
-\c@maxextradate=\count301
-\c@maxextraalpha=\count302
-\c@abbrvpenalty=\count303
-\c@highnamepenalty=\count304
-\c@lownamepenalty=\count305
-\c@maxparens=\count306
-\c@parenlevel=\count307
-\blx@tempcnta=\count308
-\blx@tempcntb=\count309
-\blx@tempcntc=\count310
-\c@blx@maxsection=\count311
-\c@blx@maxsegment@0=\count312
-\blx@notetype=\count313
-\blx@parenlevel@text=\count314
-\blx@parenlevel@foot=\count315
-\c@blx@sectionciteorder@0=\count316
-\blx@entrysetcounter=\count317
-\blx@biblioinstance=\count318
-\labelnumberwidth=\skip52
-\labelalphawidth=\skip53
-\biblabelsep=\skip54
-\bibitemsep=\skip55
-\bibnamesep=\skip56
-\bibinitsep=\skip57
-\bibparsep=\skip58
-\bibhang=\skip59
+\c@tabx@nest=\count273
+\c@listtotal=\count274
+\c@listcount=\count275
+\c@liststart=\count276
+\c@liststop=\count277
+\c@citecount=\count278
+\c@citetotal=\count279
+\c@multicitecount=\count280
+\c@multicitetotal=\count281
+\c@instcount=\count282
+\c@maxnames=\count283
+\c@minnames=\count284
+\c@maxitems=\count285
+\c@minitems=\count286
+\c@citecounter=\count287
+\c@maxcitecounter=\count288
+\c@savedcitecounter=\count289
+\c@uniquelist=\count290
+\c@uniquename=\count291
+\c@refsection=\count292
+\c@refsegment=\count293
+\c@maxextratitle=\count294
+\c@maxextratitleyear=\count295
+\c@maxextraname=\count296
+\c@maxextradate=\count297
+\c@maxextraalpha=\count298
+\c@abbrvpenalty=\count299
+\c@highnamepenalty=\count300
+\c@lownamepenalty=\count301
+\c@maxparens=\count302
+\c@parenlevel=\count303
+\blx@tempcnta=\count304
+\blx@tempcntb=\count305
+\blx@tempcntc=\count306
+\c@blx@maxsection=\count307
+\c@blx@maxsegment@0=\count308
+\blx@notetype=\count309
+\blx@parenlevel@text=\count310
+\blx@parenlevel@foot=\count311
+\c@blx@sectionciteorder@0=\count312
+\blx@entrysetcounter=\count313
+\blx@biblioinstance=\count314
+\labelnumberwidth=\skip49
+\labelalphawidth=\skip50
+\biblabelsep=\skip51
+\bibitemsep=\skip52
+\bibnamesep=\skip53
+\bibinitsep=\skip54
+\bibparsep=\skip55
+\bibhang=\skip56
 \blx@bcfin=\read2
 \blx@bcfout=\write3
 \blx@langwohyphens=\language87
-\c@mincomprange=\count319
-\c@maxcomprange=\count320
-\c@mincompwidth=\count321
+\c@mincomprange=\count315
+\c@maxcomprange=\count316
+\c@mincompwidth=\count317
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -249,88 +229,88 @@ File: blx-dm.def 2022/02/02 v3.17 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count322
-\c@savedafterword=\count323
-\c@annotator=\count324
-\c@savedannotator=\count325
-\c@author=\count326
-\c@savedauthor=\count327
-\c@bookauthor=\count328
-\c@savedbookauthor=\count329
-\c@commentator=\count330
-\c@savedcommentator=\count331
-\c@editor=\count332
-\c@savededitor=\count333
-\c@editora=\count334
-\c@savededitora=\count335
-\c@editorb=\count336
-\c@savededitorb=\count337
-\c@editorc=\count338
-\c@savededitorc=\count339
-\c@foreword=\count340
-\c@savedforeword=\count341
-\c@holder=\count342
-\c@savedholder=\count343
-\c@introduction=\count344
-\c@savedintroduction=\count345
-\c@namea=\count346
-\c@savednamea=\count347
-\c@nameb=\count348
-\c@savednameb=\count349
-\c@namec=\count350
-\c@savednamec=\count351
-\c@translator=\count352
-\c@savedtranslator=\count353
-\c@shortauthor=\count354
-\c@savedshortauthor=\count355
-\c@shorteditor=\count356
-\c@savedshorteditor=\count357
-\c@labelname=\count358
-\c@savedlabelname=\count359
-\c@institution=\count360
-\c@savedinstitution=\count361
-\c@lista=\count362
-\c@savedlista=\count363
-\c@listb=\count364
-\c@savedlistb=\count365
-\c@listc=\count366
-\c@savedlistc=\count367
-\c@listd=\count368
-\c@savedlistd=\count369
-\c@liste=\count370
-\c@savedliste=\count371
-\c@listf=\count372
-\c@savedlistf=\count373
-\c@location=\count374
-\c@savedlocation=\count375
-\c@organization=\count376
-\c@savedorganization=\count377
-\c@origlocation=\count378
-\c@savedoriglocation=\count379
-\c@origpublisher=\count380
-\c@savedorigpublisher=\count381
-\c@publisher=\count382
-\c@savedpublisher=\count383
-\c@language=\count384
-\c@savedlanguage=\count385
-\c@origlanguage=\count386
-\c@savedoriglanguage=\count387
-\c@pageref=\count388
-\c@savedpageref=\count389
-\shorthandwidth=\skip60
-\shortjournalwidth=\skip61
-\shortserieswidth=\skip62
-\shorttitlewidth=\skip63
-\shortauthorwidth=\skip64
-\shorteditorwidth=\skip65
-\locallabelnumberwidth=\skip66
-\locallabelalphawidth=\skip67
-\localshorthandwidth=\skip68
-\localshortjournalwidth=\skip69
-\localshortserieswidth=\skip70
-\localshorttitlewidth=\skip71
-\localshortauthorwidth=\skip72
-\localshorteditorwidth=\skip73
+\c@afterword=\count318
+\c@savedafterword=\count319
+\c@annotator=\count320
+\c@savedannotator=\count321
+\c@author=\count322
+\c@savedauthor=\count323
+\c@bookauthor=\count324
+\c@savedbookauthor=\count325
+\c@commentator=\count326
+\c@savedcommentator=\count327
+\c@editor=\count328
+\c@savededitor=\count329
+\c@editora=\count330
+\c@savededitora=\count331
+\c@editorb=\count332
+\c@savededitorb=\count333
+\c@editorc=\count334
+\c@savededitorc=\count335
+\c@foreword=\count336
+\c@savedforeword=\count337
+\c@holder=\count338
+\c@savedholder=\count339
+\c@introduction=\count340
+\c@savedintroduction=\count341
+\c@namea=\count342
+\c@savednamea=\count343
+\c@nameb=\count344
+\c@savednameb=\count345
+\c@namec=\count346
+\c@savednamec=\count347
+\c@translator=\count348
+\c@savedtranslator=\count349
+\c@shortauthor=\count350
+\c@savedshortauthor=\count351
+\c@shorteditor=\count352
+\c@savedshorteditor=\count353
+\c@labelname=\count354
+\c@savedlabelname=\count355
+\c@institution=\count356
+\c@savedinstitution=\count357
+\c@lista=\count358
+\c@savedlista=\count359
+\c@listb=\count360
+\c@savedlistb=\count361
+\c@listc=\count362
+\c@savedlistc=\count363
+\c@listd=\count364
+\c@savedlistd=\count365
+\c@liste=\count366
+\c@savedliste=\count367
+\c@listf=\count368
+\c@savedlistf=\count369
+\c@location=\count370
+\c@savedlocation=\count371
+\c@organization=\count372
+\c@savedorganization=\count373
+\c@origlocation=\count374
+\c@savedoriglocation=\count375
+\c@origpublisher=\count376
+\c@savedorigpublisher=\count377
+\c@publisher=\count378
+\c@savedpublisher=\count379
+\c@language=\count380
+\c@savedlanguage=\count381
+\c@origlanguage=\count382
+\c@savedoriglanguage=\count383
+\c@pageref=\count384
+\c@savedpageref=\count385
+\shorthandwidth=\skip57
+\shortjournalwidth=\skip58
+\shortserieswidth=\skip59
+\shorttitlewidth=\skip60
+\shortauthorwidth=\skip61
+\shorteditorwidth=\skip62
+\locallabelnumberwidth=\skip63
+\locallabelalphawidth=\skip64
+\localshorthandwidth=\skip65
+\localshortjournalwidth=\skip66
+\localshortserieswidth=\skip67
+\localshorttitlewidth=\skip68
+\localshortauthorwidth=\skip69
+\localshorteditorwidth=\skip70
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -342,19 +322,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (c:/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-\c@textcitecount=\count390
-\c@textcitetotal=\count391
-\c@textcitemaxnames=\count392
-\c@biburlbigbreakpenalty=\count393
-\c@biburlbreakpenalty=\count394
-\c@biburlnumpenalty=\count395
-\c@biburlucpenalty=\count396
-\c@biburllcpenalty=\count397
-\biburlbigskip=\muskip18
-\biburlnumskip=\muskip19
-\biburlucskip=\muskip20
-\biburllcskip=\muskip21
-\c@smartand=\count398
+\c@textcitecount=\count386
+\c@textcitetotal=\count387
+\c@textcitemaxnames=\count388
+\c@biburlbigbreakpenalty=\count389
+\c@biburlbreakpenalty=\count390
+\c@biburlnumpenalty=\count391
+\c@biburlucpenalty=\count392
+\c@biburllcpenalty=\count393
+\biburlbigskip=\muskip17
+\biburlnumskip=\muskip18
+\biburlucskip=\muskip19
+\biburllcskip=\muskip20
+\c@smartand=\count394
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -366,8 +346,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (c:/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count399
-\c@bbx:relatedtotal=\count400
+\c@bbx:relatedcount=\count395
+\c@bbx:relatedtotal=\count396
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -400,7 +380,7 @@ Package: expl3 2022-04-29 L3 programming layer (loader)
 
 (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count401
+\l__color_backend_stack_int=\count397
 \l__pdf_internal_box=\box54
 ))
 Package biblatex Info: ... and expl3
@@ -422,22 +402,23 @@ Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
 (c:/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen159
-\captionmargin=\dimen160
-\caption@leftmargin=\dimen161
-\caption@rightmargin=\dimen162
-\caption@width=\dimen163
-\caption@indent=\dimen164
-\caption@parindent=\dimen165
-\caption@hangindent=\dimen166
+\caption@tempdima=\dimen154
+\captionmargin=\dimen155
+\caption@leftmargin=\dimen156
+\caption@rightmargin=\dimen157
+\caption@width=\dimen158
+\caption@indent=\dimen159
+\caption@parindent=\dimen160
+\caption@hangindent=\dimen161
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count402
-\c@continuedfloat=\count403
+\c@caption@flags=\count398
+\c@continuedfloat=\count399
 Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 )
-\c@subfigure=\count404
-\c@subtable=\count405
+\c@subfigure=\count400
+\c@subtable=\count401
 )
 (c:/texlive/2022/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
@@ -447,10 +428,10 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 
 (c:/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (c:/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks25
-\XKV@tempa@toks=\toks26
+\XKV@toks=\toks23
+\XKV@tempa@toks=\toks24
 )
-\XKV@depth=\count406
+\XKV@depth=\count402
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (c:/texlive/2022/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -464,85 +445,161 @@ Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box55
 )
-\tc@llx=\dimen167
-\tc@lly=\dimen168
-\tc@urx=\dimen169
-\tc@ury=\dimen170
+\tc@llx=\dimen162
+\tc@lly=\dimen163
+\tc@urx=\dimen164
+\tc@ury=\dimen165
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (c:/texlive/2022/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen171
-\adjbox@Height=\dimen172
-\adjbox@Depth=\dimen173
-\adjbox@Totalheight=\dimen174
-\adjbox@pwidth=\dimen175
-\adjbox@pheight=\dimen176
-\adjbox@pdepth=\dimen177
-\adjbox@ptotalheight=\dimen178
+\adjbox@Width=\dimen166
+\adjbox@Height=\dimen167
+\adjbox@Depth=\dimen168
+\adjbox@Totalheight=\dimen169
+\adjbox@pwidth=\dimen170
+\adjbox@pheight=\dimen171
+\adjbox@pdepth=\dimen172
+\adjbox@ptotalheight=\dimen173
 
 (c:/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count407
+\c@checkoddpage=\count403
 )
 (c:/texlive/2022/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box56
-\sift@deathcycles=\count408
-\@vwid@loff=\dimen179
-\@vwid@roff=\dimen180
+\sift@deathcycles=\count404
+\@vwid@loff=\dimen174
+\@vwid@roff=\dimen175
 ))
 (c:/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
 
 (c:/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count409
-\calc@Bcount=\count410
-\calc@Adimen=\dimen181
-\calc@Bdimen=\dimen182
-\calc@Askip=\skip74
-\calc@Bskip=\skip75
+\calc@Acount=\count405
+\calc@Bcount=\count406
+\calc@Adimen=\dimen176
+\calc@Bdimen=\dimen177
+\calc@Askip=\skip71
+\calc@Bskip=\skip72
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count411
-\calc@Cskip=\skip76
+\calc@Ccount=\count407
+\calc@Cskip=\skip73
 )
 (c:/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count412
-\l_MT_multwidth_dim=\dimen183
-\origjot=\skip77
-\l_MT_shortvdotswithinadjustabove_dim=\dimen184
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen185
-\l_MT_above_intertext_sep=\dimen186
-\l_MT_below_intertext_sep=\dimen187
-\l_MT_above_shortintertext_sep=\dimen188
-\l_MT_below_shortintertext_sep=\dimen189
-\xmathstrut@box=\box57
-\xmathstrut@dim=\dimen190
+(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip74
+
+For additional information on amsmath, use the `?' option.
+(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen178
+))
+(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen179
 )
-\@quotelevel=\count413
-\@quotereset=\count414
+(c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
+)
+\inf@bad=\count408
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count409
+\leftroot@=\count410
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count411
+\DOTSCASE@=\count412
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+\big@size=\dimen180
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count413
+\c@MaxMatrixCols=\count414
+\dotsspace@=\muskip21
+\c@parentequation=\count415
+\dspbrk@lvl=\count416
+\tag@help=\toks26
+\row@=\count417
+\column@=\count418
+\maxfields@=\count419
+\andhelp@=\toks27
+\eqnshift@=\dimen181
+\alignsep@=\dimen182
+\tagshift@=\dimen183
+\tagwidth@=\dimen184
+\totwidth@=\dimen185
+\lineht@=\dimen186
+\@envbody=\toks28
+\multlinegap=\skip75
+\multlinetaggap=\skip76
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+)
+\g_MT_multlinerow_int=\count420
+\l_MT_multwidth_dim=\dimen187
+\origjot=\skip77
+\l_MT_shortvdotswithinadjustabove_dim=\dimen188
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen189
+\l_MT_above_intertext_sep=\dimen190
+\l_MT_below_intertext_sep=\dimen191
+\l_MT_above_shortintertext_sep=\dimen192
+\l_MT_below_shortintertext_sep=\dimen193
+\xmathstrut@box=\box59
+\xmathstrut@dim=\dimen194
+)
+(c:/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+
+(c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+)
+\@quotelevel=\count421
+\@quotereset=\count422
  (./tesi.aux)
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -552,15 +609,15 @@ LaTeX Font Info:    ... okay on input line 15.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-40.1381pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-25.91173pt
 * \headheight=14.0pt
 * \headsep=25.0pt
 * \topskip=14.0pt
@@ -578,19 +635,20 @@ LaTeX Font Info:    ... okay on input line 15.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\c@lstlisting=\count423
 (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count415
-\scratchdimen=\dimen191
-\scratchbox=\box58
-\nofMPsegments=\count416
-\nofMParguments=\count417
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count418
-\MPscratchDim=\dimen192
-\MPnumerator=\count419
-\makeMPintoPDFobject=\count420
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count424
+\scratchdimen=\dimen195
+\scratchbox=\box60
+\nofMPsegments=\count425
+\nofMParguments=\count426
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count427
+\MPscratchDim=\dimen196
+\MPnumerator=\count428
+\makeMPintoPDFobject=\count429
+\everyMPtoPDFconversion=\toks31
 ) (c:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -614,8 +672,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'tesi.bbl' found.
  (./tesi.bbl)
-Package biblatex Info: Reference section=0 on input line 15.
-Package biblatex Info: Reference segment=0 on input line 15.
+Package biblatex Info: Reference section=0 on input line 32.
+Package biblatex Info: Reference segment=0 on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -626,180 +684,330 @@ Package caption Info: End \AtBeginDocument code.
 \openout4 = `tesi.toc'.
 
 
-[2]
-Overfull \hbox (8.37541pt too wide) in paragraph at lines 24--25
-[]\OT1/cmr/m/n/14.4 Con le in-for-mazioni sen-so-ri-ali, il robot costru-
- []
-
-[3]
-<figure//architetturaNavigazione.png, id=15, 463.7325pt x 222.8325pt>
-File: figure//architetturaNavigazione.png Graphic file (type png)
-<use figure//architetturaNavigazione.png>
-Package pdftex.def Info: figure//architetturaNavigazione.png  used on input lin
-e 33.
-(pdftex.def)             Requested size: 370.9865pt x 178.26624pt.
- [4 <./figure//architetturaNavigazione.png>] [5]
-<figure//voronoi.png, id=28, 523.7166pt x 520.8258pt>
+[2] [3]
+<figure//architecture.png, id=15, 442.65375pt x 403.5075pt>
+File: figure//architecture.png Graphic file (type png)
+<use figure//architecture.png>
+Package pdftex.def Info: figure//architecture.png  used on input line 50.
+(pdftex.def)             Requested size: 426.79135pt x 389.0683pt.
+ [4 <./figure//architecture.png>] [5]
+<figure//voronoi.png, id=25, 523.7166pt x 520.8258pt>
 File: figure//voronoi.png Graphic file (type png)
 <use figure//voronoi.png>
-Package pdftex.def Info: figure//voronoi.png  used on input line 69.
-(pdftex.def)             Requested size: 227.62206pt x 226.36665pt.
-<figure//celldecomp.png, id=29, 523.7166pt x 520.8258pt>
+Package pdftex.def Info: figure//voronoi.png  used on input line 86.
+(pdftex.def)             Requested size: 213.39568pt x 212.22073pt.
+<figure//celldecomp.png, id=26, 523.7166pt x 520.8258pt>
 File: figure//celldecomp.png Graphic file (type png)
 <use figure//celldecomp.png>
-Package pdftex.def Info: figure//celldecomp.png  used on input line 76.
-(pdftex.def)             Requested size: 227.62206pt x 226.36665pt.
+Package pdftex.def Info: figure//celldecomp.png  used on input line 93.
+(pdftex.def)             Requested size: 213.39568pt x 212.22073pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 66--79
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 83--96
 [][]  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-[6 <./figure//voronoi.png (PNG copy)> <./figure//celldecomp.png (PNG copy)>]
-<figure//algoritmiPP.png, id=33, 768.62157pt x 201.75375pt>
+[6]
+<figure//algoritmiPP.png, id=35, 768.62157pt x 201.75375pt>
 File: figure//algoritmiPP.png Graphic file (type png)
 <use figure//algoritmiPP.png>
-Package pdftex.def Info: figure//algoritmiPP.png  used on input line 89.
-(pdftex.def)             Requested size: 455.24411pt x 119.49852pt.
-
-[7 <./figure//algoritmiPP.png>]
-<figure//potA.png, id=38, 363.2772pt x 275.5896pt>
+Package pdftex.def Info: figure//algoritmiPP.png  used on input line 106.
+(pdftex.def)             Requested size: 426.79135pt x 112.03006pt.
+ [7 <./figure//voronoi.png (PNG copy)> <./figure//celldecomp.png (PNG copy)> <.
+/figure//algoritmiPP.png>] [8]
+<figure//potA.png, id=43, 363.2772pt x 275.5896pt>
 File: figure//potA.png Graphic file (type png)
 <use figure//potA.png>
-Package pdftex.def Info: figure//potA.png  used on input line 109.
-(pdftex.def)             Requested size: 364.19667pt x 276.30379pt.
- [8 <./figure//potA.png (PNG copy)>]
-<figure//antigradA.png, id=42, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//potA.png  used on input line 126.
+(pdftex.def)             Requested size: 341.43437pt x 259.03743pt.
+ [9 <./figure//potA.png (PNG copy)>]
+<figure//antigradA.png, id=47, 348.8232pt x 277.9986pt>
 File: figure//antigradA.png Graphic file (type png)
 <use figure//antigradA.png>
-Package pdftex.def Info: figure//antigradA.png  used on input line 124.
-(pdftex.def)             Requested size: 273.14923pt x 217.69489pt.
+Package pdftex.def Info: figure//antigradA.png  used on input line 141.
+(pdftex.def)             Requested size: 256.07741pt x 204.08684pt.
 
-Overfull \hbox (18.76112pt too wide) in paragraph at lines 133--134
-\OT1/cmr/m/n/14.4 mostrato in figura 6a[]. Esso im-pone che en-tro uno dis-tanz
-a $\OML/cmm/m/it/14.4 ^^Q$ \OT1/cmr/m/n/14.4 dall'ostacolo
+Overfull \hbox (3.54169pt too wide) in paragraph at lines 150--151
+[]\OT1/cmr/m/n/14.4 ha una forma duale a quello at-trat-tivo, come
  []
 
-<figure//potR.png, id=43, 370.0224pt x 274.1442pt>
+
+Overfull \hbox (15.47307pt too wide) in paragraph at lines 150--151
+\OT1/cmr/m/n/14.4 val-ore in-ver-sa-mente pro-porzionale alla dis-tanza dall'os
+tacolo stesso.
+ []
+
+
+Overfull \hbox (0.46997pt too wide) in paragraph at lines 150--151
+\OT1/cmr/m/n/14.4 Prati-ca-mente, pi^^Ru ci si avvic-ina all'ostacolo en-tro un
+a certa soglia
+ []
+
+<figure//potR.png, id=48, 370.0224pt x 274.1442pt>
 File: figure//potR.png Graphic file (type png)
 <use figure//potR.png>
-Package pdftex.def Info: figure//potR.png  used on input line 138.
-(pdftex.def)             Requested size: 227.62206pt x 168.64159pt.
-<figure//antigradR.png, id=44, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//potR.png  used on input line 155.
+(pdftex.def)             Requested size: 213.39568pt x 158.10017pt.
+<figure//antigradR.png, id=49, 348.8232pt x 277.9986pt>
 File: figure//antigradR.png Graphic file (type png)
 <use figure//antigradR.png>
-Package pdftex.def Info: figure//antigradR.png  used on input line 145.
-(pdftex.def)             Requested size: 227.62206pt x 181.40958pt.
+Package pdftex.def Info: figure//antigradR.png  used on input line 162.
+(pdftex.def)             Requested size: 213.39568pt x 170.07095pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 136--147
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 153--164
 [][]  [] 
  []
 
-[9 <./figure//antigradA.png (PNG copy)>]
-Overfull \hbox (33.04666pt too wide) in paragraph at lines 172--173
-\OT1/cmr/m/n/14.4 robot $[\OML/cmm/m/it/14.4 v[]\OT1/cmr/m/n/14.4 (\OML/cmm/m/i
-t/14.4 t\OT1/cmr/m/n/14.4 )\OML/cmm/m/it/14.4 ; v[]\OT1/cmr/m/n/14.4 (\OML/cmm/
-m/it/14.4 t\OT1/cmr/m/n/14.4 )]$ ha come rifer-i-mento in ogni is-tante t il va
-l-ore dell'antigradiente
- []
-
-[10 <./figure//potR.png (PNG copy)> <./figure//antigradR.png (PNG copy)>]
-<figure//pot.png, id=52, 367.1316pt x 277.5168pt>
+[10 <./figure//antigradA.png (PNG copy)>] [11 <./figure//potR.png (PNG copy)> <
+./figure//antigradR.png (PNG copy)>]
+<figure//pot.png, id=57, 367.1316pt x 277.5168pt>
 File: figure//pot.png Graphic file (type png)
 <use figure//pot.png>
-Package pdftex.def Info: figure//pot.png  used on input line 178.
-(pdftex.def)             Requested size: 318.66948pt x 240.88716pt.
-<figure//minimoLocale.png, id=54, 367.1316pt x 277.5168pt>
+Package pdftex.def Info: figure//pot.png  used on input line 195.
+(pdftex.def)             Requested size: 298.75264pt x 225.82907pt.
+ [12]
+<figure//minimoLocale.png, id=61, 367.1316pt x 277.5168pt>
 File: figure//minimoLocale.png Graphic file (type png)
 <use figure//minimoLocale.png>
-Package pdftex.def Info: figure//minimoLocale.png  used on input line 187.
-(pdftex.def)             Requested size: 227.62206pt x 172.06287pt.
-<figure//antigradMinimoLocale.png, id=55, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//minimoLocale.png  used on input line 204.
+(pdftex.def)             Requested size: 213.39568pt x 161.30708pt.
+<figure//antigradMinimoLocale.png, id=62, 348.8232pt x 277.9986pt>
 File: figure//antigradMinimoLocale.png Graphic file (type png)
 <use figure//antigradMinimoLocale.png>
-Package pdftex.def Info: figure//antigradMinimoLocale.png  used on input line 1
-92.
-(pdftex.def)             Requested size: 227.62206pt x 181.40958pt.
+Package pdftex.def Info: figure//antigradMinimoLocale.png  used on input line 2
+09.
+(pdftex.def)             Requested size: 213.39568pt x 170.07095pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 185--194
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 202--211
 [][]  [] 
  []
 
-[11 <./figure//pot.png>] [12 <./figure//minimoLocale.png (PNG copy)> <./figure/
-/antigradMinimoLocale.png>]
-<figure//elicoide.png, id=64, 361.8318pt x 273.1806pt>
+[13 <./figure//pot.png>]
+Overfull \hbox (11.02773pt too wide) in paragraph at lines 226--227
+\OT1/cmr/m/n/14.4 ot-te-ni-amo $[](\OML/cmm/m/it/14.4 ^^X\OT1/cmr/m/n/14.4 ) = 
+[]([])$ che, con-frontando con le prime due equazioni,
+ []
+
+[14 <./figure//minimoLocale.png (PNG copy)> <./figure//antigradMinimoLocale.png
+>]
+<figure//elicoide.png, id=72, 361.8318pt x 273.1806pt>
 File: figure//elicoide.png Graphic file (type png)
 <use figure//elicoide.png>
-Package pdftex.def Info: figure//elicoide.png  used on input line 220.
-(pdftex.def)             Requested size: 227.62206pt x 171.8504pt.
-<figure//potB.png, id=65, 365.2044pt x 274.1442pt>
+Package pdftex.def Info: figure//elicoide.png  used on input line 237.
+(pdftex.def)             Requested size: 213.39568pt x 161.11261pt.
+<figure//potB.png, id=73, 365.2044pt x 274.1442pt>
 File: figure//potB.png Graphic file (type png)
 <use figure//potB.png>
-Package pdftex.def Info: figure//potB.png  used on input line 225.
-(pdftex.def)             Requested size: 227.62206pt x 170.86281pt.
+Package pdftex.def Info: figure//potB.png  used on input line 242.
+(pdftex.def)             Requested size: 213.39568pt x 160.18755pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 218--228
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 235--245
 [][]  [] 
  []
 
-[13 <./figure//elicoide.png (PNG copy)> <./figure//potB.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
-<figure//antigradB.png, id=70, 348.8232pt x 277.9986pt>
+
+Overfull \hbox (25.41637pt too wide) in paragraph at lines 260--261
+[]\OT1/cmr/m/n/14.4 Aumentano di in-ten-sit^^Ra man mano che il robot si avvic-
+ina all'ostacolo 
+ []
+
+[15 <./figure//elicoide.png (PNG copy)> <./figure//potB.png (PNG copy)>]
+<figure//antigradB.png, id=78, 348.8232pt x 277.9986pt>
 File: figure//antigradB.png Graphic file (type png)
 <use figure//antigradB.png>
-Package pdftex.def Info: figure//antigradB.png  used on input line 251.
-(pdftex.def)             Requested size: 364.19667pt x 290.25702pt.
-[14 <./figure//antigradB.png (PNG copy)>]
-<figure//flowchart.png, id=75, 506.89375pt x 475.7775pt>
+Package pdftex.def Info: figure//antigradB.png  used on input line 268.
+(pdftex.def)             Requested size: 341.43437pt x 272.11436pt.
+
+Overfull \hbox (10.33977pt too wide) in paragraph at lines 274--275
+\OT1/cmr/m/n/14.4 La strate-gia ^^Se sem-plice: nella po-sizione in-iziale, il 
+robot sonda l'ambiente
+ []
+
+
+Overfull \hbox (2.07826pt too wide) in paragraph at lines 274--275
+\OT1/cmr/m/n/14.4 at-torno a s^^Se: se non vi sono pre-senti os-ta-coli a im-pe
+dirne l'avanzamento
+ []
+
+<figure//flowchart.png, id=79, 506.89375pt x 475.7775pt>
 File: figure//flowchart.png Graphic file (type png)
 <use figure//flowchart.png>
-Package pdftex.def Info: figure//flowchart.png  used on input line 262.
-(pdftex.def)             Requested size: 364.19667pt x 341.84807pt.
- [15 <./figure//flowchart.png>]
-[16]
-<figure//DD.png, id=83, 604.50844pt x 534.49687pt>
+Package pdftex.def Info: figure//flowchart.png  used on input line 279.
+(pdftex.def)             Requested size: 341.43437pt x 320.48256pt.
+[16 <./figure//antigradB.png (PNG copy)>]
+Overfull \hbox (1.4903pt too wide) in paragraph at lines 291--291
+ \OT1/cmr/bx/n/14.4 Costruzione dell'ambiente[] \OT1/cmr/m/n/14.4 Come viene co
+stru-ito l'ambiente (grid) 
+ []
+
+[17 <./figure//flowchart.png>]
+<figure//DD.png, id=87, 604.50844pt x 534.49687pt>
 File: figure//DD.png Graphic file (type png)
 <use figure//DD.png>
-Package pdftex.def Info: figure//DD.png  used on input line 284.
-(pdftex.def)             Requested size: 364.19667pt x 322.01367pt.
- [17 <./figure//DD.png>]
+Package pdftex.def Info: figure//DD.png  used on input line 301.
+(pdftex.def)             Requested size: 341.43437pt x 301.89342pt.
+ [18 <./figure//DD.png>]
 
-LaTeX Warning: Reference `DD' on page 18 undefined on input line 296.
+LaTeX Warning: Reference `DD' on page 19 undefined on input line 313.
 
-[18]
-<figure//statechart.png, id=91, 978.65625pt x 386.44376pt>
+[19]
+<figure//statechart.png, id=96, 978.65625pt x 386.44376pt>
 File: figure//statechart.png Graphic file (type png)
 <use figure//statechart.png>
-Package pdftex.def Info: figure//statechart.png  used on input line 374.
-(pdftex.def)             Requested size: 455.24411pt x 179.76524pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--382
-
+Package pdftex.def Info: figure//statechart.png  used on input line 388.
+(pdftex.def)             Requested size: 426.79135pt x 168.53212pt.
+ [20] [21 <./figure//statechart.png>]
+(c:/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (../OOP/Act.m
+Overfull \hbox (38.50734pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][] 
  []
 
-[19 <./figure//statechart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 388--392
 
+Overfull \hbox (63.88727pt too wide) in paragraph at lines 14--15
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][] 
  []
 
-[20] (./tesi.lof)
+
+Overfull \hbox (72.34724pt too wide) in paragraph at lines 15--16
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (140.02705pt too wide) in paragraph at lines 19--20
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (165.40698pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (156.947pt too wide) in paragraph at lines 33--34
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (173.86696pt too wide) in paragraph at lines 34--35
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (97.72717pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (156.947pt too wide) in paragraph at lines 37--38
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (46.96732pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (106.18715pt too wide) in paragraph at lines 45--47
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (182.32693pt too wide) in paragraph at lines 47--48
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (309.22658pt too wide) in paragraph at lines 50--51
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+] 
+ []
+
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 5
+1.
+(c:/texlive/2022/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 51.
+
+Overfull \hbox (80.80722pt too wide) in paragraph at lines 51--52
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.66743pt too wide) in paragraph at lines 56--57
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (30.04736pt too wide) in paragraph at lines 57--58
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (55.42729pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.1071pt too wide) in paragraph at lines 59--60
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (131.56708pt too wide) in paragraph at lines 60--61
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
+3.
+(c:/texlive/2022/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
+
+Overfull \hbox (148.48703pt too wide) in paragraph at lines 64--65
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][] 
+ []
+
+) (./tesi.lof [22])
 \tf@lof=\write5
 \openout5 = `tesi.lof'.
 
+ (./tesi.lol)
+\tf@lol=\write6
+\openout6 = `tesi.lol'.
 
-Overfull \hbox (30.72968pt too wide) in paragraph at lines 398--398
-\OT1/cmr/m/n/14.4 u-la-tion Tool-box (https://github.com/mathworks-robotics/mob
-ile-robotics-
+ [23]
+Overfull \hbox (28.55452pt too wide) in paragraph at lines 435--435
+\OT1/cmr/m/n/14.4 Sim-u-la-tion Tool-box (https://github.com/mathworks-robotics
+/mobile-
  []
 
-[21] (./tesi.aux)
+[24] (./tesi.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -808,13 +1016,13 @@ Package logreq Info: Writing requests to 'tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14026 strings out of 478305
- 264603 string characters out of 5849247
- 973171 words of memory out of 5000000
- 32034 multiletter control sequences out of 15000+600000
+ 16863 strings out of 478305
+ 301432 string characters out of 5849247
+ 1124650 words of memory out of 5000000
+ 34828 multiletter control sequences out of 15000+600000
  477378 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,77p,2047b,1485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 68i,13n,77p,2047b,2143s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-di
@@ -823,15 +1031,16 @@ type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 2.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/202
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
-lic/cm-super/sfrm1440.pfb>
-Output written on tesi.pdf (21 pages, 1245339 bytes).
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/202
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1440.pfb>
+Output written on tesi.pdf (24 pages, 1213438 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 176 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

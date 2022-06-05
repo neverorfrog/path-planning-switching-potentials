@@ -17,7 +17,20 @@ classdef SwitchingRobot < Robot
             e = norm([obj.xc,obj.yc]-obj.grid.goal); tspan = 0.05; tsim = 0;
             %Starting simulation
             while(e > 0.1 && tsim < 15)
-                obj.iteration(tspan);
+                %Current pose
+                pose = [obj.xc obj.yc obj.theta];
+                %Sensed obstacle (empty array if nothing was sensed)
+                dObstacle = obj.sense.scan(pose,obj.rv);
+                %New command 
+                obj.plan.decide(pose,dObstacle);
+                %Executing the command
+                newPose = obj.act.move(pose,obj.plan.gradX,obj.plan.gradY,tspan);
+                obj.xc = newPose(1); obj.yc = newPose(2); obj.theta = newPose(3);
+                obj.draw(true);
+                %Moving obstacles
+                for k = 1 : length(obj.grid.obstacles)
+                    obj.grid.obstacles(k).move(tspan);
+                end
                 e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + tspan; pause(0);
                 %Creazione sequenza png della figura
                 %samples = samples + 1;
@@ -27,5 +40,3 @@ classdef SwitchingRobot < Robot
         end
     end
 end
-
-

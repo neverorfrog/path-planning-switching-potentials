@@ -78,4 +78,3 @@ classdef Sense
         end
     end
 end
-

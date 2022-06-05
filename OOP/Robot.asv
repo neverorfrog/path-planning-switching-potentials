@@ -59,21 +59,23 @@ classdef Robot < handle
             end
         end
         
-        %% Generic simulation of the robot
-        function obj = iteration(obj,tspan)
-                %Current pose
-                pose = [obj.xc obj.yc obj.theta];
-                %Sensed obstacle (empty array if nothing was sensed)
-                dObstacle = obj.sense.scan(pose,obj.rv);
-                %New command 
-                obj.plan.decide(pose,dObstacle);
-                newPose = obj.act.move(pose,obj.plan.gradX,obj.plan.gradY,tspan);
-                obj.xc = newPose(1); obj.yc = newPose(2); obj.theta = newPose(3);
-                obj.draw(true);
-                %Moving obstacles
-                for k = 1 : length(obj.grid.obstacles)
-                    obj.grid.obstacles(k).move(tspan);
-                end
+        %% Actuator interface
+        function obj = move(obj,pose,tspan)
+            rx = pose(1);
+            ry = pose(2);
+            rtheta = pose(3);
+            [vr,wr] = obj.act.commands(rx,ry,rtheta,tspan,gradX,gradY);
+            Xdot = obj.ode(vr,wr,rtheta);
+            
+            rx2 = rx + tspan/2*Xdot(1);
+            ry2 = ry + tspan/2*Xdot(2);
+            rtheta2 = rtheta + tspan/2*Xdot(3);
+            [vr,wr] = obj.act.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
+            Xdot = obj.ode(vr,wr,rtheta2);
+            
+            obj.xc = rx + tspan*Xdot(1);
+            obj.yc = ry + tspan*Xdot(2);
+            obj.theta = rtheta + tspan*Xdot(3);
         end
     end
 end

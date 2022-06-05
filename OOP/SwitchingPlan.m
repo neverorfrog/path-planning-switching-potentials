@@ -35,17 +35,17 @@ classdef SwitchingPlan < handle
                 obj.agradY = obj.grid.goal(2)-obj.grid.Y;
                 obj.setGrad(obj.agradX,obj.agradY);
             end
-            %Ostacolo rilevato in modalitá attrattiva
+            %Ostacolo rilevato in modalita attrattiva
             if obj.state == State.attractive && ~isempty(dObstacle)
                 obj = obj.bypass(dObstacle,pose);
                 obj.state = State.bypassing;
                 obj.obstacle = [dObstacle.xc dObstacle.yc];
                 return;
             end
-            %Modalitá bypassante
+            %Modalita bypassante
             if obj.state == State.bypassing
-                %Controllo se c'é un ostacolo piú vicino di quello che sto bypassando
-                dO = obj.checkIfNearer(dObstacle);
+                %Controllo se l'ostacolo rilevato e' diverso da quello che sto bypassando
+                dO = obj.checkIfSame(dObstacle);
                 if ~isempty(dO)
                     obj = obj.bypass(dO,pose);
                     return;
@@ -62,7 +62,7 @@ classdef SwitchingPlan < handle
             end
         end
         
-        function dO = checkIfNearer(obj,dObstacle)
+        function dO = checkIfSame(obj,dObstacle)
             %%Ostacolo non rilevato
             if isempty(dObstacle)
                 obj.obstacle = []; dO = []; return;
@@ -71,7 +71,7 @@ classdef SwitchingPlan < handle
             %%Ostacolo rilevato
             %Ho ancora in vista l'ostacolo che sto bypassando
             if ~isempty(obj.obstacle)
-                %Controllo se l'ostacolo rilevato é lo stesso che sto bypassando
+                %Controllo se l'ostacolo rilevato e' lo stesso che sto bypassando
                 distance = sqrt((obj.obstacle(1) - dObstacle.xc)^2 + (obj.obstacle(2) - dObstacle.yc)^2);
                 if abs(distance - norm(0.05*(dObstacle.v))) < 0.01
                     dO = []; %SI
@@ -126,7 +126,7 @@ classdef SwitchingPlan < handle
             %5. Estraggo la circonferenza che mi serve
             xOmega = xOmega(indiceC) + xr; yOmega = yOmega(indiceC) + yr;
             dOmega = d(indiceC); xo = xo0; yo = yo0;
-            %6. Decido come sará l'ostacolo virtuale in base al senso di bypass
+            %6. Decido come sara l'ostacolo virtuale in base al senso di bypass
             vObstacle = Obstacle(xOmega,yOmega,[0;0]);
             if oSense == "counterclock"
                 vSense = "clock"; indiceP2 = 2;
