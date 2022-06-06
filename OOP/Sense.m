@@ -9,7 +9,7 @@ classdef Sense
         end
         
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
-        function [dObstacle] = scan(obj,pose,rv)
+        function dObstacle = scan(obj,pose,rv)
             rx = pose(1); ry = pose(2);
             n = length(obj.grid.obstacles);
             distances = zeros(1,n) + inf;

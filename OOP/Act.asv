@@ -1,7 +1,7 @@
 classdef Act
     
     properties
-        robot; grid;
+        grid;
     end
     
     methods
@@ -11,30 +11,28 @@ classdef Act
         end
         
         %% Method that moves the robot according to the 
-        %desired velocity (Runge-Kutta 2 for integration)
-        function newPose = move(obj,pose,gradX,gradY,tspan)
-            rx = pose(1);
-            ry = pose(2);
-            rtheta = pose(3);
-            [vr,wr] = obj.commands(rx,ry,rtheta,tspan,gradX,gradY);
-            Xdot = obj.odeDD(vr,wr,rtheta);
-            
-            rx2 = rx + tspan/2*Xdot(1);
-            ry2 = ry + tspan/2*Xdot(2);
-            rtheta2 = rtheta + tspan/2*Xdot(3);
-            [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
-            Xdot = obj.odeDD(vr,wr,rtheta2);
-            
-            newPose(1) = rx + tspan*Xdot(1);
-            newPose(2) = ry + tspan*Xdot(2);
-            newPose(3) = rtheta + tspan*Xdot(3);
-        end
-    end
-    
-    methods(A
+        % desired velocity (Runge-Kutta 2 for integration)
+%         function newPose = move(obj,pose,gradX,gradY,tspan)
+%             rx = pose(1);
+%             ry = pose(2);
+%             rtheta = pose(3);
+%             [vr,wr] = obj.commands(rx,ry,rtheta,tspan,gradX,gradY);
+%             Xdot = obj.ode(vr,wr,rtheta);
+%             
+%             rx2 = rx + tspan/2*Xdot(1);
+%             ry2 = ry + tspan/2*Xdot(2);
+%             rtheta2 = rtheta + tspan/2*Xdot(3);
+%             [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,gradX,gradY);
+%             Xdot = obj.ode(vr,wr,rtheta2);
+%             
+%             newPose(1) = rx + tspan*Xdot(1);
+%             newPose(2) = ry + tspan*Xdot(2);
+%             newPose(3) = rtheta + tspan*Xdot(3);
+%         end
         
         %% Metodo che genera velocita lineare e angolare per il robot
-        function [vr,wr] = commands(obj,rx,ry,rtheta,tspan,gradX,gradY)
+        function [vr,wr] = commands(obj,rx,ry,rtheta,tspan,directive)
+            gradX = grad.gradX; gradY = grad.gradY;
             i = obj.grid.coord2index([rx,ry]);
             thetaN = atan2(gradY(i(1),i(2)),gradX(i(1),i(2)));
             thetaDiff = atan2(sin(thetaN-rtheta),cos(thetaN-rtheta));
@@ -53,16 +51,21 @@ classdef Act
             Kw = (thetaDdot + Kc * abs(thetaDiff)^v * sign(thetaDiff))/(thetaDiff+eps);
             wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);
         end
-        
-        function [Xdot,wRwL] = odeDD(~,vr,wr,theta)
-            % Modello specifico del Differential Drive
-            r = 0.1; %raggio delle ruote di 10 centimetri
-            L = 0.25; %distanza tra le due ruote di 25 centimetri
-            %K rende possibile esprimere vr e wr in funzione delle 
-            %due velocita impresse alle ruote
-            K = [r/2 r/2 ; r/L -r/L];
-            wRwL = K \ [vr ; wr];
-            Xdot = ([cos(theta) 0 ; sin(theta) 0 ; 0 1] * K * wRwL);
-        end
     end
+    
+    methods (Abstract)
+        
+    end
+    
+    %     function [Xdot,wRwL] = odeDD(~,vr,wr,theta)
+%             % Modello specifico del Differential Drive
+%             r = 0.1; %raggio delle ruote di 10 centimetri
+%             L = 0.25; %distanza tra le due ruote di 25 centimetri
+%             %K rende possibile esprimere vr e wr in funzione delle 
+%             %due velocita impresse alle ruote
+%             K = [r/2 r/2 ; r/L -r/L];
+%             wRwL = K \ [vr ; wr];
+%             Xdot = ([cos(theta) 0 ; sin(theta) 0 ; 0 1] * K * wRwL);
+%         end
+
 end

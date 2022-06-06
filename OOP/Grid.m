@@ -9,8 +9,8 @@ classdef Grid < handle
         width;
     end
     
-    properties 
-        goal; 
+    properties
+        goal;
         obstacles;
     end
     
@@ -32,6 +32,12 @@ classdef Grid < handle
         
         function obj = addObstacle(obj,o)
             obj.obstacles = [obj.obstacles o];
+        end
+        
+        function obj = moveObstacles(obj,tspan)
+            for k = 1 : length(obj.obstacles)
+                obj.obstacles(k).move(tspan);
+            end
         end
         
         function index = coord2index(obj,point)

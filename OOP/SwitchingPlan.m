@@ -1,13 +1,11 @@
-classdef SwitchingPlan < handle
+classdef SwitchingPlan < Plan
     
     properties
         agradX; agradY; % the attractive potential every time
-        gradX; gradY; %the bypassing potential at time t
         gradXO; gradYO; %the bypassing potential of the detected obstacle at time tau
         P1;
         P2; solxp2; solyp2;
         
-        grid;
         state;
         obstacle;
         
@@ -17,18 +15,20 @@ classdef SwitchingPlan < handle
     methods
         %%
         function obj = SwitchingPlan(grid)
-            obj.grid = grid;
-            obj.state = State.attractive;
+            obj@Plan(grid);
+            %Setting potenziale conico
+            obj.state = State.attractive; obj.paraboloidal = false;
             di = sqrt((grid.goal(1)-grid.X).^2 + (grid.goal(2)-grid.Y).^2);
             obj.agradX = (grid.goal(1)-grid.X)./di; obj.agradY = (grid.goal(2)-grid.Y)./di;
-            obj.gradX = obj.agradX; obj.gradY = obj.agradY;
+            obj.setGrad(obj.agradX,obj.agradY); 
+            %Risoluzione equazione per P2
             [obj.solxp2 , obj.solyp2] = calcoloP2();
-            obj.paraboloidal = false;
         end
         
-        %% Per ora solo uno alla volta
+        %% Genera la direttiva
         function obj = decide(obj,pose,dObstacle)
             rx = pose(1); ry = pose(2);
+            %%%Modalità attrattiva
             %Cambio al potenziale paraboloide
             if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
                 obj.agradX = obj.grid.goal(1)-obj.grid.X;
@@ -42,7 +42,7 @@ classdef SwitchingPlan < handle
                 obj.obstacle = [dObstacle.xc dObstacle.yc];
                 return;
             end
-            %Modalita bypassante
+            %%%Modalita bypassante
             if obj.state == State.bypassing
                 %Controllo se l'ostacolo rilevato e' diverso da quello che sto bypassando
                 dO = obj.checkIfSame(dObstacle);
@@ -61,7 +61,9 @@ classdef SwitchingPlan < handle
                 end
             end
         end
-        
+    end
+    
+    methods (Access = private)
         function dO = checkIfSame(obj,dObstacle)
             %%Ostacolo non rilevato
             if isempty(dObstacle)
@@ -88,7 +90,7 @@ classdef SwitchingPlan < handle
         end
         
         function obj = setGrad(obj,gradX,gradY)
-            obj.gradX = gradX; obj.gradY = gradY;
+            obj.directive.gradX = gradX; obj.directive.gradY = gradY;
         end
         
         %% Metodo che calcola il ptoenziale bypassante
@@ -147,7 +149,8 @@ classdef SwitchingPlan < handle
             cO = norm([obj.agradX(j(1),j(2)) obj.agradY(j(1),j(2))])*h;
             [obj.gradXO,obj.gradYO] = obj.antigradient(dO,obj.grid,cO,oSense);
             cV = norm([obj.gradXO(k(1),k(2)) obj.gradYO(k(1),k(2))])*dOmega;
-            [obj.gradX,obj.gradY] = obj.antigradient(vObstacle,obj.grid,cV,vSense);
+            [gradX,gradY] = obj.antigradient(vObstacle,obj.grid,cV,vSense);
+            obj.setGrad(gradX,gradY);
             
             %Plotting dei risultati per testing
             omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));

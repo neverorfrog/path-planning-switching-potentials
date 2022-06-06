@@ -12,7 +12,7 @@ classdef ClassicalPlan < Plan
         end
         
         function obj = decide(obj,~,~)
-             return;
+             directive.gradX = 
         end
         
         
