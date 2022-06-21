@@ -59,7 +59,7 @@ classdef Robot < handle
             e = norm([obj.xc,obj.yc]-obj.grid.goal);
             tspan = 0.05; tsim = 0; samples = 0;
             %Starting simulation
-            while(e > 0.1 && tsim < 5)
+            while(e > 0.1 && tsim < 20)
                 %Current pose
                 pose = [obj.xc obj.yc obj.theta];
                 %Sensed obstacle (empty array if nothing was sensed)
@@ -75,8 +75,7 @@ classdef Robot < handle
                 %Refreshing error
                 e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + tspan; pause(0);
                 %Creazione sequenza png della figura
-                samples = samples + 1;
-%                 obj.pngSequence(samples);
+%                 samples = samples + 1; obj.pngSequence(samples);
             end
         end
         

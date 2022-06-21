@@ -28,7 +28,7 @@ classdef SwitchingPlan < Plan
         %% Genera la direttiva
         function obj = decide(obj,pose,dObstacle)
             rx = pose(1); ry = pose(2);
-            %%%Modalità attrattiva
+            %%%Modalita attrattiva
             %Cambio al potenziale paraboloide
             if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
                 obj.agradX = obj.grid.goal(1)-obj.grid.X;
@@ -44,7 +44,8 @@ classdef SwitchingPlan < Plan
             end
             %%%Modalita bypassante
             if obj.state == State.bypassing
-                %Controllo se l'ostacolo rilevato e' diverso da quello che sto bypassando
+                %Controllo se l'ostacolo rilevato e' diverso
+                %da quello che sto bypassando
                 dO = obj.checkIfSame(dObstacle);
                 if ~isempty(dO)
                     obj = obj.bypass(dO,pose);
@@ -74,14 +75,15 @@ classdef SwitchingPlan < Plan
             %Ho ancora in vista l'ostacolo che sto bypassando
             if ~isempty(obj.obstacle)
                 %Controllo se l'ostacolo rilevato e' lo stesso che sto bypassando
-                distance = sqrt((obj.obstacle(1) - dObstacle.xc)^2 + (obj.obstacle(2) - dObstacle.yc)^2);
+                distance = sqrt((obj.obstacle(1) - dObstacle.xc)^2 + ...
+                    (obj.obstacle(2) - dObstacle.yc)^2);
                 if abs(distance - norm(0.05*(dObstacle.v))) < 0.01
                     dO = []; %SI
                 else
                     dO = dObstacle; %NO
                 end
             end
-            %Non ho piú in vista l'ostacolo che sto bypassando
+            %Non ho piu in vista l'ostacolo che sto bypassando
             if isempty(obj.obstacle)
                 dO = dObstacle;
             end
@@ -100,7 +102,7 @@ classdef SwitchingPlan < Plan
             xo0 = dO.xc; yo0 = dO.yc; thetao0 = dO.theta;
             angle = atan2(sin(thetar),cos(thetar));
             xg = obj.grid.goal(1); yg = obj.grid.goal(2);
-            
+          
             %Inizio calcolo potenziale bypassante
             m = tan(thetar); xo = xo0 - xr; yo = yo0 - yr;
             %1. Calcolo di h (il raggio della circonferenza attorno all'ostacolo reale)
@@ -108,17 +110,19 @@ classdef SwitchingPlan < Plan
             angdiff = abs(atan2(sin(thetao0-thetar),cos(thetao0-thetar)));
             h = (dist+1+(angdiff/pi))/3;
             %2. Calcolo delle due circonferenze papabili per l'ostacolo virtuale
-            yOmega(1) = ((- h^2 + xo^2 + yo^2)*(m*xo - yo + h*(m^2 + 1)^(1/2)))/(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
-            yOmega(2) = -((-h^2 + xo^2 + yo^2)*(yo - m*xo + h*(m^2 + 1)^(1/2)))/(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
+            yOmega(1) = ((- h^2 + xo^2 + yo^2)*(m*xo - yo + h*(m^2 + 1)^(1/2)))...
+                /(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
+            yOmega(2) = -((-h^2 + xo^2 + yo^2)*(yo - m*xo + h*(m^2 + 1)^(1/2)))...
+                /(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
             xOmega = -m*yOmega;
             d = double(sqrt(xOmega.^2 + yOmega.^2));
             %3. Scelta del verso di bypass dell'ostacolo reale
             oSense = obj.chooseSense(dO,pose); %dO = detected obstacle
             %4. Decido quale circonferenza va bene per il verso di bypass
-            if (abs(norm(xOmega)) > 0.01 && sign(xOmega(1)) == sign(xOmega(2))) ... %due circonferenze dallo stesso lato
+            if (abs(norm(xOmega)) > 0.01 && sign(xOmega(1)) == sign(xOmega(2))) ... 
                     || (abs(norm(yOmega)) > 0.01 && sign(yOmega(1)) == sign(yOmega(2)))
                 [~,indiceC] = min(d);
-            else
+            else %Non ho due circonferenze dallo stesso lato
                 if oSense == "clock" %voglio la circonferenza sinistra
                     indiceC = (sign(sin(angle)) == sign(xOmega(1))) + 1;
                 else %voglio quella destra
@@ -142,7 +146,7 @@ classdef SwitchingPlan < Plan
             k = obj.grid.coord2index(obj.P1);
             %8. Calcolo P2
             obj.P2 = double(subs(obj.solxp2(indiceP2)));
-            syms xp2; xp2 = obj.P2(1); %#ok<*NASGU>
+            syms xp2; xp2 = obj.P2(1);
             obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
             j = obj.grid.coord2index(obj.P2);
             %9. Infine calcolo gli antigradienti nell'ostacolo reale e virtuale
@@ -153,11 +157,12 @@ classdef SwitchingPlan < Plan
             obj.setGrad(gradX,gradY);
             
             %Plotting dei risultati per testing
-            omega = nsidedpoly(2000, 'Center', [double(xOmega) double(yOmega)], 'Radius', double(dOmega));
+            omega = nsidedpoly(2000, 'Center', [xOmega yOmega], 'Radius', dOmega);
             plot(omega, 'FaceColor', 'b');
             obst = nsidedpoly(2000, 'Center', [xo yo], 'Radius', double(h));
             plot(obst, 'FaceColor', 'r');
-            plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); plot(obj.P1(1),obj.P1(2),"+b","linewidth",2);
+            plot(obj.P2(1),obj.P2(2),"+k","linewidth",2); 
+            plot(obj.P1(1),obj.P1(2),"+b","linewidth",2);
         end
         
         %% Scelto del senso (antiorario o orario)

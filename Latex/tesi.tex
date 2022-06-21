@@ -1,28 +1,36 @@
 \documentclass[14pt,a4paper]{extarticle}
 \usepackage[margin=3cm]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage{listings} \usepackage{color} 
-\usepackage{graphicx} \graphicspath{{figure/}}\usepackage{float} 
+\usepackage{graphicx}\graphicspath{{figure/}}\usepackage{float} 
 \usepackage[backend=biber]{biblatex}
 \usepackage{subcaption} \usepackage{caption}
-\usepackage[export]{adjustbox}
 \usepackage{mathtools} \usepackage{amsmath}
-\usepackage{xcolor}
+\usepackage{xcolor}\usepackage{tcolorbox}
+\usepackage{listings}\usepackage{adjustbox}
+\tcbuselibrary{listingsutf8,skins,fitting}
+
+\newtcolorbox{nota}[0]{
+	beforeafter skip balanced=5mm,
+	fontupper=\small
+}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
 
-\lstdefinestyle{mystyle}{ 
+\lstset{
     commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},                 
-    numbers=left                   
+    stringstyle=\color{codepurple},  
+    numbers=left,
+    language=Matlab,
+    basicstyle=\small,
+    backgroundcolor=\color{lightgray},
+    linewidth=\textwidth
 }
 
-\lstset{style=mystyle}
+
 \addbibresource{bibliografia.bib}
 
 \title{Path planning locale per robot mobili \\ basato su potenziali artificiali alternati}
@@ -70,7 +78,7 @@ All'interno dei metodi esistenti (e non), ci sono due importanti distinzioni da 
 
 Di seguito si descriverá brevemente degli esempi legati ai metodi appena elencati.
 
-\paragraph{Voronoi} L'idea alla base di questo metodo é rappresentare lo spazio libero delle configurazioni \(C_{free}\), ovvero l'insieme di quei punti che per certo non fanno collidere il robot con un ostacolo, come un grafo, ovvero un insieme di nodi (rappresentati appunto la roadmap) connessi da archi. La posizione dei nodi é definita tramite il concetto di clearance, ovvero la funzione \[\gamma(q) = \min_{s\in\partial C_{free}} \begin{Vmatrix}q-s\end{Vmatrix}\] dove q é una generica configurazione in \(C_{free}\). \(\partial C_{free}\) sarebbe la frontiera dello spazio di configurazione, ovvero il bordo degli ostacoli. Il grafo é formato da quelle configurazioni \(q\) tali per cui esiste più di un punto su \(\partial C_{free}\) con lo stesso valore \(\gamma(q)\). In altre parole, quei punti equidistanti (considerando la distanza minima) da più di un ostacolo. Il risultato é quello mostrato in figura \ref{voronoi}. Una volta calcolato il grafo, é sufficiente ritrarre i punti di start e goal sul grafo stesso e calcolare il percorso ottimale tra questi due attraverso un algoritmo di ricerca, ad esempio Djikstra.
+\paragraph{Voronoi} L'idea alla base di questo metodo é rappresentare lo spazio libero delle configurazioni \(C_{free}\), ovvero l'insieme di quei punti che per certo non fanno collidere il robot con un ostacolo, come un grafo, ovvero un insieme di nodi (rappresentati appunto la roadmap) connessi da archi. La posizione dei nodi é definita tramite il concetto di clearance, ovvero la funzione \[\gamma(q) = \min_{s\in\partial C_{free}} \begin{Vmatrix}q-s\end{Vmatrix}\] dove q é una generica configurazione in \(C_{free}\). La clearence é perciò una funzione che ha come valore in ogni configurazione \(q\) la distanza minima tra tutte le distanze da un qualunque punto di un ostacolo. Infatti, \(\partial C_{free}\) sarebbe la frontiera dello spazio di configurazione, ovvero il bordo degli ostacoli. \(C_{free}\) é formato da quelle configurazioni \(q\) tali per cui esiste più di un punto sulla frontiera \(\partial C_{free}\) con lo stesso valore \(\gamma(q)\). In altre parole, quei punti equidistanti (considerando la distanza minima) da più di un ostacolo. Il risultato é quello mostrato in figura \ref{voronoi}. Una volta calcolato il grafo, é sufficiente ritrarre i punti di start e goal sul grafo stesso e calcolare il percorso ottimale tra questi due attraverso un algoritmo di ricerca, ad esempio Djikstra.
 
 \paragraph{Decomposizione esatta in celle} In questa tecnica lo spazio delle configurazioni viene suddiviso in celle, come mostrato in figura \ref{celldecomp}. Ogni cella é delimitata inferiormente e superiormente da un ostacolo e ogni cella ha le seguenti due caratteristiche:
 \begin{itemize}
@@ -108,15 +116,21 @@ La breve descrizione dei metodi serviva anche a motivare la scelta dei potenzial
 
 Come da titolo, questa tesi ha come obiettivo specifico quello di esporre un lavoro di progettazione, implementazione e simulazione di un algoritmo di path planning \textbf{locale} basato su \textbf{potenziali artificiali alternati}. 
 
-\subsection{Formalizzazione del problema}
+\subsection{Formalizzazione del problema} \label{problema}
 
-Chiamerò \( r(t) = [x_r(t),y_r(t),\theta_r(t)]^T\) la posizione del robot nell'istante t e \( O_i(t) = [x_{O,i}(t),y_{O,i}(t)]^T, i = 1...N\) la posizione degli N ostacoli che, per scopi esemplificativi in fase di prototipazione dell'algoritmo, saranno di forma circolare e con raggio \(R_i\). Quest'ultima ipotesi non provoca una perdita di generalità, visto che per un ostacolo di forma generica si può considerare la sua circonferenza circoscritta. Esisterà inoltre un punto \(G = [G_x, G_y]\) che indica l'obiettivo del robot. Il problema consiste nel voler raggiungere il punto \(G\) dalla posizione iniziale \(r(0)\), tenendo conto degli \(N\) ostacoli in movimento. Il robot é dotato di un raggio di visione di \(R_v\) metri, entro il quale é capace di rilevare un ostacolo. Inoltre, si presuppone che valga la seguente condizione
+Chiamerò \( r(t) = [x_r(t),y_r(t),\theta_r(t)]^T\) la posizione del robot nell'istante t (per semplicità di notazione, ove necessario, si ometterà la dipendenza dal tempo nelle formule) e \( O_i(t) = [x_{O,i}(t),y_{O,i}(t)]^T, i = 1...N\) la posizione degli N ostacoli che, per scopi esemplificativi in fase di prototipazione dell'algoritmo, saranno di forma circolare e con raggio \(R_i\). Quest'ultima ipotesi non provoca una perdita di generalità, visto che per un ostacolo di forma generica si può considerare la sua circonferenza circoscritta. Esisterà inoltre un punto \(G = [G_x, G_y]\) che indica l'obiettivo del robot. Il problema consiste nel voler raggiungere il punto \(G\) dalla posizione iniziale \(r(0)\), tenendo conto degli \(N\) ostacoli in movimento. Il robot é dotato di un raggio di visione di \(R_v\) metri, entro il quale é capace di rilevare un ostacolo. Inoltre, si presuppone che valga la seguente condizione
 \[\begin{Vmatrix}\begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix} - O_j(t)\end{Vmatrix} \leq R_v \], ovvero \( R_i \leq R_v, \forall i\). Ciò vuol dire che nel momento in cui il robot incontra un ostacolo, il centro di quest'ultimo é incluso in \(R_v\). \newpage
 
 \section{Potenziali artificiali}
 
+Metodo introdotto per la prima volta negli anni 90 da Oussama Khatib, é tanto semplice quanto efficace per risolvere il problema del path planning. Si differenzia dai metodi precedentemente menzionati per il fatto che la traiettoria non viene costruita "attivamente", nel senso che non vengono definiti dei punti di passaggio che formano una traiettoria ottimale. Piuttosto quello che si fa é, mediante l'interazione con i cosiddetti potenziali artificiali, cercare una configurazione ottimale. Quindi, la traiettoria viene costruita mentre il robot si muove, motivo per cui é un metodo adatto al path planning locale.
+
 \subsection{Metodo classico}
-Tradizionalmente, nel path planning basato su potenziali artificiali il robot viene fatto muovere mediante una funzione in due variabili, ovvero un potenziale scalare, che nasce dalla somma di due potenziali: attrattivo e repulsivo. Questi due potenziali sono chiamati artificiali perché generano una forza che guida il robot in ogni sua configurazione \( r(t)\), nonostante nella realtà non vi sia nessuna sorgente a generare quella forza. Nello specifico, la forza generata dal potenziale é il suo antigradiente, ovvero il gradiente cambiato di segno, che indica al robot la direzione di moto localmente più promettente\cite{oriolo}, cioè verso il punto di minimo della funzione. Di conseguenza il potenziale attrattivo assume una forma tale da avere un unico punto di minimo posizionato proprio nel punto di arrivo, mentre il repulsivo ha un unico punto di massimo corrispondente alla posizione dell'ostacolo. 
+Tradizionalmente, nel path planning basato su potenziali artificiali il robot viene fatto muovere mediante una funzione in due variabili, ovvero un potenziale scalare, che nasce dalla somma di due potenziali: attrattivo e repulsivo. Questi due potenziali sono chiamati artificiali perché generano una forza che guida il robot in ogni sua configurazione \(r\), nonostante nella realtà non vi sia nessuna sorgente a generare quella forza. Nello specifico, la forza generata dal potenziale é il suo antigradiente, ovvero il gradiente cambiato di segno, che indica al robot la direzione di moto localmente più promettente\cite{oriolo}, cioè verso il punto di minimo della funzione. Di conseguenza il potenziale attrattivo assume una forma tale da avere un unico punto di minimo posizionato proprio nel punto di arrivo, mentre il repulsivo ha un unico punto di massimo corrispondente alla posizione dell'ostacolo. Nello specifico, ciò é di solito realizzato grazie alla funzione della configurazione del robot
+\begin{equation}
+e(r) = G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}
+\end{equation}
+che misura l'errore tra la posizione del robot e il goal. L'idea dietro al potenziale attrattivo é di generare una funzione che sia direttamente proporzionale a \(e(r)\), e quindi assuma valori elevati lontano dal goal e valori bassi vicino al goal, creando così un punto di minimo nel goal stesso.
 
 \begin{description}
 \item[Il potenziale attrattivo] ha di solito la forma mostrata in figura \ref{potA}, in cui il punto di minimo, ovvero il goal, ha coordinate \([1,1.5]\).
@@ -127,10 +141,10 @@ Tradizionalmente, nel path planning basato su potenziali artificiali il robot vi
 \label{potA}
 \end{figure}
 
-a cui corrisponde la funzione 
+La funzione corrispondente é
 
 \begin{equation}
-U_a(r(t),G) = \frac{1}{2} \begin{Vmatrix}G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}^2
+U_{a1}(r,G) = \frac{1}{2} \cdot k_1 ||e(r)||^2
 \end{equation}
 
 Il suo antigradiente di conseguenza é formato da tanti vettori che, con un'intensità proporzionale alla distanza dal goal, puntano verso quest'ultimo.
@@ -139,13 +153,45 @@ Il suo antigradiente di conseguenza é formato da tanti vettori che, con un'inte
 \caption{Antigradiente del potenziale attrattivo}
 \label{antigradA}
 \includegraphics[width=0.6\textwidth]{antigradA.png}
-\end{figure} e matematicamente si esprime come il vettore delle derivate parziali (del potenziale) cambiato di segno, ovvero 
-
+\end{figure} 
+Matematicamente si esprime come il vettore delle derivate parziali (del potenziale) cambiato di segno, ovvero 
 \begin{equation}
--\nabla U_a(r(t),G) = \begin{Vmatrix}G - \begin{bmatrix} x_r(t)\\ y_r(t) \end{bmatrix}\end{Vmatrix}
+-\nabla U_{a1}(r,G) = k_1 e(r)
+\end{equation}
+Perciò, la forza esercitata dal potenziale sul robot punta verso il goal e converge a zero quando la configurazione \(r(t)\) tende alla destinazione \(G\), esprimendo difatti un errore lineare tra goal e posizione del robot.\\
+Oltre al potenziale paraboloide si può optare anche per un potenziale conico 
+\begin{equation}
+U_{a2}(r,G) = k_2||e(r)||
+\end{equation}
+e, come si può anche vedere in figura \ref{potACon}, la riduzione dell'errore all'avvicinarsi del robot al goal non é più quadratica, ma lineare. Da ciò scaturisce un comportamento più "smooth" lontano dal goal (la velocità é meno elevata rispetto al potenziale paraboloide). Tuttavia, vicino al goal é conveniente usare quest'ultimo, per raggiungere la posizione esatta con minore velocità, il che conferisce più precisione al movimento del robot. 
+\begin{figure}[H]
+\centering
+\caption{Potenziale attrattivo}
+\includegraphics[width=0.8\textwidth]{potACon.png}
+\label{potA}
+\end{figure}
+L'antigradiente del potenziale conico ha la seguente espressione
+\begin{equation}
+-\nabla U_a(r,G) = k_2\frac{e(r)}{||e(r)||}
 \end{equation}
 
-Perciò, la forza esercitata dal potenziale sul robot punta verso il goal e converge a zero quando la configurazione \(r(t)\) tende alla destinazione \(G\), esprimendo difatti un errore lineare tra goal e posizione del robot. 
+L'idea é quella di stabilire una soglia per la funzione errore oltre (e su) la quale, avvicinandosi al goal, il potenziale attrattivo sarà di forma paraboloide. 
+Dunque il potenziale attrattivo finale sarà del tipo
+\begin{equation}
+U_a(r) = 
+\begin{cases}
+\frac{1}{2} \cdot k_1 ||e(r)||^2 \quad &||e(r)|| \leq \rho \\
+k_2||e(r)|| \quad &||e(r)|| > \rho
+\end{cases}
+\end{equation}
+
+dove \(\rho\) é la soglia.  Gli scalari k e la soglia andranno scelti in maniera tale da garantire continuità nel passaggio da un potenziale attrattivo all'altro. In particolare deve valere che la velocità imposta dall'antigradiente al robot proprio nel punto di soglia deve essere la stessa per entrambi i potenziali, ovvero
+\[k_1 \cdot e(r) = k_2 \cdot \frac{e(r)}{||e(r)||} \Leftarrow ||e(r)|| = \rho\]
+da cui segue che 
+\begin{equation}
+\label{parconswitch}
+k_1 \cdot \rho = k_2 
+\end{equation}
 
 \item[Il potenziale repulsivo] ha una forma duale a quello attrattivo, come mostrato in figura \ref{potR}. Esso impone che entro uno distanza \(\eta\) dall'ostacolo per il quale lo si sta calcolando, la sua funzione avrà valore inversamente proporzionale alla distanza dall'ostacolo stesso. Praticamente, più ci si avvicina all'ostacolo entro una certa soglia \(\eta\), più l'intensità del potenziale artificiale, perciò anche della forza generata da esso, aumenta.
 
@@ -195,7 +241,7 @@ In figura \ref{pot} si vede un possibile percorso del robot per arrivare dal pun
 \includegraphics[width=0.7\textwidth]{pot.png}
 \end{figure}
 
-Tuttavia, vi sono delle non-idealità legate a questo approccio. Ad esempio, la traiettoria potrebbe non essere continua. Il potenziale repulsivo non é "coordinato" con quello attrattivo, perciò il robot potrebbe ricevere comandi che causerebbero un cambio di direzione o di velocità troppo repentino che andrebbe gestito dalla legge di controllo o un modulo di pianificazione apposito. Questa osservazione verrà trattata nel capitolo riguardante l'algoritmo di navigazione. \\
+Tuttavia, nonostante la sua semplicità ed efficacia, vi sono delle non-idealità legate a questo approccio. Ad esempio, la traiettoria potrebbe non essere continua. Il potenziale repulsivo non é "coordinato" con quello attrattivo, perciò il robot potrebbe ricevere comandi che causerebbero un cambio di direzione o di velocità troppo repentino che andrebbe gestito dalla legge di controllo o un modulo di pianificazione apposito. Questa osservazione verrà trattata nel capitolo riguardante l'algoritmo di navigazione. \\
 Altro problema da considerare é il fatto che il robot viene "passivamente" spinto via dagli ostacoli senza la certezza che venga portato in una posa in cui può effettivamente evitare con successo l'ostacolo.\\
 Ma il più importante, sicuramente, é il problema dei minimi locali: il robot non ha alcuna informazione su come uscirne, né può prevederli in anticipo. I minimi locali sono dei punti ad antigradiente nullo (i gradiente del potenziale attrattivo e repulsivo possono annullarsi a vicenda), dove il robot non ha nessuna forza a guidarlo verso il goal, situazione che dovrebbe verificarsi soltanto nel punto di goal stesso. In figura \ref{minloc} viene mostrato il percorso simulato di un robot in presenza di un minimo locale nel potenziale artificiale. Il robot parte dalla posizione \(r(0) = [5,0]\) mentre il goal si trova in posizione \(G = [5,10]\). Gli ostacoli sono posizionati tra il robot e il goal ad una distanza tale da causare un annullamento del gradiente (quindi il minimo locale) proprio a metà tra i due, lì dove il robot cerca di passare. La traiettoria del robot, infatti, si ferma nel minimo locale: non viene spinto da nessuna forza e "crede" di essere arrivato nel punto di goal.
 \begin{figure}[H]
@@ -276,31 +322,28 @@ La strategia é semplice: nella posizione iniziale, il robot sonda l'ambiente at
 \begin{figure}[H]
 \caption{Flowchart Diagram} \label{flow}
 \centering
-\includegraphics[width=0.8\textwidth]{flowchart.png}
+\includegraphics[width=\textwidth]{flowchart.png}
 \end{figure}
 
 \subsection{Considerazioni implementative}
 
-%Figura class-diagram
+Figura class-diagram\\
+Modularizzazione \\
+Discretizzazione \\
 
-%Modularizzazione
-
-%Discretizzazione
-
-\paragraph{Costruzione dell'ambiente}
+\subsection{Costruzione dell'ambiente}
 Come viene costruito l'ambiente (grid)\newpage
 
 \subsection{Azione}
-Questo modulo riceve un comando dal modulo di pianificazione, ovvero l'antigradiente da seguire. Il suo compito é quello di inoltrare il comando agli attuatori a basso livello (i motori).
-
-\subsubsection{Modello cinematico}
-Si é ipotizzato in questa tesi di usare un modello cinematico anolonomo di tipo differential drive. 
-\begin{figure}[H]
+Questo modulo riceve un comando dal modulo di pianificazione, ovvero l'antigradiente da seguire. Il suo compito é quello di inoltrare il comando agli attuatori a basso livello (i motori). La classe Act, riferita al modulo di azione, é riportata nel code listing \ref{act}. L'interfaccia che la classe offre all'esterno é costituita dal solo metodo commands. Tale metodo riceve in input la posizione del robot, la misura dell'intervallo di campionamento e la direttiva (proveniente dal modulo di pianificazione) in una struct, ovvero una struttura dati di MATLAB che può contenere dati di diverso tipo. Si é optato per lo struct siccome MATLAB non é staticamente tipizzato, caso in cui sarebbe stato conveniente usare un tipo generico che implementasse un'interfaccia in accordo alle funzionalità offerte da un oggetto che incapsula delle direttive provenienti dal modulo di pianificazione. In ogni caso, é compito poi della classe Act quello di "spacchettare" le informazioni di interesse dal dato contenente le direttive (in questo caso l'antigradiente da seguire all'istante attuale). In uscita, il metodo commands restituisce le due velocità (lineare e angolare), che vengono poi convertite in altre due velocità (\((w_R\) e \(w_L)\) che sono gli effetti comandi da attribuire ai motori che fanno girare le due ruote. Un metodo di cui la classe fa uso é coord2index (si trova nella classe grid): riceve in input la posizione \([r_x(t) r_y(t)\) del robot e restituisce in output una coppia di indici per accedere alla cella della matrice corrispondente alla posizione.
+\begin{figure}[h]
 \centering
 \caption{Modello Differential-Drive \cite{toolbox}} \label{dd}
 \includegraphics[width=0.8\textwidth]{DD.png}
 \end{figure}
-Il fatto che sia anolonomo vuol dire che obbedisce ad un vincolo sulla velocitá e non sulla posizione, ovvero \[\theta(t) = \arctan \left( \frac{\dot{y}(t)}{\dot{x}(t)} \right) \] Praticamente, al robot é impossibile muoversi in ogni direzione con la stessa velocità; per mantenerla, deve continuare a mantenere il suo orientamento invariato. Le equazioni differenziali che modellano un generale robot che obbedisce a vincolo anolonomo é
+
+\subsubsection{Modello cinematico}
+Si é ipotizzato in questa tesi di usare un modello cinematico anolonomo di tipo differential drive. Il fatto che sia anolonomo vuol dire che obbedisce ad un vincolo sulla velocitá e non sulla posizione, ovvero \[\theta(t) = \arctan \left( \frac{\dot{y}(t)}{\dot{x}(t)} \right) \] Praticamente, al robot é impossibile muoversi in ogni direzione con la stessa velocità; per mantenerla, deve continuare a mantenere il suo orientamento invariato. Le equazioni differenziali che modellano un generale robot che obbedisce a vincolo anolonomo é
 \begin{equation}
 \label{anolomeq}
 \begin{cases}
@@ -377,18 +420,57 @@ v(t) = M_v \cos(\theta_{\nabla}(t) - \theta_r(t))
 
 Una volta calcolate le velocità di riferimento \(v(t)\) e \(\omega(t)\), basta applicare la relazione \ref{wrwl} per avere le velocitá di riferimento relative alle due ruote del differential drive, ottenendo cosí i comandi da impartire agli attuatori del robot.
 
-\subsubsection{Codice MATLAB}
-Le funzionalità legate al modulo in esame sono tutte racchiuse nella classe Act, riportata nel code listing \ref{act}. 
 
 \subsection{Pianificazione}
-Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati dai sensori e in base a ciò decide a quale potenziale il robot deve fare riferimento, informazione che sarà inoltrata al modulo di azione. Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente il modulo di pianificazione é lo statechart diagram in figura \ref{state}. Il robot può trovarsi o nello stato corrispondente al potenziale attrattivo, oppure in quello relativo al potenziale bypassante.
+Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati dai sensori e in base a ciò decide a quale potenziale il robot deve fare riferimento, inoltrando successivamente la decisione al modulo di azione. 
+\begin{nota}
+\textbf{Nota} \\ Il modulo di pianificazione, argomento principe della tesi, é stato sviluppato indipendentemente dagli altri. Cioè, come preannunciato nella sezione \ref{problema}, si presuppone che il robot conosca in ogni istante la propria posizione e quella degli ostacoli all'interno del raggio di visione, come anche le loro velocità. Tale ipotesi semplificativa non provoca una perdita di generalità, grazie soprattutto al fatto che il software é stato progettato per essere modulare e con basso accoppiamento. Si parlerà meglio di questo aspetto nella sezione riguardante il modulo di visione.
+\end{nota}
+Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente il pianificatore é sicuramente uno statechart diagram, come riportato in figura \ref{state}. Il robot può trovarsi, in una logica aut aut, nello stato corrispondente al potenziale attrattivo oppure in quello relativo al potenziale bypassante.
 
 \begin{figure}[H]
 \caption{Statechart Diagram} \label{state}
 \includegraphics[width=\textwidth]{statechart.png}
 \end{figure}
 
-%Metodo decide 
+Lo stato iniziale del robot é quello attrattivo, conseguente all'imposizione del goal e il calcolo del potenziale attrattivo. Come discusso nel capitolo sui potenziali artificiali, il potenziale attrattivo sarà conico fino a che \(e(r) > 1\). Queste operazioni preliminari avvengono nel costruttore della classe SwitchingPlan, erede della classe astratta Plan. Le funzionalità pubbliche offerte da quest'ultima sono costituite dal solo metodo decide, il quale riceve in input la posa del robot e l'ostacolo rilevato e in output non restituisce nulla, ma fa delle modifiche interne all'oggetto di tipo SwitchingPlan. Nello specifico, il campo che all'esterno della classe verrà usato (in particolare dalla classe Act) é directive. Nel caso di SwitchingPlan contiene l'antigradiente da seguire ad ogni istante di campionamento (iterazione). La logica dello statechart é tutta in questo metodo : ad ogni chiamata il robot si trova a decidere se restare nello stato in cui trova, oppure switchare. Innanzitutto avviene un controllo sulla distanza dal goal per controllare se va impostato come potenziale attrattivo quello paraboloide invece di quello, attivo per default, conico.
+\begin{lstlisting}
+if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
+	obj.agradX = obj.grid.goal(1)-obj.grid.X;
+	obj.agradY = obj.grid.goal(2)-obj.grid.Y;
+	obj.setGrad(obj.agradX,obj.agradY);
+end
+\end{lstlisting}
+Successivamente si controlla se il robot ha rilevato un ostacolo mentre si trova a seguire il potenziale attrattivo - ci troviamo, perció, in questo primo caso nello stato sulla sinistra dello statechart - e se così é, bisogna settare lo stato del pianificatore su bypassing e fare le dovute modifiche ai campi responsabili per il bypassing; ciò avviene nel metodo bypass, a cui serve soltanto l'ostacolo rilevato e la posa del robot. Il metodo bypass verrà approfondito successivamente.
+\begin{lstlisting}
+if obj.state == State.attractive && ~isempty(dObstacle)
+	obj = obj.bypass(dObstacle,pose);
+	obj.state = State.bypassing;
+	obj.obstacle = [dObstacle.xc dObstacle.yc];
+	return;
+end
+\end{lstlisting}
+La seconda possibilità é che il robot si trovi a bypassare un ostacolo. 
+\begin{lstlisting}
+if obj.state == State.bypassing
+	%Controllo se l'ostacolo rilevato e' diverso
+	%da quello che sto bypassando
+	dO = obj.checkIfSame(dObstacle);
+	if ~isempty(dO)
+		obj = obj.bypass(dO,pose);
+		return;
+	end
+	if norm([rx ry] - obj.P1) < 0.1
+		obj = obj.setGrad(obj.gradXO,obj.gradYO);
+		return;
+	end
+	if norm([rx ry] - obj.P2) < 0.1
+		obj = obj.setGrad(obj.agradX,obj.agradY);
+		obj.state = State.attractive;
+		return;
+	end
+end
+\end{lstlisting}
 
 %Caso Attrattivo (modificare statechart)
 	%Sono vicino al goal? --> Devo cambiare il potenziale
@@ -403,7 +485,7 @@ Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati
 
 \subsection{Percezione}
 %Come vengono percepiti gli ostacoli e le loro velocità
-%Come viene percepita la propria posizione (localizzazion)
+%Come viene percepita la propria posizione (localizzazione)
 
 \section{Simulazione}
 
@@ -422,15 +504,57 @@ Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati
 
 \newpage
 
+%%Modulo responsabile per il robot
+%\begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il Robot, label={robot1},language=Matlab, lastline=80]{"../OOP/Robot.m"}
+%\end{adjustbox}
+%\newpage
+%\begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il Robot, label={robot2},language=Matlab, firstline=81]{"../OOP/Robot.m"}
+%\end{adjustbox}
+
+%%Modulo responsabile per l'ostacolo
+%\begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per l'ostacolo, label={robot1},language=Matlab]{"../OOP/Obstacle.m"}
+%\end{adjustbox}
+
+%%Modulo di azione
 \begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
 \lstinputlisting[caption=Classe per il modulo di Azione, label={act},language=Matlab]{"../OOP/Act.m"}
 \end{adjustbox}
 
+%%Modulo di pianificazione
+%\begin{adjustbox}{bgcolor=backcolour}
+%\lstinputlisting[caption=Classe astratta per il modulo di Planning, label={plan},language=Matlab]{"../OOP/Plan.m"}
+%\end{adjustbox} \vfill
+%\begin{adjustbox}{width=\textwidth ,bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il modulo di Planning, label={plan1},language=Matlab,lastline=27]{"../OOP/SwitchingPlan.m"}
+%\end{adjustbox}
+%\newpage
+%\begin{adjustbox}{width=\textwidth ,bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il modulo di Planning, label={plan2},language=Matlab,firstline=28,lastline=97]{"../OOP/SwitchingPlan.m"}
+%\end{adjustbox}
+%\newpage
+%\begin{adjustbox}{width=\textwidth ,bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il modulo di Planning, label={plan3},language=Matlab,firstline=98,lastline=167]{"../OOP/SwitchingPlan.m"}
+%\end{adjustbox}
+%\newpage
+%\begin{adjustbox}{width=\textwidth ,bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il modulo di Planning, label={plan4},language=Matlab,firstline=164]{"../OOP/SwitchingPlan.m"}
+%\end{adjustbox}
+%
+%
+%%Modulo di percezione
+%\begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il modulo di Percezione (Prima parte), label={sense1},language=Matlab, lastline=63]{"../OOP/Sense.m"}
+%\end{adjustbox}
+%\newpage
+%\begin{adjustbox}{width=\textwidth , bgcolor=backcolour}
+%\lstinputlisting[caption=Classe per il modulo di Percezione (Seconda parte), label={sense2},language=Matlab, firstline=64]{"../OOP/Sense.m"}
+%\end{adjustbox}
+
+%\newpage \lstlistoflistings 
 \listoffigures
-\lstlistoflistings
-
-\newpage
-
-\printbibliography
+\newpage\printbibliography
 
 \end{document}

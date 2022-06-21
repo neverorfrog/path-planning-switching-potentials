@@ -13,6 +13,6 @@ classdef Plan < handle
     end
     
     methods(Abstract)
-        obj = decide(obj)
+        obj = decide(obj,pose,dObstacle)
     end
 end
