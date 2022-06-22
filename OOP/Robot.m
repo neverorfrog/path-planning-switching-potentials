@@ -34,6 +34,11 @@ classdef (Abstract) Robot < handle
             pose(3) = obj.theta;
         end
         
+        function initializeFigure(obj)
+            figure(1); axis equal; axis([0 obj.grid.width 0 obj.grid.width]); axis manual; hold on;
+            plot(obj.grid.goal(1),obj.grid.goal(2),"og","linewidth",2);
+        end
+        
         %% Graphic representation of the robot
         function draw(obj)
             if obj.shape == "triangular"
@@ -65,40 +70,24 @@ classdef (Abstract) Robot < handle
                 %New directive
                 obj.plan.decide(obj,dObstacle);
                 %Giving the command to the actuators
-                obj.move(tspan);
+                [obj.xc,obj.yc,obj.theta] = obj.act.move(obj,tspan);
                 %Plotting
                 obj.draw();
                 %Moving obstacles
                 obj.grid.moveObstacles(tspan);
-                %Refreshing error
+                %Refreshing the error
                 e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + tspan; pause(0);
                 %Creazione sequenza png della figura
                 %samples = samples + 1; obj.pngSequence(samples);
             end
         end
         
-        function initializeFigure(obj)
-            figure(1); axis equal; axis([0 obj.grid.width 0 obj.grid.width]); axis manual; hold on;
-            plot(obj.grid.goal(1),obj.grid.goal(2),"og","linewidth",2);
-        end
-        
-        %% Actuator interface
-        function obj = move(obj,tspan)
-            rx = obj.xc;
-            ry = obj.yc;
-            rtheta = obj.theta;
-            [vr,wr] = obj.act.commands(rx,ry,rtheta,tspan,obj);
-            Xdot = obj.act.ode(vr,wr,rtheta,obj.R,obj.L);
-            
-            rx2 = rx + tspan/2*Xdot(1);
-            ry2 = ry + tspan/2*Xdot(2);
-            rtheta2 = rtheta + tspan/2*Xdot(3);
-            [vr,wr] = obj.act.commands(rx2,ry2,rtheta2,tspan,obj);
-            Xdot = obj.act.ode(vr,wr,rtheta2,obj.R,obj.L);
-            
-            obj.xc = rx + tspan*Xdot(1);
-            obj.yc = ry + tspan*Xdot(2);
-            obj.theta = rtheta + tspan*Xdot(3);
+        function [Xdot,wRwL] = ode(obj,vr,wr)
+            %K rende possibile esprimere vr e wr in funzione delle
+            %due velocita impresse alle ruote
+            K = [obj.R/2 obj.R/2 ; obj.R/obj.L -obj.R/obj.L];
+            wRwL = K \ [vr ; wr];
+            Xdot = ([cos(obj.theta) 0 ; sin(obj.theta) 0 ; 0 1] * K * wRwL);
         end
     end
     

@@ -1,26 +1,6 @@
 classdef Act < handle
     
     methods
-        
-        %% Actuator interface
-        function [xc,yc,theta] = move(obj,robot,tspan)
-            rx = robot.xc;
-            ry = robot.yc;
-            rtheta = robot.theta;
-            [vr,wr] = obj.commands(rx,ry,rtheta,tspan,robot);
-            Xdot = robot.ode(vr,wr);
-            
-            rx2 = rx + tspan/2*Xdot(1);
-            ry2 = ry + tspan/2*Xdot(2);
-            rtheta2 = rtheta + tspan/2*Xdot(3);
-            [vr,wr] = obj.commands(rx2,ry2,rtheta2,tspan,robot);
-            Xdot = robot.ode(vr,wr);
-            
-            xc = rx + tspan*Xdot(1);
-            yc = ry + tspan*Xdot(2);
-            theta = rtheta + tspan*Xdot(3);
-        end
-        
         %% Metodo che genera velocita lineare e angolare per il robot
         function [vr,wr] = commands(~,rx,ry,rtheta,tspan,robot)
             grid = robot.grid; directive = robot.plan.directive;
@@ -43,6 +23,34 @@ classdef Act < handle
             Kw = (thetaDdot + Kc * abs(thetaDiff)^v * ...
                 sign(thetaDiff))/(thetaDiff+eps);
             wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);
+        end
+        
+        %% Actuator interface
+        function obj = move(obj,robot,tspan)
+            rx = obj.xc;
+            ry = obj.yc;
+            rtheta = obj.theta;
+            [vr,wr] = obj.act.commands(rx,ry,rtheta,tspan,obj);
+            Xdot = robot.ode(vr,wr,rtheta,ob);
+            
+            rx2 = rx + tspan/2*Xdot(1);
+            ry2 = ry + tspan/2*Xdot(2);
+            rtheta2 = rtheta + tspan/2*Xdot(3);
+            [vr,wr] = obj.act.commands(rx2,ry2,rtheta2,tspan,obj);
+            Xdot = obj.act.ode(vr,wr,rtheta2,obj.R,obj.L);
+            
+            obj.xc = rx + tspan*Xdot(1);
+            obj.yc = ry + tspan*Xdot(2);
+            obj.theta = rtheta + tspan*Xdot(3);
+        end
+        
+        
+        function [Xdot,wRwL] = ode(~,vr,wr,theta,R,L)
+            %K rende possibile esprimere vr e wr in funzione delle
+            %due velocita impresse alle ruote
+            K = [R/2 R/2 ; R/L -R/L];
+            wRwL = K \ [vr ; wr];
+            Xdot = ([cos(theta) 0 ; sin(theta) 0 ; 0 1] * K * wRwL);
         end
     end
 end
