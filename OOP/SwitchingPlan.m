@@ -5,10 +5,9 @@ classdef SwitchingPlan < Plan
         gradXO; gradYO; %the bypassing potential of the detected obstacle at time tau
         P1; %punto in cui si passa dal bypassante virtuale a quello reale
         P2; %punto in cui si passa dal bypassante all'attrattivo
-        
-        state;
-        obstacle;
-        paraboloidal;
+        state; %stato (puó essere attrattivo o bypassante)
+        obstacle; %ostacolo che sta per essere bypassato
+        paraboloidal; %booleano che indica se siamo giá passati al potenziale paraboloide
     end
     
     methods
@@ -113,8 +112,8 @@ classdef SwitchingPlan < Plan
             %3. Scelta del verso di bypass dell'ostacolo reale
             oSense = obj.chooseSense(dO,pose); %dO = detected obstacle
             %4. Decido quale circonferenza va bene per il verso di bypass
-            if (abs(norm(xOmega)) > 0.01 && sign(xOmega(1)) == sign(xOmega(2))) ... 
-                    || (abs(norm(yOmega)) > 0.01 && sign(yOmega(1)) == sign(yOmega(2)))
+            if (abs(norm(xOmega))>0.01 && sign(xOmega(1))==sign(xOmega(2))) ... 
+                    || (abs(norm(yOmega))>0.01 && sign(yOmega(1))==sign(yOmega(2)))
                 [~,indiceC] = min(d);
             else %Non ho due circonferenze dallo stesso lato
                 if oSense == "clock" %voglio la circonferenza sinistra
