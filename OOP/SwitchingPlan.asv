@@ -3,11 +3,12 @@ classdef SwitchingPlan < Plan
     properties
         agradX; agradY; % the attractive potential every time
         gradXO; gradYO; %the bypassing potential of the detected obstacle at time tau
-        P1; %punto in cui si passa dal bypassante virtuale a quello reale
-        P2; %punto in cui si passa dal bypassante all'attrattivo
+        P1;
+        P2; solxp2; solyp2;
         
         state;
         obstacle;
+        
         paraboloidal;
     end
     
@@ -20,6 +21,8 @@ classdef SwitchingPlan < Plan
             di = sqrt((grid.goal(1)-grid.X).^2 + (grid.goal(2)-grid.Y).^2);
             obj.agradX = (grid.goal(1)-grid.X)./di; obj.agradY = (grid.goal(2)-grid.Y)./di;
             obj.setGrad(obj.agradX,obj.agradY); 
+            %Risoluzione equazione per P2
+            [obj.solxp2 , obj.solyp2] = calcoloP2();
         end
         
         %% Genera la direttiva
@@ -107,7 +110,10 @@ classdef SwitchingPlan < Plan
             angdiff = abs(atan2(sin(thetao0-thetar),cos(thetao0-thetar)));
             h = (dist+1+(angdiff/pi))/3;
             %2. Calcolo delle due circonferenze papabili per l'ostacolo virtuale
-            load yOmega; yOmega = double(subs(yOmega(:)));
+            yOmega(1) = ((- h^2 + xo^2 + yo^2)*(m*xo - yo + h*(m^2 + 1)^(1/2)))...
+                /(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
+            yOmega(2) = -((-h^2 + xo^2 + yo^2)*(yo - m*xo + h*(m^2 + 1)^(1/2)))...
+                /(2*h^2*m^2 + 2*h^2 - 2*m^2*xo^2 + 4*m*xo*yo - 2*yo^2);
             xOmega = -m*yOmega;
             d = double(sqrt(xOmega.^2 + yOmega.^2));
             %3. Scelta del verso di bypass dell'ostacolo reale
@@ -142,7 +148,7 @@ classdef SwitchingPlan < Plan
             load xp2yp2;
             obj.P2 = double(subs(solxp2(indiceP2)));
             syms xp2; xp2 = obj.P2(1);
-            obj.P2(2) = double(subs(solyp2(indiceP2)));
+            obj.P2(2) = double(subs(obj.solyp2(indiceP2)));
             j = obj.grid.coord2index(obj.P2);
             %9. Infine calcolo gli antigradienti nell'ostacolo reale e virtuale
             cO = norm([obj.agradX(j(1),j(2)) obj.agradY(j(1),j(2))])*h;
