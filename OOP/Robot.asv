@@ -60,8 +60,10 @@ classdef (Abstract) Robot < handle
             tspan = 0.05; tsim = 0; samples = 0;
             %Starting simulation
             while(e > 0.1 && tsim < 20)
+                %Current pose
+                pose = [obj.xc obj.yc obj.theta];
                 %Sensed obstacle (empty array if nothing was sensed)
-                dObstacle = obj.sense.scan(obj);
+                dObstacle = obj.sense.scan(pose,obj.rv);
                 %New directive
                 obj.plan.decide(obj,dObstacle);
                 %Giving the command to the actuators
@@ -87,13 +89,13 @@ classdef (Abstract) Robot < handle
             rx = obj.xc;
             ry = obj.yc;
             rtheta = obj.theta;
-            [vr,wr] = obj.act.commands(rx,ry,rtheta,tspan,obj);
+            [vr,wr] = obj.act.commands(rx,ry,rtheta,tspan,obj.plan.directive);
             Xdot = obj.act.ode(vr,wr,rtheta,obj.R,obj.L);
             
             rx2 = rx + tspan/2*Xdot(1);
             ry2 = ry + tspan/2*Xdot(2);
             rtheta2 = rtheta + tspan/2*Xdot(3);
-            [vr,wr] = obj.act.commands(rx2,ry2,rtheta2,tspan,obj);
+            [vr,wr] = obj.act.commands(rx2,ry2,rtheta2,tspan,obj.plan.directive);
             Xdot = obj.act.ode(vr,wr,rtheta2,obj.R,obj.L);
             
             obj.xc = rx + tspan*Xdot(1);

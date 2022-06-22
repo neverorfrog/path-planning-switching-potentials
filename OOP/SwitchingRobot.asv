@@ -1,15 +1,14 @@
 classdef SwitchingRobot < Robot
     
     properties
-        act = Act();
-        sense = Sense();
-        plan = SwitchingPlan();
+        act = Act(obj);
+        sense = Sense(grid);
+        plan = SwitchingPlan(grid);
     end
         
     methods
         function obj = SwitchingRobot(R,L,grid)
             obj@Robot(R,L,grid);
-            obj.plan.inizializza(grid);
         end
         
         function pngSequence(~,samples)

@@ -1,5 +1,4 @@
-classdef Plan < handle
-    
+classdef (Abstract) Plan < handle
     
     properties
         directive;
@@ -7,12 +6,12 @@ classdef Plan < handle
     end
     
     methods
-        function obj = Plan(grid)
+        function obj = setGrid(grid)
             obj.grid = grid;
         end
     end
     
     methods(Abstract)
-        obj = decide(obj,pose,dObstacle)
+        obj = decide(robot,dObstacle);
     end
 end

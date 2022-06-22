@@ -1,23 +1,16 @@
 classdef Sense
-    properties
-        grid;
-    end
     
     methods
-        function obj = Sense(grid)
-            obj.grid = grid;
-        end
-        
         %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
-        function dObstacle = scan(obj,pose,rv)
-            rx = pose(1); ry = pose(2);
-            n = length(obj.grid.obstacles);
+        function dObstacle = scan(obj,robot)
+            rx = robot.xc; ry = robot.yc; rv = robot.rv;
+            n = length(robot.grid.obstacles);
             distances = zeros(1,n) + inf;
             dObstacles = cell(1,n);
             for j = 1 : n
-                o = obj.grid.obstacles(j);
+                o = robot.grid.obstacles(j);
                 distance = norm([rx ry] - [o.xc o.yc]);
-                if distance <= rv && obj.tube(pose,o)
+                if distance <= rv && obj.tube(robot,o)
                     dObstacles{j} = o;
                     distances(j) = distance;
                 end
@@ -28,9 +21,10 @@ classdef Sense
         end
         
         %% Method that builds the tube T(t)
-        function result = tube(obj,pose,obstacle)
-            rx = pose(1); ry = pose(2);
-            G = obj.grid.goal;
+        function result = tube(~,robot,obstacle)
+            pose = robot.getPose(); rx = pose(1); ry = pose(2);
+            grid = robot.grid;
+            G = grid.goal;
             
             rm = 3.5;
             angle = atan2(G(2)-ry,G(1)-rx);
