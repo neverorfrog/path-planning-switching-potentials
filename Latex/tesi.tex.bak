@@ -33,7 +33,7 @@
 
 \addbibresource{bibliografia.bib}
 
-\title{Path planning locale per robot mobili \\ basato su potenziali artificiali alternati}
+\title{Path planning locale per robot mobili \\ basato su switching tra potenziali artificiali}
 \author{}
 \date{} 
 
@@ -424,7 +424,7 @@ Una volta calcolate le velocità di riferimento \(v(t)\) e \(\omega(t)\), basta 
 \subsection{Pianificazione}
 Il modulo di pianificazione riceve ad ogni iterazione in input i dati processati dai sensori e in base a ciò decide a quale potenziale il robot deve fare riferimento, inoltrando successivamente la decisione al modulo di azione. 
 \begin{nota}
-\textbf{Nota} \\ Il modulo di pianificazione, argomento principe della tesi, é stato sviluppato indipendentemente dagli altri. Cioè, come preannunciato nella sezione \ref{problema}, si presuppone che il robot conosca in ogni istante la propria posizione e quella degli ostacoli all'interno del raggio di visione, come anche le loro velocità. Tale ipotesi semplificativa non provoca una perdita di generalità, grazie soprattutto al fatto che il software é stato progettato per essere modulare e con basso accoppiamento. Si parlerà meglio di questo aspetto nella sezione riguardante il modulo di visione.
+\textbf{Nota implementativa} \\ Il modulo di pianificazione, argomento principe della tesi, é stato sviluppato indipendentemente dagli altri. Cioè, come preannunciato nella sezione \ref{problema}, si presuppone che il robot conosca in ogni istante la propria posizione e quella degli ostacoli all'interno del raggio di visione, come anche le loro velocità. Tale ipotesi semplificativa non provoca una perdita di generalità, grazie soprattutto al fatto che il software é stato progettato per essere modulare e con basso accoppiamento. Si parlerà meglio di questo aspetto nella sezione riguardante il modulo di visione.
 \end{nota}
 Data la struttura intrinseca della strategia di navigazione che si basa su un meccanismo di switching tra due stati, per definizione mutuamente esclusivi, un modo per modellare visivamente il pianificatore é sicuramente uno statechart diagram, come riportato in figura \ref{state}. Il robot può trovarsi, in una logica aut aut, nello stato corrispondente al potenziale attrattivo oppure in quello relativo al potenziale bypassante.
 
@@ -433,7 +433,7 @@ Data la struttura intrinseca della strategia di navigazione che si basa su un me
 \includegraphics[width=\textwidth]{statechart.png}
 \end{figure}
 
-Lo stato iniziale del robot é quello attrattivo, conseguente all'imposizione del goal e il calcolo del potenziale attrattivo. Come discusso nel capitolo sui potenziali artificiali, il potenziale attrattivo sarà conico fino a che \(e(r) > 1\). Queste operazioni preliminari avvengono nel costruttore della classe SwitchingPlan, erede della classe astratta Plan. Le funzionalità pubbliche offerte da quest'ultima sono costituite dal solo metodo decide, il quale riceve in input la posa del robot e l'ostacolo rilevato e in output non restituisce nulla, ma fa delle modifiche interne all'oggetto di tipo SwitchingPlan. Nello specifico, il campo che all'esterno della classe verrà usato (in particolare dalla classe Act) é directive. Nel caso di SwitchingPlan contiene l'antigradiente da seguire ad ogni istante di campionamento (iterazione). La logica dello statechart é tutta in questo metodo : ad ogni chiamata il robot si trova a decidere se restare nello stato in cui trova, oppure switchare. Innanzitutto avviene un controllo sulla distanza dal goal per controllare se va impostato come potenziale attrattivo quello paraboloide invece di quello, attivo per default, conico.
+Lo stato iniziale del robot é quello attrattivo, conseguente all'imposizione del goal e il calcolo del potenziale attrattivo. Come discusso nel capitolo sui potenziali artificiali, il potenziale attrattivo sarà conico fino a che \(e(r) > 1\). Queste operazioni preliminari avvengono nel costruttore della classe SwitchingPlan, erede della classe astratta Plan. Le funzionalità pubbliche offerte da quest'ultima sono costituite dal solo metodo decide, il quale riceve in input la posa del robot e l'ostacolo rilevato e in output non restituisce nulla, ma fa delle modifiche interne all'oggetto di tipo SwitchingPlan. Nello specifico, il campo che all'esterno della classe verrà usato (in particolare dalla classe Act) é directive. Nel caso di SwitchingPlan contiene l'antigradiente da seguire ad ogni istante di campionamento (iterazione). La logica dello statechart é tutta in questo metodo : ad ogni chiamata il robot si trova a decidere se restare nello stato in cui si trova, oppure switchare. Innanzitutto avviene un controllo sulla distanza dal goal per controllare se va impostato come potenziale attrattivo quello paraboloide invece di quello, attivo per default, conico.
 \begin{lstlisting}
 if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
 	obj.agradX = obj.grid.goal(1)-obj.grid.X;
@@ -441,7 +441,7 @@ if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
 	obj.setGrad(obj.agradX,obj.agradY);
 end
 \end{lstlisting}
-Successivamente si controlla se il robot ha rilevato un ostacolo mentre si trova a seguire il potenziale attrattivo - ci troviamo, perció, in questo primo caso nello stato sulla sinistra dello statechart - e se così é, bisogna settare lo stato del pianificatore su bypassing e fare le dovute modifiche ai campi responsabili per il bypassing; ciò avviene nel metodo bypass, a cui serve soltanto l'ostacolo rilevato e la posa del robot. Il metodo bypass verrà approfondito successivamente.
+Successivamente si controlla se il robot ha rilevato un ostacolo mentre si trova a seguire il potenziale attrattivo - ci troviamo, perció, in questo primo caso nello stato sulla sinistra dello statechart - e se così é, bisogna settare lo stato del pianificatore su bypassing e fare le dovute modifiche ai campi responsabili per il bypassing; ciò avviene nel metodo bypass, a cui serve in input soltanto l'ostacolo rilevato e la posa del robot. 
 \begin{lstlisting}
 if obj.state == State.attractive && ~isempty(dObstacle)
 	obj = obj.bypass(dObstacle,pose);
@@ -450,27 +450,38 @@ if obj.state == State.attractive && ~isempty(dObstacle)
 	return;
 end
 \end{lstlisting}
-La seconda possibilità é che il robot si trovi a bypassare un ostacolo. 
-\begin{lstlisting}
-if obj.state == State.bypassing
-	%Controllo se l'ostacolo rilevato e' diverso
-	%da quello che sto bypassando
-	dO = obj.checkIfSame(dObstacle);
-	if ~isempty(dO)
-		obj = obj.bypass(dO,pose);
-		return;
-	end
-	if norm([rx ry] - obj.P1) < 0.1
-		obj = obj.setGrad(obj.gradXO,obj.gradYO);
-		return;
-	end
-	if norm([rx ry] - obj.P2) < 0.1
-		obj = obj.setGrad(obj.agradX,obj.agradY);
-		obj.state = State.attractive;
-		return;
-	end
-end
-\end{lstlisting}
+
+%Listing bypass
+Il metodo bypass, fulcro di tutto il progetto, ha la responsabilità di calcolare il potenziale bypassante e tutto ciò di necessario affinché il robot sia in grado di giungere in una posa in cui non collida con l'ostacolo. Nel linguaggio dello statechart, bypass (compresi i suoi metodi di appoggio) costituisce la entry action del macrostato "Potenziale Bypassante" in figura \ref{state}. L'obiettivo ultimo del metodo, perció, é di scambiare il potenziale correntemente in uso con quello bypassante. Naturalmente, il bypassing viene fatto con una ratio che si basa sulla velocità e la direzione di movimento dell'ostacolo da aggirare; in particolare, gli aspetti cardine da considerare sono :
+\begin{itemize}
+\item La scelta del verso di bypassing
+\item Nessuna discontinuità nella traiettoria dovuta allo switch tra i potenziali
+\end{itemize}
+
+%Scelta del verso
+
+\paragraph{Secondo aspetto}
+Lo scopo é quello di generare una traiettoria "smooth", che sia in grado di assicurare continuità al moto del robot. Ci si pone quindi il problema di calcolare, nel momento in cui un ostacolo é stato rilevato, la velocitá e direzione di movimento del robot dopo lo switch. Nella pratica questo problema consiste, in prima battuta, nel calcolare il \textbf{punto preciso} in cui eseguire lo switch e il \textbf{coefficiente moltiplicativo} \(c\) - compare nell'antigradiente del potenziale bypassante in formula \ref{antigradB} - che modula la velocità di bypassing. Tuttavia, un'ulteriore problematica é data dalla possibilità che il potenziale di bypass possa \textbf{riaggiornarsi}, conseguentemente al fatto che l'ostacolo potrebbe essere ripetutamente ri-rilevato (dopo la prima volta); in quest'ottica l'ostacolo verrà comunque bypassato, ma il movimento del robot potrebbe essere soggetto a discontinuità involute o, in generale, comportamenti non del tutto predicibili a priori. \\
+L'idea di fondo dietro la \textbf{soluzione} é di calcolare il potenziale bypassante nell'istante \(\tau\) in cui viene rilevato per la prima l'ostacolo e mantenerlo fisso per tutta la durata del bypass. Quindi \[-\nabla U_b \left( r(t) , O_j(t) \right) \Rightarrow -\nabla U_b \left( r(t) , O_j(\tau) \right) \]
+\begin{nota}
+\textbf{Nota} \\ Considerando questa strategia, potrebbe sorgere un problema nel caso in cui un ostacolo cambi direzione durante il bypass. Tuttavia, si é deciso, per scopi esemplificativi, di tralasciare questo aspetto, anche perché può essere gestito indipendentemente dalla struttura portante del modulo di pianificazione, con l'aiuto del modulo di visione.
+\end{nota}
+
+%Figura circonferenze
+
+Una volta rilevato l'ostacolo nell'istante \(\tau\), il compito del pianificatore é di assegnare al robot un nuovo potenziale da seguire; questo, al fine di rendere continuo lo switch, sarà posizionato in un ostacolo virtuale e non, come ci si potrebbe aspettare, in quello realmente rilevato. La motivazione dietro a questo procedimento é la seguente. Le linee di campo del potenziale bypassante sono delle circonferenze. Il robot possiede in ogni istante una velocità, data da un vettore bidimensionale. Quindi, per far "rientrare" il robot sul potenziale bypassante in maniera continua, bisogna trovare quella circonferenza che tange la traiettoria del robot nell'istante \(\tau\). La circonferenza cercata, in pratica, sarà una linea di campo del potenziale bypassante centrato nell'ostacolo virtuale. Solo successivamente il robot seguirà effettivamente il potenziale centrato nell'ostacolo reale, ma il problema é anche capire in che punto avviene lo switch tra i due.\\
+Più in dettaglio, gli "ingredienti" del potenziale bypassante sono:
+\begin{enumerate}
+\item Posizione dell'ostacolo virtuale
+\item Punto in cui switchare dall'ostacolo virtuale al reale
+\item Coefficiente dell'antigradiente nell'ostacolo virtuale e reale
+\end{enumerate}
+Il primo punto si configura come un sistema di due equazioni in due incognite, ovvero \([x_{\Omega}, y_{\Omega}]\). Uno dei due vincoli é dato dalla condizione di tangenza tra la circonferenza centrata in  \([x_{\Omega}, y_{\Omega}]\) e la direzione di moto del robot in \(\tau\). A tal fine si può supporre, senza perdita di generalità, che il robot si trovi nell'origine all'istante \(\tau\). Di conseguenza la condizione é soddisfatta se \[x_{\Omega} = -m\cdot  y_{\Omega}\] dove \(m = \tan(\theta_r)\), cioè la direzione di moto del robot. In pratica, questa equazione afferma che la retta, che congiunge il robot al punto \([x_{\Omega}, y_{\Omega}]\), deve essere perpendicolare a \(\tan(\theta_r)\). L'altro vincolo si ricollega al secondo punto della "lista di ingredienti"
+
+
+
+La modalità con cui avviene questo switch consiste nei seguenti step :
+
 
 %Caso Attrattivo (modificare statechart)
 	%Sono vicino al goal? --> Devo cambiare il potenziale

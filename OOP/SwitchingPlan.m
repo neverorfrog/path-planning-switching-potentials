@@ -163,9 +163,9 @@ classdef SwitchingPlan < Plan
         %% Scelto del senso (antiorario o orario)
         function sense = chooseSense(~,obstacle,pose)
             xr = pose(1); yr = pose(2); thetar = pose(3);
-            phi = atan2(obstacle.yc - yr,obstacle.xc - xr);
+            phi = atan2(obstacle.yc - yr , obstacle.xc - xr);
             alphav = atan2(obstacle.v(2),obstacle.v(1));
-            vphi = atan2(sin(-phi + pi/2 + alphav),cos(-phi + pi/2 + alphav));
+            vphi = atan2(sin(alphav + pi/2 - phi),cos(alphav + pi/2 - phi));
             if obstacle.v(1) == 0 && obstacle.v(2) == 0
                 if phi - thetar > 0
                     sense = "counterclock";
