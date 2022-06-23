@@ -34,7 +34,7 @@ classdef SwitchingRobot < Robot
                 %Sensed obstacle (empty array if nothing was sensed)
                 dObstacle = obj.sense.scan(obj);
                 %New directive
-                obj.state.operation(obj,dObstacle);
+                obj.state.decision(obj,dObstacle);
                 %Giving the command to the actuators 
                 [obj.xc,obj.yc,obj.theta] = obj.act.move(obj,tspan);
                 %Plotting

@@ -433,6 +433,7 @@ Data la struttura intrinseca della strategia di navigazione che si basa su un me
 \includegraphics[width=\textwidth]{statechart.png}
 \end{figure}
 
+La conseguenza più naturale, sul piano dell'organizzazione del software, é di sfruttare il design pattern State per modellare il comportamento del robot. 
 Lo stato iniziale del robot é quello attrattivo, conseguente all'imposizione del goal e il calcolo del potenziale attrattivo. Come discusso nel capitolo sui potenziali artificiali, il potenziale attrattivo sarà conico fino a che \(e(r) > 1\). Queste operazioni preliminari avvengono nel costruttore della classe SwitchingPlan, erede della classe astratta Plan. Le funzionalità pubbliche offerte da quest'ultima sono costituite dal solo metodo decide, il quale riceve in input la posa del robot e l'ostacolo rilevato e in output non restituisce nulla, ma fa delle modifiche interne all'oggetto di tipo SwitchingPlan. Nello specifico, il campo che all'esterno della classe verrà usato (in particolare dalla classe Act) é directive. Nel caso di SwitchingPlan contiene l'antigradiente da seguire ad ogni istante di campionamento (iterazione). La logica dello statechart é tutta in questo metodo : ad ogni chiamata il robot si trova a decidere se restare nello stato in cui si trova, oppure switchare. Innanzitutto avviene un controllo sulla distanza dal goal per controllare se va impostato come potenziale attrattivo quello paraboloide invece di quello, attivo per default, conico.
 \begin{lstlisting}
 if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1

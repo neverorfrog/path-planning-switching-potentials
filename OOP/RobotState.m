@@ -1,6 +1,6 @@
 classdef (Abstract) RobotState < handle
     
     methods (Abstract)
-        obj = operation(obj,robot,dObstacle);
+        obj = decision(obj,robot,dObstacle);
     end
 end

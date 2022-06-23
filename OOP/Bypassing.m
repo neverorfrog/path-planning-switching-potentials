@@ -9,16 +9,12 @@ classdef Bypassing < RobotState
     end
     
     methods
-        function obj = operation(obj,robot,dObstacle)
+        function obj = decision(obj,robot,dObstacle)
             rx = robot.xc; ry = robot.yc;
             %Controllo se l'ostacolo rilevato e' diverso
             %da quello che sto bypassando
             dO = obj.checkIfSame(dObstacle);
-            if ~isempty(dO)
-                bypassing = Bypassing(robot,dObstacle);
-                bypassing.obstacle = [dObstacle.xc dObstacle.yc];
-                robot.setState(bypassing);
-            end
+            robot.attractive.decision(robot,dO);
             if norm([rx ry] - obj.P1) < 0.1
                 obj.gradX = obj.gradXO; obj.gradY = obj.gradYO;
                 return;

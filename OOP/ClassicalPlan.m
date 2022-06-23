@@ -42,7 +42,7 @@ classdef ClassicalPlan < Plan
             obj.directive.gradY = rgradY + agradY;
             obj.potential = frep + fatt;
             figure;
-            quiver(obj.grid.X,obj.grid.Y,obj.directive.gradX,obj.directive.gradY)
+            quiver(obj.grid.X,obj.grid.Y,obj.directive.gradX,obj.directive.gradY);
         end
     end
 end

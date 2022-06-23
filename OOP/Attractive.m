@@ -13,7 +13,7 @@ classdef Attractive < RobotState
             obj.gradX = (grid.goal(1)-grid.X)./di; obj.gradY = (grid.goal(2)-grid.Y)./di;
         end
         
-        function obj = operation(obj,robot,dObstacle)
+        function obj = decision(obj,robot,dObstacle)
             rx = robot.xc; ry = robot.yc; grid = robot.grid;
             if ~obj.paraboloidal && norm([rx,ry]-grid.goal) < 1
                 obj.gradX = grid.goal(1)-grid.X;
