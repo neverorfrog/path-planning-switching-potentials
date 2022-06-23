@@ -1,0 +1,24 @@
+classdef Bypassing < RobotState
+    
+    properties
+        obstacle; %ostacolo che sta per essere bypassato
+    end
+    
+    methods
+        function obj = Bypassing()
+        end
+        
+        function obj = operation(obj,robot,dObstacle)
+            %Controllo se l'ostacolo rilevato e' diverso
+            %da quello che sto bypassando
+            dO = obj.checkIfSame(dObstacle);
+            if ~isempty(dO)
+                %Passa al bypassante da capo
+            end
+        end
+        
+        function obj = entryAction(obj)
+            
+        end
+    end
+end
