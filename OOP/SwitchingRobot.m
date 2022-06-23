@@ -10,7 +10,7 @@ classdef SwitchingRobot < Robot
     methods
         function obj = SwitchingRobot(R,L,grid)
             obj@Robot(R,L,grid);
-            obj.state = Attractive(grid);
+            obj.state = Conical(grid);
             obj.attractive = obj.state;
         end
         

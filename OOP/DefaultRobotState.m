@@ -1,8 +1,6 @@
 classdef DefaultRobotState < RobotState
     methods 
-        function obj = operation(obj,~,~) 
-        end
-        function obj = entryAction(obj)
+        function obj = decision(obj,~,~) 
         end
     end
 end
