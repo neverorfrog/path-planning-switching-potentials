@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {6.2}Switching allo stato bypassante}{29}{}%
 \contentsline {paragraph}{Primo aspetto}{29}{}%
 \contentsline {paragraph}{Secondo aspetto}{30}{}%
-\contentsline {subsection}{\numberline {6.3}Stato bypassante}{32}{}%
-\contentsline {section}{\numberline {7}Modulo di percezione}{32}{}%
-\contentsline {section}{\numberline {8}Risultati}{32}{}%
-\contentsline {section}{\numberline {9}Applicazioni e sviluppi futuri}{32}{}%
+\contentsline {subsection}{\numberline {6.3}Stato bypassante}{33}{}%
+\contentsline {section}{\numberline {7}Modulo di percezione}{33}{}%
+\contentsline {section}{\numberline {8}Risultati}{33}{}%
+\contentsline {section}{\numberline {9}Applicazioni e sviluppi futuri}{33}{}%

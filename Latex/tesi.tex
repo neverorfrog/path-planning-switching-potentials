@@ -629,7 +629,6 @@ x_{\Omega} = -m\cdot  y_{\Omega} \\
 (x_{\Omega} - x_o)^2 + (y_{\Omega} - y_o)^2 = (\sqrt{x_{\Omega}^2+y_{\Omega}^2}+h)^2
 \end{cases}
 \end{equation}
-
 Risolvendo questo sistema per \(y_{\Omega}\) si ottengono due possibili soluzioni
 \begin{equation}
 \begin{cases}
@@ -637,11 +636,16 @@ y_{\Omega,1}=\frac{(-h^2 + x_o^2 + y_o^2)(m x_o - y_o + h\sqrt{m^2+1})}{2h^2m^2 
 y_{\Omega,2}=\frac{-(-h^2 + x_o^2 + y_o^2)(m x_o - y_o + h\sqrt{m^2+1})}{2h^2m^2 + 2h^2 - 2m^2x_o^2 + 4mx_oy_o - 2y_o^2}
 \end{cases}
 \end{equation}
-\(x_{\Omega}\) viene poi trovato per sostituzione. La scelta di una soluzione piuttosto che l'altra - in linea di massima, una sarà a sinistra dell'asse tra robot e ostacolo e l'altra sulla destra - dipenderà dal verso di bypassing (verrà affrontato successivamente).\\
-Una volta 
+\(x_{\Omega}\) viene poi trovato per sostituzione. La scelta di una soluzione piuttosto che l'altra - in linea di massima, una sarà a sinistra dell'asse tra robot e ostacolo e l'altra sulla destra - dipenderà dal verso di bypassing (verrà affrontato successivamente, così come anche il calcolo di P1).\\
+Una volta calcolata la posizione dell'ostacolo virtuale e del punto di switch tra ostacolo virtuale e reale, é necessario calcolare il punto P2 di switch tra il potenziale bypassante e quello attrattivo. L'idea per risolvere tale problema é di trovare, tra le infinitamente possibili, una retta che passi per il punto di goal e tanga la circonferenza centrata nell'ostacolo reale proprio in P2. Anche in questo caso le soluzioni possibili saranno due; quella idonea verrà scelta in base al verso di bypassing. Innanzitutto, il fascio di rette che partono dal punto di goal e passano dal punto cercato sono esprimibili come \[y-y_g = m(x-x_g)\] dove \(x\) e \(y\) sono le coordinate del punto P2 cercato. Inoltre, il punto P2 si troverà naturalmente sulla circonferenza centrata nell'ostacolo reale \[(x-x_o)^2+(y-y_o)^2=h^2\] e sostituendo in questa l'espressione della retta in funzione di \(y\), si ottiene un'equazione che esprime i possibili punti di intersezione tra la generica retta e la circonferenza	
+\[(m^2+1)x^2 -2(x_o+m(y_o-y_g+mx_g)x + (y_o-y_g+mx_g)^2+x_o^2-h^2=0\]
+Ovviamente ci sono troppe incognite per poter risolvere questa equazione, ma noi interessa la coppia di rette tale per cui esse sono tangenti alla circonferenza. Ciò equivale a imporre che il punto di intersezione sia uno solo e quindi che quest'equazione di secondo grado abbia una sola soluzione. La conseguenza é che troviamo i due coefficienti angolari ponendo a zero il delta dell'equazione\[(-2x_o - 2m(y_o+y_g+mx_g))^2 - 4(m+1)((y_o-y_g+mx_g)^2+x_o^2-h^2)=0\] e le due soluzioni saranno 
+\[\begin{cases} 
+m_1=\frac{(x_g-x_o)(y_o-y_g)+h\sqrt{-h^2+(x_g-x_o)^2+(y_g-y_o)^2}}{h^2-(x_g-x_o)^2} \\\\
+m_2=-\frac{(x_g-x_o)(y_o-y_g)+h\sqrt{-h^2+(x_g-x_o)^2+(y_g-y_o)^2}}{h^2-(x_g-x_o)^2} 
+\end{cases}\]
+grazie alle quali é possibile trovare le due soluzioni per P2.\\
 
-La modalità con cui avviene questo switch consiste nei seguenti step :
-	
 	
 \subsection{Stato bypassante}
 %Caso Bypassante
