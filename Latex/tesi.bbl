@@ -99,42 +99,6 @@
       \field{journaltitle}{Journal of Robotics \& Autonomous Systems}
       \field{title}{A real-time limit-cycle navigation method for fast mobile robots and its application to robot soccer}
     \endentry
-    \entry{mac2016}{article}{}
-      \name{author}{4}{}{%
-        {{hash=6d1ff8a71b56dfa936205bacd28a303f}{%
-           family={Mac},
-           familyi={M\bibinitperiod},
-           given={Thi\bibnamedelima Thoa},
-           giveni={T\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=9b6e5dd1ea4e6cf053749a7a9015c935}{%
-           family={Copot},
-           familyi={C\bibinitperiod},
-           given={Cosmin},
-           giveni={C\bibinitperiod}}}%
-        {{hash=2205fa9ddd5e32d873110820f07f6f56}{%
-           family={Tran},
-           familyi={T\bibinitperiod},
-           given={Duc\bibnamedelima Trung},
-           giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=89949b75b14ef44524a18b2e93213918}{%
-           family={{De Keyser}},
-           familyi={D\bibinitperiod},
-           given={Robin},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{f7e29dfe58cfa38028d5f356ad3f8fbe}
-      \strng{fullhash}{069300f118c85d0e5fc6989267bfb9eb}
-      \strng{bibnamehash}{f7e29dfe58cfa38028d5f356ad3f8fbe}
-      \strng{authorbibnamehash}{f7e29dfe58cfa38028d5f356ad3f8fbe}
-      \strng{authornamehash}{f7e29dfe58cfa38028d5f356ad3f8fbe}
-      \strng{authorfullhash}{069300f118c85d0e5fc6989267bfb9eb}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Robotics and Autonomous Systems}
-      \field{title}{Heuristic approaches in robot path planning: A survey}
-    \endentry
     \entry{oriolo}{inbook}{}
       \name{author}{2}{}{%
         {{hash=f23c6b75fe58059d36857d506e9b5c9e}{%

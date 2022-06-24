@@ -2,21 +2,24 @@
 \contentsline {subsection}{\numberline {1.1}Path planning}{5}{}%
 \contentsline {paragraph}{Voronoi}{6}{}%
 \contentsline {paragraph}{Decomposizione esatta in celle}{6}{}%
-\contentsline {paragraph}{Sampling based}{6}{}%
+\contentsline {paragraph}{Sampling based}{7}{}%
 \contentsline {subsection}{\numberline {1.2}Formalizzazione del problema}{8}{}%
+\contentsline {subsection}{\numberline {1.3}Organizzazione della tesi}{8}{}%
 \contentsline {section}{\numberline {2}Potenziali artificiali}{9}{}%
 \contentsline {subsection}{\numberline {2.1}Metodo classico}{9}{}%
 \contentsline {subsection}{\numberline {2.2}Potenziale bypassante}{15}{}%
-\contentsline {section}{\numberline {3}Algoritmo di navigazione\blx@tocontentsinit {0}\cite {dalfonso}}{18}{}%
-\contentsline {subsection}{\numberline {3.1}Considerazioni implementative}{19}{}%
-\contentsline {subsection}{\numberline {3.2}Costruzione dell'ambiente}{19}{}%
-\contentsline {subsection}{\numberline {3.3}Azione}{20}{}%
-\contentsline {subsubsection}{\numberline {3.3.1}Modello cinematico}{20}{}%
-\contentsline {subsubsection}{\numberline {3.3.2}Legge di controllo \blx@tocontentsinit {0}\cite {dalfonso}}{22}{}%
-\contentsline {subsection}{\numberline {3.4}Pianificazione}{23}{}%
-\contentsline {paragraph}{Secondo aspetto}{25}{}%
-\contentsline {subsection}{\numberline {3.5}Percezione}{26}{}%
-\contentsline {section}{\numberline {4}Simulazione}{26}{}%
-\contentsline {subsection}{\numberline {4.1}Sequence diagram}{26}{}%
-\contentsline {subsection}{\numberline {4.2}Risultati}{26}{}%
-\contentsline {section}{\numberline {5}Applicazioni e sviluppi futuri}{26}{}%
+\contentsline {section}{\numberline {3}Panoramica sull'algoritmo di navigazione}{18}{}%
+\contentsline {subsection}{\numberline {3.1}Organizzazione del software}{19}{}%
+\contentsline {section}{\numberline {4}Rappresentazione dell'ambiente}{21}{}%
+\contentsline {section}{\numberline {5}Modulo di azione}{22}{}%
+\contentsline {subsection}{\numberline {5.1}Modello cinematico}{22}{}%
+\contentsline {subsection}{\numberline {5.2}Legge di controllo}{24}{}%
+\contentsline {section}{\numberline {6}Modulo di pianificazione}{26}{}%
+\contentsline {subsection}{\numberline {6.1}Stato attrattivo}{27}{}%
+\contentsline {subsection}{\numberline {6.2}Switching allo stato bypassante}{29}{}%
+\contentsline {paragraph}{Primo aspetto}{29}{}%
+\contentsline {paragraph}{Secondo aspetto}{30}{}%
+\contentsline {subsection}{\numberline {6.3}Stato bypassante}{32}{}%
+\contentsline {section}{\numberline {7}Modulo di percezione}{32}{}%
+\contentsline {section}{\numberline {8}Risultati}{32}{}%
+\contentsline {section}{\numberline {9}Applicazioni e sviluppi futuri}{32}{}%

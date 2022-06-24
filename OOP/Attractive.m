@@ -1,5 +1,4 @@
 classdef Attractive < RobotState
-    
     methods
         function obj = decision(obj,robot,dObstacle)
             if ~isempty(dObstacle)

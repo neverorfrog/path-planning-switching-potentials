@@ -87,20 +87,23 @@ classdef VirtualBypassing < Bypassing
         function sense = chooseSense(~,obstacle,pose)
             xr = pose(1); yr = pose(2); thetar = pose(3);
             phi = atan2(obstacle.yc - yr,obstacle.xc - xr);
-            alphav = atan2(obstacle.v(2),obstacle.v(1));
-            vphi = atan2(sin(-phi + pi/2 + alphav),cos(-phi + pi/2 + alphav));
+            %Ostacolo fermo
             if obstacle.v(1) == 0 && obstacle.v(2) == 0
                 if phi - thetar > 0
                     sense = "counterclock";
                 else
                     sense = "clock";
                 end
+                return;
+            end
+            %Ostacolo in movimento
+            alphav = atan2(obstacle.v(2),obstacle.v(1));
+            vphi = pi/2 - phi + alphav;
+            vphi = atan2(sin(vphi),cos(vphi));
+            if cos(vphi) > 0
+                sense = "clock";
             else
-                if cos(vphi) > 0
-                    sense = "clock";
-                else
-                    sense = "counterclock";
-                end
+                sense = "counterclock";
             end
         end
         

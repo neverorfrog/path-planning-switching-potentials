@@ -1,7 +1,7 @@
 classdef Grid < handle
     
     properties (SetAccess = immutable)
-        resolution; %densitá (quante celle per quadratino di coordinata)
+        fattore; %densitá (quante celle per quadratino di coordinata)
         nr; nc;
         dx;
         X; Y;
@@ -15,15 +15,16 @@ classdef Grid < handle
     end
     
     methods
-        function obj = Grid(resolution,width)
-            obj.resolution = resolution;
-            obj.dx = 1/resolution;
-            obj.nr = width*resolution + 1;
+        function obj = Grid(width)
+            obj.fattore = fattore;
+            obj.dx = 1/fattore;
+            obj.nr = width*fattore + 1;
             obj.nc = obj.nr;
-            [obj.X,obj.Y] = meshgrid(linspace(0,width,obj.nc),linspace(0,width,obj.nr));
-            obj.x = linspace(0,width,obj.nc);
-            obj.y = linspace(0,width,obj.nr)';
-            obj.width = width;
+            [obj.X,obj.Y] = ...
+                meshgrid(linspace(0,width,obj.nc),linspace(0,width,obj.nr));
+            obj.x = linspace(x0,xf,obj.nc);
+            obj.y = linspace(x0,xf,obj.nr)';
+            obj.width = xf - x0;
         end
         
         function obj = setGoal(obj,goal)
@@ -44,10 +45,10 @@ classdef Grid < handle
             index = zeros(1,2);
             % x coordinate goes into the column index
             floorx = floor(point(1));
-            index(2) = (floorx + obj.dx*floor((point(1) - floorx)/obj.dx))*obj.resolution + 1;
-            % y coordinate goes into the row index
+            index(2) = (floorx + obj.dx*floor((point(1) - floorx)/obj.dx))*obj.fattore + 1;
+            % x coordinate goes into the row index
             floory = floor(point(2));
-            index(1) = (floory + obj.dx*floor((point(2) - floory)/obj.dx))*obj.resolution + 1;
+            index(1) = (floory + obj.dx*floor((point(2) - floory)/obj.dx))*obj.fattore + 1;
             index = floor(index);
         end
     end

@@ -19,7 +19,9 @@ classdef Sense
             [~,pos] = min(distances);
             dObstacle = dObstacles(pos); dObstacle = dObstacle{1};
         end
-        
+    end
+    
+    methods(Access=private)
         %% Method that builds the tube T(t)
         function result = tube(~,robot,obstacle)
             pose = robot.getPose(); rx = pose(1); ry = pose(2);

@@ -5,7 +5,6 @@ classdef (Abstract) Bypassing < RobotState
     end
     
     methods
-        
         function obj = decision(obj,robot,dObstacle)
             %Controllo se l'ostacolo rilevato e' diverso
             %da quello che sto bypassando

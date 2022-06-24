@@ -1,14 +1,14 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Architettura di navigazione\relax }}{4}{}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Metodi classici basati su grafo\relax }}{7}{}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Classificazione algoritmi di path planning\blx@tocontentsinit {0}\cite {mac2016}\relax }}{7}{}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Potenziale attrattivo\relax }}{10}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Antigradiente del potenziale attrattivo\relax }}{10}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Potenziale attrattivo\relax }}{11}{}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Potenziale repulsivo\relax }}{12}{}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Potenziale totale\relax }}{14}{}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Minimo locale\relax }}{15}{}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Potenziale bypassante\relax }}{16}{}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Antigradiente del potenziale bypassante\relax }}{17}{}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Flowchart Diagram\relax }}{18}{}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Modello Differential-Drive \blx@tocontentsinit {0}\cite {toolbox}\relax }}{21}{}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Statechart Diagram\relax }}{23}{}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Potenziale attrattivo\relax }}{10}{}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Antigradiente del potenziale attrattivo\relax }}{10}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Potenziale attrattivo\relax }}{11}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Potenziale repulsivo\relax }}{12}{}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Potenziale totale\relax }}{14}{}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Minimo locale\relax }}{15}{}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Potenziale bypassante\relax }}{16}{}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Antigradiente del potenziale bypassante\relax }}{17}{}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Flowchart Diagram\relax }}{18}{}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Class diagram\relax }}{19}{}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Modello Differential-Drive \blx@tocontentsinit {0}\cite {toolbox}\relax }}{22}{}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Statechart Diagram\relax }}{26}{}%
