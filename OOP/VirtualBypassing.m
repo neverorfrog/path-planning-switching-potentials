@@ -122,6 +122,7 @@ classdef VirtualBypassing < Bypassing
             end
             
             %Calcolo h
+            thetar = atan2(robot.grid.goal(2) - yr, robot.grid.goal(1) - xr);
             Rtheta = [cos(thetar-pi/2) sin(thetar-pi/2) ; cos(thetar) sin(thetar)];
             vtheta= Rtheta*obstacle.v;
             alphavtheta = atan2(vtheta(2),vtheta(1));
