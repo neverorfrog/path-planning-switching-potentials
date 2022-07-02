@@ -1,0 +1,24 @@
+\frametitle{Architettura di navigazione}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
+\includegraphics{architecture.png}
+\column{0.5\textwidth}
+\centering
+Entry point del modulo software \\
+\begin{lstlisting}
+function start
+	error = norm([xr,yr]-goal);
+	while(error > 0.1)
+		%Detected obstacle
+		dObstacle = sense.scan();
+		%New directive
+		state.decision(dObstacle);
+		%Giving commands to the actuators
+		newPose = act.move(tspan);
+		%Refreshing the error
+		error = norm([xr,yr]-goal);
+	end
+end
+\end{lstlisting}
+\end{columns}

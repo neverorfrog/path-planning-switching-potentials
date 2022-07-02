@@ -14,7 +14,7 @@ classdef RealBypassing < Bypassing
         
         function obj = decision(obj,robot,dObstacle)
             decision@Bypassing(obj,robot,dObstacle);
-            if norm([robot.xc robot.yc] - obj.virtualbypass.P2) < 0.1
+            if norm([robot.xc robot.yc] - obj.virtualbypass.P2) < 0.1 %|| isempty(obj.obstacle)
                 robot.setState(robot.attractive);
             end
         end

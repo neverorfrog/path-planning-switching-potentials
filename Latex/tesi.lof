@@ -1,14 +1,24 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Architettura di navigazione\relax }}{4}{}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Metodi classici basati su grafo\relax }}{7}{}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Potenziale attrattivo\relax }}{10}{}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Antigradiente del potenziale attrattivo\relax }}{10}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Potenziale attrattivo\relax }}{11}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Potenziale repulsivo\relax }}{12}{}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Potenziale totale\relax }}{14}{}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Minimo locale\relax }}{15}{}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Potenziale bypassante\relax }}{16}{}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Antigradiente del potenziale bypassante\relax }}{17}{}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Flowchart Diagram\relax }}{18}{}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Class diagram\relax }}{19}{}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Modello Differential-Drive \blx@tocontentsinit {0}\cite {toolbox}\relax }}{22}{}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Statechart Diagram\relax }}{26}{}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Architettura di navigazione\relax }}{3}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Metodi classici basati su grafo\relax }}{6}{}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Potenziale attrattivo di forma paraboloide\relax }}{9}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Antigradiente del potenziale attrattivo\relax }}{9}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Potenziale attrattivo di forma conica\relax }}{10}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Potenziale repulsivo\relax }}{11}{}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Potenziale totale\relax }}{13}{}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Minimo locale\relax }}{14}{}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Potenziale bypassante\relax }}{15}{}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Antigradiente del potenziale bypassante\relax }}{16}{}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Flowchart Diagram\relax }}{17}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Class diagram\relax }}{18}{}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Modello Differential-Drive\relax }}{21}{}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Statechart Diagram\relax }}{25}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Scelta del verso di bypassing\relax }}{29}{}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Possibili percorsi dopo aver rilevato un ostacolo\relax }}{31}{}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Snapshots della simulazione\relax }}{45}{}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Traiettoria finale\relax }}{45}{}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Simulazione dell'algoritmo con otto ostacoli fissi\relax }}{46}{}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Bypassing con grado di invasività massimo\relax }}{47}{}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Bypassing con grado di invasività minimo\relax }}{48}{}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Alternativa allo switching in P2\relax }}{49}{}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Path planning con metodo classico\relax }}{49}{}%
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Path planning con metodo bypassante\relax }}{50}{}%

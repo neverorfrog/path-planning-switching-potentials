@@ -2347,17 +2347,16 @@
     <bcf:citekey order="1">dalfonso</bcf:citekey>
     <bcf:citekey order="2">murphy</bcf:citekey>
     <bcf:citekey order="3">siciliano</bcf:citekey>
-    <bcf:citekey order="4">dalfonso</bcf:citekey>
-    <bcf:citekey order="5">oriolo</bcf:citekey>
-    <bcf:citekey order="6">kim</bcf:citekey>
-    <bcf:citekey order="7">toolbox</bcf:citekey>
-    <bcf:citekey order="8">toolbox</bcf:citekey>
-    <bcf:citekey order="10">dalfonso</bcf:citekey>
-    <bcf:citekey order="11">murphy</bcf:citekey>
-    <bcf:citekey order="12">siciliano</bcf:citekey>
-    <bcf:citekey order="13">oriolo</bcf:citekey>
-    <bcf:citekey order="14">kim</bcf:citekey>
-    <bcf:citekey order="15">toolbox</bcf:citekey>
+    <bcf:citekey order="4">oriolo</bcf:citekey>
+    <bcf:citekey order="5">kim</bcf:citekey>
+    <bcf:citekey order="6">dalfonso</bcf:citekey>
+    <bcf:citekey order="7">slam</bcf:citekey>
+    <bcf:citekey order="8">dalfonso</bcf:citekey>
+    <bcf:citekey order="9">murphy</bcf:citekey>
+    <bcf:citekey order="10">siciliano</bcf:citekey>
+    <bcf:citekey order="11">oriolo</bcf:citekey>
+    <bcf:citekey order="12">kim</bcf:citekey>
+    <bcf:citekey order="13">slam</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

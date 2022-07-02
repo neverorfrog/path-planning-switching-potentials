@@ -34,6 +34,7 @@ subtitle = {Modellistica, pianificazione e controllo},
 author = {Siciliano, Bruno and Sciavicco, Lorenzo and Villani, Luigi and Oriolo, Giuseppe}
 }
 
-@misc{toolbox,
-author = {MathWorks Student Competitions Team (2022). Mobile Robotics Simulation Toolbox (https://github.com/mathworks-robotics/mobile-robotics-simulation-toolbox)}
+@book{slam,
+  author = {Riisgaard, Søren and Blas, Morten Rufus},
+  title = {SLAM for Dummies: A Tutorial Approach to Simultaneous Localization and Mapping }
 }

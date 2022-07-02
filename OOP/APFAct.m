@@ -18,7 +18,7 @@ classdef APFAct < Act
             
             thetaDdiff = atan2(sin(thetaN1-thetaN),cos(thetaN1-thetaN));
             thetaDdot = thetaDdiff/tspan;
-            Kc = 10; eps = 0.001; v = 1;
+            Kc = 10; eps = 0.0001; v = 1;
             Kw = (thetaDdot + Kc * abs(thetaDiff)^v * ...
                 sign(thetaDiff))/(thetaDiff+eps);
             wr = (abs(thetaDiff) >= eps) * Kw * (thetaDiff);

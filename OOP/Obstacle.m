@@ -8,7 +8,7 @@ classdef Obstacle < handle
         theta; %orientation
         raggio; %size
         v; %velocity
-        plotobj; %graphic handle
+        plotobj;
     end
     
     methods
@@ -21,11 +21,10 @@ classdef Obstacle < handle
             obj.theta = atan2(v(2),v(1));
         end
         
-        function plotobj = draw(obj)
-            r = obj.raggio; x = obj.xc; y = obj.yc; t = 0:0.01:2*pi;
+        function draw(obj)
             delete(obj.plotobj);
-            plotobj = plot(cos(t)*r+x,sin(t)*r+y,"r","linewidth",2);
-            obj.plotobj = plotobj;
+            obstacle = nsidedpoly(2000, 'Center', [obj.xc obj.yc], 'Radius', obj.raggio);
+            obj.plotobj = plot(obstacle, 'FaceColor', 'r');
         end
         
         function move(obj,tspan)

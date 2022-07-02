@@ -1,15 +1,15 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is 'tesi.blg'
-[195] biber-MSWIN32:340> INFO - === 
-[264] Biber.pm:418> INFO - Reading 'tesi.bcf'
-[499] Biber.pm:972> INFO - Found 6 citekeys in bib section 0
-[515] Biber.pm:4383> INFO - Processing section 0
-[541] Biber.pm:4574> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[631] bibtex.pm:1713> INFO - LaTeX decoding ...
-[646] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliografia.bib'
-[774] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[774] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[775] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[775] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[791] bbl.pm:654> INFO - Writing 'tesi.bbl' with encoding 'UTF-8'
-[798] bbl.pm:757> INFO - Output to tesi.bbl
+[1] Config.pm:307> INFO - This is Biber 2.17
+[2] Config.pm:310> INFO - Logfile is 'tesi.blg'
+[471] biber-MSWIN32:340> INFO - === 
+[598] Biber.pm:418> INFO - Reading 'tesi.bcf'
+[1117] Biber.pm:972> INFO - Found 6 citekeys in bib section 0
+[1194] Biber.pm:4383> INFO - Processing section 0
+[1255] Biber.pm:4574> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[1403] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1447] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliografia.bib'
+[1767] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1767] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1769] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[1769] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[1797] bbl.pm:654> INFO - Writing 'tesi.bbl' with encoding 'UTF-8'
+[1810] bbl.pm:757> INFO - Output to tesi.bbl

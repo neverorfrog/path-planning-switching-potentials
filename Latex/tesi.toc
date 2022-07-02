@@ -1,25 +1,32 @@
-\contentsline {section}{\numberline {1}Introduzione}{3}{}%
-\contentsline {subsection}{\numberline {1.1}Path planning}{5}{}%
-\contentsline {paragraph}{Voronoi}{6}{}%
-\contentsline {paragraph}{Decomposizione esatta in celle}{6}{}%
-\contentsline {paragraph}{Sampling based}{7}{}%
-\contentsline {subsection}{\numberline {1.2}Formalizzazione del problema}{8}{}%
-\contentsline {subsection}{\numberline {1.3}Organizzazione della tesi}{8}{}%
-\contentsline {section}{\numberline {2}Potenziali artificiali}{9}{}%
-\contentsline {subsection}{\numberline {2.1}Metodo classico}{9}{}%
-\contentsline {subsection}{\numberline {2.2}Potenziale bypassante}{15}{}%
-\contentsline {section}{\numberline {3}Panoramica sull'algoritmo di navigazione}{18}{}%
-\contentsline {subsection}{\numberline {3.1}Organizzazione del software}{19}{}%
-\contentsline {section}{\numberline {4}Rappresentazione dell'ambiente}{21}{}%
-\contentsline {section}{\numberline {5}Modulo di azione}{22}{}%
-\contentsline {subsection}{\numberline {5.1}Modello cinematico}{22}{}%
-\contentsline {subsection}{\numberline {5.2}Legge di controllo}{24}{}%
-\contentsline {section}{\numberline {6}Modulo di pianificazione}{26}{}%
-\contentsline {subsection}{\numberline {6.1}Stato attrattivo}{27}{}%
-\contentsline {subsection}{\numberline {6.2}Switching allo stato bypassante}{29}{}%
-\contentsline {paragraph}{Primo aspetto}{29}{}%
-\contentsline {paragraph}{Secondo aspetto}{30}{}%
-\contentsline {subsection}{\numberline {6.3}Stato bypassante}{33}{}%
-\contentsline {section}{\numberline {7}Modulo di percezione}{33}{}%
-\contentsline {section}{\numberline {8}Risultati}{33}{}%
-\contentsline {section}{\numberline {9}Applicazioni e sviluppi futuri}{33}{}%
+\contentsline {section}{\numberline {1}Introduzione}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Path planning}{4}{}%
+\contentsline {paragraph}{Voronoi}{4}{}%
+\contentsline {paragraph}{Decomposizione esatta in celle}{5}{}%
+\contentsline {paragraph}{Sampling based}{5}{}%
+\contentsline {subsection}{\numberline {1.2}Formalizzazione del problema}{6}{}%
+\contentsline {subsection}{\numberline {1.3}Struttura dell'elaborato}{7}{}%
+\contentsline {section}{\numberline {2}Potenziali artificiali}{8}{}%
+\contentsline {subsection}{\numberline {2.1}Metodo classico}{8}{}%
+\contentsline {paragraph}{Potenziale totale}{12}{}%
+\contentsline {subsection}{\numberline {2.2}Potenziale bypassante}{14}{}%
+\contentsline {section}{\numberline {3}Panoramica sull'algoritmo di navigazione}{17}{}%
+\contentsline {subsection}{\numberline {3.1}Architettura software}{18}{}%
+\contentsline {section}{\numberline {4}Rappresentazione dell'ambiente}{20}{}%
+\contentsline {section}{\numberline {5}Modulo di azione}{21}{}%
+\contentsline {subsection}{\numberline {5.1}Modello cinematico}{21}{}%
+\contentsline {subsection}{\numberline {5.2}Legge di controllo}{23}{}%
+\contentsline {section}{\numberline {6}Modulo di pianificazione}{25}{}%
+\contentsline {subsection}{\numberline {6.1}Stato attrattivo}{26}{}%
+\contentsline {subsection}{\numberline {6.2}Switching allo stato bypassante}{28}{}%
+\contentsline {paragraph}{Primo aspetto}{28}{}%
+\contentsline {paragraph}{Secondo aspetto}{29}{}%
+\contentsline {subsection}{\numberline {6.3}Stato bypassante}{37}{}%
+\contentsline {section}{\numberline {7}Modulo di percezione}{40}{}%
+\contentsline {section}{\numberline {8}Simulazione}{42}{}%
+\contentsline {section}{\numberline {9}Risultati}{44}{}%
+\contentsline {subsection}{\numberline {9.1}Tre ostacoli}{44}{}%
+\contentsline {subsection}{\numberline {9.2}Otto ostacoli fissi}{46}{}%
+\contentsline {subsection}{\numberline {9.3}Considerazione sul calcolo di h}{46}{}%
+\contentsline {subsection}{\numberline {9.4}Considerazione sullo switch al potenziale attrattivo}{48}{}%
+\contentsline {subsection}{\numberline {9.5}Minimi locali}{49}{}%
+\contentsline {section}{\numberline {10}Conclusione}{51}{}%

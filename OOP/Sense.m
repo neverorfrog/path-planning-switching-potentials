@@ -27,14 +27,20 @@ classdef Sense
             pose = robot.getPose(); rx = pose(1); ry = pose(2);
             grid = robot.grid;
             G = grid.goal;
-            
-            rm = 3.5;
+            rm = 2*robot.rv;
             angle = atan2(G(2)-ry,G(1)-rx);
+            %
+            %             if(obstacle.v(1) == 0 && obstacle.v(2) ~= 0)
+            %                 m = (G(2)-ry)/(G(1)-rx); q = m*rx - ry;
+            %                 d = abs(obstacle.yc - (m*obstacle.xc - q))/sqrt(1+m^2);
+            %                 result = d < 0.6;
+            %             else
             deltaX = rm/2*sin(angle); deltaY = rm/2*cos(angle);
             x1 = rx + deltaX; y1 = ry - deltaY;
             x4 = rx - deltaX; y4 = ry + deltaY;
             x2 = G(1) + deltaX; y2 = G(2) - deltaY;
             x3 = G(1) - deltaX; y3 = G(2) + deltaY;
+            eps = 0.1;
             
             m14 = (y4-y1)/(x4-x1); q14 = m14*x1 - y1;
             if abs(m14) > exp(10)
@@ -58,19 +64,20 @@ classdef Sense
             end
             
             if (angle >= 0 && angle <= pi/2) %first quadrant
-                result1 = v14 >= 0;
-                result2 = v12 >= 0; result3 = v34 <= 0;
+                result1 = v14 > eps;
+                result2 = v12 > 0; result3 = v34 < 0;
             elseif (angle > pi/2 && angle < pi) %second quadrant
-                result1 = v14 >= 0;
-                result2 = v12 <= 0; result3 = v34 >= 0;
+                result1 = v14 > eps;
+                result2 = v12 < 0; result3 = v34 > 0;
             elseif (angle >= -pi && angle <= -pi/2 || angle == pi ) %third quadrant
-                result1 = v14 <= 0;
-                result2 = v12 <= 0; result3 = v34 >= 0;
+                result1 = v14 < -eps;
+                result2 = v12 < 0; result3 = v34 > 0;
             else %fourth quadrant
-                result1 = v14 <= 0;
-                result2 = v12 >= 0; result3 = v34 <= 0;
+                result1 = v14 < -eps;
+                result2 = v12 > 0; result3 = v34 < 0;
             end
             result = result1 && result2 && result3;
         end
+        %         end
     end
 end

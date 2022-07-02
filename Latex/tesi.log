@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  24 JUN 2022 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  2 JUL 2022 16:09
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **tesi.tex
 (./tesi.tex
@@ -808,7 +808,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '5.0.2'
 Library (tcolorbox): 'tcbprocessing.code.tex' version '5.0.2'
 (c:/texlive/2022/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 ))
 \c@tcblisting=\count436
 ))
@@ -894,25 +894,28 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 \@quotereset=\count448
  (./tesi.aux
 
-LaTeX Warning: Label `potA' multiply defined.
+LaTeX Warning: Label `snapshot1' multiply defined.
+
+
+LaTeX Warning: Label `minimolocalesim' multiply defined.
 
 )
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -922,15 +925,15 @@ LaTeX Font Info:    ... okay on input line 40.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
-* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=426.79135pt
-* \textheight=674.33032pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
-* \topmargin=-25.91173pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-54.36449pt
 * \headheight=14.0pt
 * \headsep=25.0pt
 * \topskip=14.0pt
@@ -984,8 +987,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'tesi.bbl' found.
  (./tesi.bbl)
-Package biblatex Info: Reference section=0 on input line 40.
-Package biblatex Info: Reference segment=0 on input line 40.
+Package biblatex Info: Reference section=0 on input line 38.
+Package biblatex Info: Reference segment=0 on input line 38.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -995,295 +998,390 @@ Package caption Info: End \AtBeginDocument code.
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks44
 \inpenc@posthook=\toks45
-) [1
+)
+<figure//unical2.png, id=4, 513.92pt x 119.44624pt>
+File: figure//unical2.png Graphic file (type png)
+<use figure//unical2.png>
+Package pdftex.def Info: figure//unical2.png  used on input line 48.
+(pdftex.def)             Requested size: 513.91873pt x 119.44594pt.
 
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./tesi.toc)
+Overfull \hbox (30.22186pt too wide) in paragraph at lines 48--49
+ [][] 
+ []
+
+[1
+
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figure//unica
+l2.png>] (./tesi.toc)
 \tf@toc=\write5
 \openout5 = `tesi.toc'.
 
- [2] [3]
-<figure//architecture.png, id=18, 442.65375pt x 403.5075pt>
-File: figure//architecture.png Graphic file (type png)
-<use figure//architecture.png>
-Package pdftex.def Info: figure//architecture.png  used on input line 61.
-(pdftex.def)             Requested size: 298.75264pt x 272.34349pt.
- [4 <./figure//architecture.png>] [5]
-<figure//voronoi.png, id=28, 523.7166pt x 520.8258pt>
+ [1] [2]
+<figure//architecture_tesi.png, id=21, 244.85075pt x 200.04337pt>
+File: figure//architecture_tesi.png Graphic file (type png)
+<use figure//architecture_tesi.png>
+Package pdftex.def Info: figure//architecture_tesi.png  used on input line 102.
+
+(pdftex.def)             Requested size: 244.85014pt x 200.04286pt.
+ [3 <./figure//architecture_tesi.png>]
+Overfull \hbox (5.83865pt too wide) in paragraph at lines 119--120
+[]\OT1/cmr/m/n/14.4 Potenziali ar-ti-fi-ciali, che ver-ranno ampia-mente in tra
+t-tati nel prossimo
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+<figure//voronoi.png, id=32, 523.7166pt x 520.8258pt>
 File: figure//voronoi.png Graphic file (type png)
 <use figure//voronoi.png>
-Package pdftex.def Info: figure//voronoi.png  used on input line 97.
-(pdftex.def)             Requested size: 213.39568pt x 212.22073pt.
-<figure//celldecomp.png, id=29, 523.7166pt x 520.8258pt>
+Package pdftex.def Info: figure//voronoi.png  used on input line 138.
+(pdftex.def)             Requested size: 241.84843pt x 240.51259pt.
+<figure//celldecomp.png, id=33, 523.7166pt x 520.8258pt>
 File: figure//celldecomp.png Graphic file (type png)
 <use figure//celldecomp.png>
-Package pdftex.def Info: figure//celldecomp.png  used on input line 104.
-(pdftex.def)             Requested size: 213.39568pt x 212.22073pt.
+Package pdftex.def Info: figure//celldecomp.png  used on input line 145.
+(pdftex.def)             Requested size: 241.84843pt x 240.51259pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 94--107
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 135--148
 [][]  [] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-[6] [7 <./figure//voronoi.png (PNG copy)> <./figure//celldecomp.png (PNG copy)>
-] [8]
-Overfull \hbox (2.22496pt too wide) in paragraph at lines 127--128
-\OT1/cmr/m/n/14.4 Metodo in-trodotto per la prima volta negli anni 90 da Ous-sa
-ma Khatib,
- []
-
-<figure//potA.png, id=45, 363.2772pt x 275.5896pt>
+[5] [6 <./figure//voronoi.png (PNG copy)> <./figure//celldecomp.png (PNG copy)>
+] [7]
+<figure//potA.png, id=49, 363.2772pt x 275.5896pt>
 File: figure//potA.png Graphic file (type png)
 <use figure//potA.png>
-Package pdftex.def Info: figure//potA.png  used on input line 141.
-(pdftex.def)             Requested size: 341.43437pt x 259.03743pt.
-[9]
-<figure//antigradA.png, id=49, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//potA.png  used on input line 192.
+(pdftex.def)             Requested size: 386.95897pt x 293.57434pt.
+ [8]
+<figure//antigradA.png, id=54, 348.8232pt x 277.9986pt>
 File: figure//antigradA.png Graphic file (type png)
 <use figure//antigradA.png>
-Package pdftex.def Info: figure//antigradA.png  used on input line 156.
-(pdftex.def)             Requested size: 256.07741pt x 204.08684pt.
+Package pdftex.def Info: figure//antigradA.png  used on input line 200.
+(pdftex.def)             Requested size: 290.22107pt x 231.2987pt.
 
-Overfull \hbox (5.36325pt too wide) in paragraph at lines 158--159
-[]\OT1/cmr/m/n/14.4 Matematicamente si es-prime come il vet-tore delle derivate
- parziali
+Overfull \hbox (15.90685pt too wide) in paragraph at lines 195--201
+\OT1/cmr/m/n/14.4 un'intensit^^Ra pro-porzionale alla dis-tanza dal goal, pun-t
+ano verso quest'ultimo. 
  []
 
-[10 <./figure//potA.png (PNG copy)> <./figure//antigradA.png (PNG copy)>]
 
-LaTeX Warning: Reference `potACon' on page 11 undefined on input line 167.
+Underfull \hbox (badness 10000) in paragraph at lines 205--207
 
-<figure//potACon.png, id=54, 364.2408pt x 272.6988pt>
+ []
+
+[9 <./figure//potA.png (PNG copy)> <./figure//antigradA.png (PNG copy)>]
+<figure//potACon.png, id=58, 364.2408pt x 272.6988pt>
 File: figure//potACon.png Graphic file (type png)
 <use figure//potACon.png>
-Package pdftex.def Info: figure//potACon.png  used on input line 171.
-(pdftex.def)             Requested size: 341.43437pt x 255.63783pt.
-[11 <./figure//potACon.png (PNG copy)>]
-Overfull \hbox (3.54169pt too wide) in paragraph at lines 198--199
-[]\OT1/cmr/m/n/14.4 ha una forma duale a quello at-trat-tivo, come
+Package pdftex.def Info: figure//potACon.png  used on input line 217.
+(pdftex.def)             Requested size: 386.95897pt x 289.72095pt.
+
+Overfull \hbox (19.98015pt too wide) in paragraph at lines 211--218
+\OT1/cmr/m/n/14.4 e, come si pu^^Ro an-che vedere in figura 2.3[], la riduzione
+ dell'errore all'avvicinarsi
  []
 
-
-Overfull \hbox (15.47307pt too wide) in paragraph at lines 198--199
-\OT1/cmr/m/n/14.4 val-ore in-ver-sa-mente pro-porzionale alla dis-tanza dall'os
-tacolo stesso.
+[10 <./figure//potACon.png (PNG copy)>]
+Overfull \hbox (4.68045pt too wide) in paragraph at lines 242--243
+[]\OT1/cmr/m/n/14.4 ha una forma duale a quello at-trat-tivo, come mostrato
  []
 
-
-Overfull \hbox (0.46997pt too wide) in paragraph at lines 198--199
-\OT1/cmr/m/n/14.4 Prati-ca-mente, pi^^Ru ci si avvic-ina all'ostacolo en-tro un
-a certa soglia
- []
-
-<figure//potR.png, id=58, 370.0224pt x 274.1442pt>
+<figure//potR.png, id=62, 370.0224pt x 274.1442pt>
 File: figure//potR.png Graphic file (type png)
 <use figure//potR.png>
-Package pdftex.def Info: figure//potR.png  used on input line 203.
-(pdftex.def)             Requested size: 213.39568pt x 158.10017pt.
-<figure//antigradR.png, id=59, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//potR.png  used on input line 248.
+(pdftex.def)             Requested size: 241.84843pt x 179.183pt.
+<figure//antigradR.png, id=63, 348.8232pt x 277.9986pt>
 File: figure//antigradR.png Graphic file (type png)
 <use figure//antigradR.png>
-Package pdftex.def Info: figure//antigradR.png  used on input line 210.
-(pdftex.def)             Requested size: 213.39568pt x 170.07095pt.
+Package pdftex.def Info: figure//antigradR.png  used on input line 254.
+(pdftex.def)             Requested size: 241.84843pt x 192.74821pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 201--212
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 245--256
 [][]  [] 
  []
 
-[12 <./figure//potR.png (PNG copy)> <./figure//antigradR.png (PNG copy)>]
-[13]
+[11 <./figure//potR.png (PNG copy)> <./figure//antigradR.png (PNG copy)>]
+Overfull \hbox (47.91927pt too wide) in paragraph at lines 271--272
+\OT1/cmr/m/n/14.4 soglia $\OML/cmm/m/it/14.4 ^^Q$ \OT1/cmr/m/n/14.4 a quest'ult
+imo. In figura 2.4b[] si ve-dono le li-nee di campo dell'antigradiente
+ []
+
+
+Overfull \hbox (7.44691pt too wide) in paragraph at lines 271--272
+\OT1/cmr/m/n/14.4 che pun-tano ra-dial-mente verso l'esterno rispetto alla po-s
+izione dell'ostacolo,
+ []
+
 <figure//pot.png, id=67, 367.1316pt x 277.5168pt>
 File: figure//pot.png Graphic file (type png)
 <use figure//pot.png>
-Package pdftex.def Info: figure//pot.png  used on input line 243.
-(pdftex.def)             Requested size: 298.75264pt x 225.82907pt.
-<figure//minimoLocale.png, id=68, 367.1316pt x 277.5168pt>
+Package pdftex.def Info: figure//pot.png  used on input line 288.
+(pdftex.def)             Requested size: 338.58632pt x 255.94102pt.
+[12]
+<figure//minimoLocale.png, id=72, 367.1316pt x 277.5168pt>
 File: figure//minimoLocale.png Graphic file (type png)
 <use figure//minimoLocale.png>
-Package pdftex.def Info: figure//minimoLocale.png  used on input line 252.
-(pdftex.def)             Requested size: 213.39568pt x 161.30708pt.
-<figure//antigradMinimoLocale.png, id=69, 348.8232pt x 277.9986pt>
+Package pdftex.def Info: figure//minimoLocale.png  used on input line 297.
+(pdftex.def)             Requested size: 241.84843pt x 182.8144pt.
+<figure//antigradMinimoLocale.png, id=73, 348.8232pt x 277.9986pt>
 File: figure//antigradMinimoLocale.png Graphic file (type png)
 <use figure//antigradMinimoLocale.png>
-Package pdftex.def Info: figure//antigradMinimoLocale.png  used on input line 2
-57.
-(pdftex.def)             Requested size: 213.39568pt x 170.07095pt.
+Package pdftex.def Info: figure//antigradMinimoLocale.png  used on input line 3
+02.
+(pdftex.def)             Requested size: 241.84843pt x 192.74821pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 250--259
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 295--304
 [][]  [] 
  []
 
-[14 <./figure//pot.png>] [15 <./figure//minimoLocale.png (PNG copy)> <./figure/
-/antigradMinimoLocale.png>]
-Overfull \hbox (11.02773pt too wide) in paragraph at lines 274--275
-\OT1/cmr/m/n/14.4 ot-te-ni-amo $[](\OML/cmm/m/it/14.4 ^^X\OT1/cmr/m/n/14.4 ) = 
-[]([])$ che, con-frontando con le prime due equazioni,
- []
-
+[13 <./figure//pot.png>]
 <figure//elicoide.png, id=78, 361.8318pt x 273.1806pt>
 File: figure//elicoide.png Graphic file (type png)
 <use figure//elicoide.png>
-Package pdftex.def Info: figure//elicoide.png  used on input line 285.
-(pdftex.def)             Requested size: 213.39568pt x 161.11261pt.
+Package pdftex.def Info: figure//elicoide.png  used on input line 329.
+(pdftex.def)             Requested size: 241.84843pt x 182.59236pt.
 <figure//potB.png, id=79, 365.2044pt x 274.1442pt>
 File: figure//potB.png Graphic file (type png)
 <use figure//potB.png>
-Package pdftex.def Info: figure//potB.png  used on input line 290.
-(pdftex.def)             Requested size: 213.39568pt x 160.18755pt.
+Package pdftex.def Info: figure//potB.png  used on input line 334.
+(pdftex.def)             Requested size: 241.84843pt x 181.54227pt.
 
-Overfull \hbox (3.1333pt too wide) in paragraph at lines 283--293
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 327--337
 [][]  [] 
  []
 
-[16 <./figure//elicoide.png (PNG copy)> <./figure//potB.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+[14 <./figure//minimoLocale.png (PNG copy)> <./figure//antigradMinimoLocale.png
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
-
-Overfull \hbox (25.41637pt too wide) in paragraph at lines 308--309
-[]\OT1/cmr/m/n/14.4 Aumentano di in-ten-sit^^Ra man mano che il robot si avvic-
-ina all'ostacolo 
- []
-
-<figure//antigradB.png, id=83, 348.8232pt x 277.9986pt>
+<figure//antigradB.png, id=84, 348.8232pt x 277.9986pt>
 File: figure//antigradB.png Graphic file (type png)
 <use figure//antigradB.png>
-Package pdftex.def Info: figure//antigradB.png  used on input line 316.
-(pdftex.def)             Requested size: 341.43437pt x 272.11436pt.
-
-Overfull \hbox (19.52419pt too wide) in paragraph at lines 321--321
-[]\OT1/cmr/bx/n/20.74 Panoramica sull'algoritmo di nav-igazione 
+Package pdftex.def Info: figure//antigradB.png  used on input line 361.
+(pdftex.def)             Requested size: 386.95897pt x 308.39969pt.
+[15 <./figure//elicoide.png (PNG copy)> <./figure//potB.png (PNG copy)>]
+[16 <./figure//antigradB.png (PNG copy)>]
+Overfull \hbox (11.11295pt too wide) in paragraph at lines 371--372
+[]\OT1/cmr/m/n/14.4 Un os-ta-colo im-pedisce l'avanzamento del robot ed ^^Se ne
+c-es-sario \OT1/cmr/bx/n/14.4 ``switchare"
  []
 
-
-Overfull \hbox (10.33977pt too wide) in paragraph at lines 322--323
-\OT1/cmr/m/n/14.4 La strate-gia ^^Se sem-plice: nella po-sizione in-iziale, il 
-robot sonda l'ambiente
- []
-
-
-Overfull \hbox (2.07826pt too wide) in paragraph at lines 322--323
-\OT1/cmr/m/n/14.4 at-torno a s^^Se: se non vi sono pre-senti os-ta-coli a im-pe
-dirne l'avanzamento
- []
-
-[17 <./figure//antigradB.png (PNG copy)>]
-<figure//flowchart.png, id=88, 506.89375pt x 475.7775pt>
+<figure//flowchart.png, id=92, 506.89375pt x 475.7775pt>
 File: figure//flowchart.png Graphic file (type png)
 <use figure//flowchart.png>
-Package pdftex.def Info: figure//flowchart.png  used on input line 327.
-(pdftex.def)             Requested size: 298.75264pt x 280.4159pt.
-
-
-Package caption Warning: \label without proper reference on input line 338.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `class' on page 18 undefined on input line 335.
-
-<figure//classDiagram.png, id=89, 1003.75pt x 1003.75pt>
+Package pdftex.def Info: figure//flowchart.png  used on input line 378.
+(pdftex.def)             Requested size: 338.58632pt x 317.81097pt.
+[17 <./figure//flowchart.png>]
+<figure//classDiagram.png, id=97, 1003.75pt x 1003.75pt>
 File: figure//classDiagram.png Graphic file (type png)
 <use figure//classDiagram.png>
-Package pdftex.def Info: figure//classDiagram.png  used on input line 340.
-(pdftex.def)             Requested size: 426.79135pt x 426.79488pt.
-[18 <./figure//flowchart.png>] [19 <./figure//classDiagram.png (PNG copy)>]
+Package pdftex.def Info: figure//classDiagram.png  used on input line 388.
+(pdftex.def)             Requested size: 483.69687pt x 483.70903pt.
+ [18 <./figure//classDiagram.png (PNG copy)>]
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 3
-49.
+98.
 
 (c:/texlive/2022/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 349.
-
-Overfull \hbox (2.78325pt too wide) in paragraph at lines 366--367
-\OT1/cmr/m/n/14.4 fatta in questa tesi ^^Se stata quella di rap-p-re-sentare l'
-ambiente in maniera
- []
-
-[20]
-<figure//DD.png, id=103, 604.50844pt x 534.49687pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 398.
+ [19] [20]
+<figure//DD.png, id=109, 604.50844pt x 534.49687pt>
 File: figure//DD.png Graphic file (type png)
 <use figure//DD.png>
-Package pdftex.def Info: figure//DD.png  used on input line 392.
-(pdftex.def)             Requested size: 341.43437pt x 301.89342pt.
- [21] [22 <./figure//DD.png>]
-
-LaTeX Warning: Reference `DD' on page 23 undefined on input line 406.
-
-[23] [24]
-Overfull \hbox (17.35788pt too wide) in paragraph at lines 493--494
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[25]
-<figure//statechart.png, id=122, 978.65625pt x 386.44376pt>
+Package pdftex.def Info: figure//DD.png  used on input line 445.
+(pdftex.def)             Requested size: 386.95897pt x 342.14207pt.
+ [21 <./figure//DD.png>] [22]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
+10.
+ (c:/texlive/2022/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 510.
+ [23]
+[24]
+<figure//statechart.png, id=125, 300.93228pt x 166.58235pt>
 File: figure//statechart.png Graphic file (type png)
 <use figure//statechart.png>
-Package pdftex.def Info: figure//statechart.png  used on input line 513.
-(pdftex.def)             Requested size: 426.79135pt x 168.53212pt.
-
-
-LaTeX Warning: Reference `start' on page 26 undefined on input line 516.
-
-[26 <./figure//statechart.png>]
-Overfull \hbox (12.6114pt too wide) in paragraph at lines 539--540
-\OT1/cmr/m/n/14.4 Lo stato in-iziale del robot ^^Se quello at-trat-tivo, con-se
-guente all'imposizione
+Package pdftex.def Info: figure//statechart.png  used on input line 573.
+(pdftex.def)             Requested size: 483.69687pt x 267.77254pt.
+ [25 <./figure//statechart.png>] [26] [27]
+<figure//sceltaverso.png, id=136, 153.35693pt x 113.4639pt>
+File: figure//sceltaverso.png Graphic file (type png)
+<use figure//sceltaverso.png>
+Package pdftex.def Info: figure//sceltaverso.png  used on input line 669.
+(pdftex.def)             Requested size: 338.58632pt x 250.52852pt.
+ [28] [29 <./figure//sceltaverso.png>]
+<figure//circonferenze.png, id=144, 514.8033pt x 426.8748pt>
+File: figure//circonferenze.png Graphic file (type png)
+<use figure//circonferenze.png>
+Package pdftex.def Info: figure//circonferenze.png  used on input line 684.
+(pdftex.def)             Requested size: 483.69687pt x 401.093pt.
+ [30] [31 <./figure//circonferenze.png>] [32]
+Overfull \hbox (9.80193pt too wide) in paragraph at lines 737--738
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][] 
  []
 
-[27]
-Overfull \hbox (3.2579pt too wide) in paragraph at lines 546--547
-[][][][][][][][][][][][][][][][][][][][] 
+[33] [34]
+Overfull \hbox (9.80193pt too wide) in paragraph at lines 773--774
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
-Overfull \hbox (0.14667pt too wide) in paragraph at lines 584--585
-\OT1/cmr/m/n/14.4 Il costrut-tore di Vir-tu-al-By-pass-ing (si spiegher^^Ra suc
--ces-si-va-mente perch^^Se
+
+Overfull \hbox (9.80193pt too wide) in paragraph at lines 774--775
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+[35]
+Overfull \hbox (6.74196pt too wide) in paragraph at lines 801--802
+\OT1/cmr/m/n/14.4 punto di tan-genza tra la cir-con-ferenza trovata e quella ce
+n-trata nell'ostacolo
+ []
+
+[36]
+Overfull \hbox (2.75194pt too wide) in paragraph at lines 828--829
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.9019pt too wide) in paragraph at lines 830--831
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 845--846
 
  []
 
-[31]
-Overfull \hbox (16.02138pt too wide) in paragraph at lines 641--642
-\OT1/cmr/m/n/14.4 Ovviamente ci sono troppe incog-nite per poter ri-sol-vere qu
-esta equazione,
+[37] [38] [39] [40]
+Overfull \hbox (101.45212pt too wide) in paragraph at lines 983--984
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 646--648
+[41] [42] [43]
+<figure//treobst_1.png, id=191, 421.8159pt x 316.3017pt>
+File: figure//treobst_1.png Graphic file (type png)
+<use figure//treobst_1.png>
+Package pdftex.def Info: figure//treobst_1.png  used on input line 1077.
+(pdftex.def)             Requested size: 241.84843pt x 181.35081pt.
+<figure//treobst_2.png, id=192, 569.4876pt x 427.1157pt>
+File: figure//treobst_2.png Graphic file (type png)
+<use figure//treobst_2.png>
+Package pdftex.def Info: figure//treobst_2.png  used on input line 1084.
+(pdftex.def)             Requested size: 241.84843pt x 181.38164pt.
 
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 1073--1086
+[][]  [] 
  []
 
-[33] (./tesi.lol)
+[44]
+<figure//treobst_finale.png, id=196, 421.575pt x 316.0608pt>
+File: figure//treobst_finale.png Graphic file (type png)
+<use figure//treobst_finale.png>
+Package pdftex.def Info: figure//treobst_finale.png  used on input line 1093.
+(pdftex.def)             Requested size: 386.95897pt x 290.11394pt.
+ [45 <./figure//treobst_1.png> <./figure//treobst_2.png> <./figure//treobst_fin
+ale.png (PNG copy)>]
+<figure//moltiostacoli.png, id=202, 421.575pt x 316.18124pt>
+File: figure//moltiostacoli.png Graphic file (type png)
+<use figure//moltiostacoli.png>
+Package pdftex.def Info: figure//moltiostacoli.png  used on input line 1101.
+(pdftex.def)             Requested size: 483.69687pt x 362.78061pt.
+<figure//hmax_1.png, id=203, 421.575pt x 316.18124pt>
+File: figure//hmax_1.png Graphic file (type png)
+<use figure//hmax_1.png>
+Package pdftex.def Info: figure//hmax_1.png  used on input line 1114.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+<figure//hmax_2.png, id=204, 421.575pt x 316.18124pt>
+File: figure//hmax_2.png Graphic file (type png)
+<use figure//hmax_2.png>
+Package pdftex.def Info: figure//hmax_2.png  used on input line 1120.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 1111--1122
+[][]  [] 
+ []
+
+<figure//hmax_3.png, id=205, 421.575pt x 316.18124pt>
+File: figure//hmax_3.png Graphic file (type png)
+<use figure//hmax_3.png>
+Package pdftex.def Info: figure//hmax_3.png  used on input line 1127.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+<figure//hmax_4.png, id=206, 421.575pt x 316.18124pt>
+File: figure//hmax_4.png Graphic file (type png)
+<use figure//hmax_4.png>
+Package pdftex.def Info: figure//hmax_4.png  used on input line 1133.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 1123--1135
+[][]  [] 
+ []
+
+[46 <./figure//moltiostacoli.png>] [47 <./figure//hmax_1.png> <./figure//hmax_2
+.png> <./figure//hmax_3.png> <./figure//hmax_4.png>]
+<figure//hmin_1.png, id=218, 421.575pt x 316.18124pt>
+File: figure//hmin_1.png Graphic file (type png)
+<use figure//hmin_1.png>
+Package pdftex.def Info: figure//hmin_1.png  used on input line 1148.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+<figure//hmin_2.png, id=219, 421.575pt x 316.18124pt>
+File: figure//hmin_2.png Graphic file (type png)
+<use figure//hmin_2.png>
+Package pdftex.def Info: figure//hmin_2.png  used on input line 1154.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 1145--1156
+[][]  [] 
+ []
+
+File: figure//hmax_2.png Graphic file (type png)
+<use figure//hmax_2.png>
+Package pdftex.def Info: figure//hmax_2.png  used on input line 1171.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+<figure//giraprima.png, id=220, 421.575pt x 316.18124pt>
+File: figure//giraprima.png Graphic file (type png)
+<use figure//giraprima.png>
+Package pdftex.def Info: figure//giraprima.png  used on input line 1178.
+(pdftex.def)             Requested size: 241.84843pt x 181.38788pt.
+
+Overfull \hbox (3.1333pt too wide) in paragraph at lines 1167--1180
+[][]  [] 
+ []
+
+[48 <./figure//hmin_1.png> <./figure//hmin_2.png>]
+<figure//minimolocalesim.png, id=227, 421.575pt x 316.18124pt>
+File: figure//minimolocalesim.png Graphic file (type png)
+<use figure//minimolocalesim.png>
+Package pdftex.def Info: figure//minimolocalesim.png  used on input line 1188.
+(pdftex.def)             Requested size: 338.58632pt x 253.944pt.
+<figure//nominimolocalesim.png, id=228, 421.575pt x 316.18124pt>
+File: figure//nominimolocalesim.png Graphic file (type png)
+<use figure//nominimolocalesim.png>
+Package pdftex.def Info: figure//nominimolocalesim.png  used on input line 1195
+.
+(pdftex.def)             Requested size: 386.95897pt x 290.22449pt.
+ [49 <./figure//giraprima.png> <./figure//minimolocalesim.png>] [50 <./figure//
+nominimolocalesim.png>]
+[51] (./tesi.lol)
 \tf@lol=\write6
 \openout6 = `tesi.lol'.
 
- (./tesi.lof)
+ [52] (./tesi.lof)
 \tf@lof=\write7
 \openout7 = `tesi.lof'.
 
- [34]
-Overfull \hbox (28.55452pt too wide) in paragraph at lines 681--681
-\OT1/cmr/m/n/14.4 Sim-u-la-tion Tool-box (https://github.com/mathworks-robotics
-/mobile-
- []
-
-[35] (./tesi.aux)
-
-LaTeX Warning: There were undefined references.
-
+ [53] (./tesi.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1292,32 +1390,32 @@ Package logreq Info: Writing requests to 'tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30321 strings out of 478305
- 615616 string characters out of 5849247
- 1344890 words of memory out of 5000000
- 48038 multiletter control sequences out of 15000+600000
- 478022 words of font info for 58 fonts, out of 8000000 for 9000
+ 30608 strings out of 478305
+ 620727 string characters out of 5849247
+ 1378047 words of memory out of 5000000
+ 48306 multiletter control sequences out of 15000+600000
+ 477490 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,13n,80p,2047b,1838s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,13n,80p,1868b,1891s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/202
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-supe
-r/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440
-.pfb>
-Output written on tesi.pdf (35 pages, 1344263 bytes).
+ts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/20
+22/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200
+.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
+Output written on tesi.pdf (54 pages, 2526738 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 319 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 183 words of extra memory for PDF output out of 10000 (max. 10000000)
 
