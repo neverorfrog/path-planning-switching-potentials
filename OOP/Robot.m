@@ -12,7 +12,7 @@ classdef Robot < handle
     methods
         %% Constructor
         function obj = Robot(R,L,grid)
-            obj.xc = 4; obj.yc = 0; obj.theta = 1.2;
+            obj.xc = 5; obj.yc = 0; obj.theta = 1.2;
             obj.rv = 1.5;
             obj.grid = grid;
             obj.R = R; obj.L = L;
@@ -27,7 +27,6 @@ classdef Robot < handle
         function initializeFigure(obj)
             figure(1); axis equal; axis([0 obj.grid.width 0 obj.grid.width]); axis manual; hold on;
             plot(obj.grid.goal(1),obj.grid.goal(2),"pg","linewidth",2);
-            set(gca,"Color","none");
         end
         
         %% Graphic representation of the robot

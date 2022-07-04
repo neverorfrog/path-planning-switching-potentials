@@ -21,8 +21,8 @@ classdef SwitchingRobot < Robot
         end
         
         function pngSequence(~,samples)
-            filename = sprintf("SwitchingPotentials/Latex/simulazioni/moltiostacoli/snap%d.png", samples);
-            saveas(gcf, filename);
+            filename = sprintf("SwitchingPotentials/Latex/simulazioni/minimilocali/snap%d.png", samples);
+            exportgraphics(gca,filename,'Resolution',300)
         end
         
         function obj = start(obj)
@@ -37,7 +37,7 @@ classdef SwitchingRobot < Robot
                 dObstacle = obj.sense.scan(obj);
                 %New directive
                 obj.state.decision(obj,dObstacle);
-                %Giving the command to the actuators 
+                %Giving the command to the actuators
                 [obj.xc,obj.yc,obj.theta] = obj.act.move(obj,obj.tspan);
                 %Plotting
                 obj.draw();
@@ -46,7 +46,7 @@ classdef SwitchingRobot < Robot
                 %Refreshing the error
                 e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + obj.tspan; pause(0);
                 %Creazione sequenza png della figura
-%                 samples = samples + 1; obj.pngSequence(samples);
+                samples = samples + 1; obj.pngSequence(samples);
             end
         end
     end

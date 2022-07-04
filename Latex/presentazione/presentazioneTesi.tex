@@ -24,8 +24,9 @@
 }
 
 \title{Path planning locale per robot mobili basato su switching tra potenziali artificiali}
-\author{Flavio Maiorana}
+\author{}
 \date{}
+\setbeamertemplate{footline}[frame number]
 
 \begin{document}
 
@@ -87,7 +88,7 @@ Antigradiente $-\nabla U_{tot}$ \\
 \vspace{10mm}
 
 \centering
-\begin{tcolorbox}[colframe=red!50!white , center upper]
+\begin{tcolorbox}[colframe=red!50!white , center upper , colback=white]
 \textbf{La somma di potenziali causa il rischio di minimo locale}
 \end{tcolorbox}
 \end{frame}
@@ -197,17 +198,19 @@ $\rightarrow$
 \begin{frame}{Modulo di pianificazione}
 \framesubtitle{Switching: assenza di discontinuità}
 \begin{columns}
-\column{0.6\textwidth}
+\column{0.5\textwidth}
 \includegraphics[width=\textwidth]{circonferenze.png}
-\column{0.4\textwidth}
+\column{0.5\textwidth}
 \centering
-\includegraphics[width=0.7\textwidth]{statechartbypassante.png}
+\includegraphics[width=0.6\textwidth]{statechartbypassante.png}
 \end{columns}
 \vspace*{5mm}
 \begin{itemize}
 \item $U_b$ calcolato nell'istante $\tau$ di rilevamento dell'ostacolo
 \item Ausilio di un ostacolo virtuale con potenziale $U_{\Omega}$
 \item Condizioni di tangenza tra le curve di livello di $U_b$ e $U_{\Omega}$
+\item Calcolo coefficienti modulanti di $U_b$ e $U_{\Omega}$
+\item Serve una condizione di uscita da un possibile dead-loop
 \end{itemize}
 \end{frame}
 
@@ -227,7 +230,7 @@ $\rightarrow$
 \begin{itemize}
 \item Obiettivo: ottenere dei comandi di velocità 
 \item Nello specifico $v(t)$ velocità lineare e $\omega(t)$ velocità angolare
-\item Velocità di riferimento é $v_{\nabla}(t) \triangleq -\nabla U(r,G)$
+\item La velocità di riferimento é $v_{\nabla}(t) \triangleq -\nabla U(r,G)$
 \end{itemize}
 \vspace{5mm}
 Imponendo
@@ -242,7 +245,7 @@ ${K_{\omega}(t)= \begin{cases}
 \frac{\dot{\theta}_{\nabla}(t) + K_c|\theta_{\nabla}(t)-\theta_r(t)|^{\nu} \cdot sign(\theta_{\nabla}(t) - \theta_r(t))}{\theta_{\nabla}(t) - \theta_r(t)} \ &|\theta_{\nabla}(t)-\theta_r(t)| \geq \xi \\
 0 \ &altrimenti
 \end{cases}}$ \\
-\vspace*{1mm}
+\vspace*{3mm}
 si assicura che la velocità del robot converga a $v_{\nabla}(t)$ in t finito
 \end{frame}
 
@@ -251,27 +254,27 @@ si assicura che la velocità del robot converga a $v_{\nabla}(t)$ in t finito
 \begin{frame}{Modulo di azione}
 \framesubtitle{Modello cinematico}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.33\textwidth}
 \centering
-$
+${
 \begin{cases}
 \dot{x}(t) = v(t)\cos(\theta(t)) \\
 \dot{y}(t) = v(t)\sin(\theta(t)) \\
 \dot{\theta}(t) = \omega(t)
 \end{cases}
-$
+}$
 \column{0.01\textwidth}
 \centering
-$ \Rightarrow $
-\column{0.5\textwidth}
+$ \ \Rightarrow $
+\column{0.66\textwidth}
 \centering
-$
+${
 \begin{cases}
 \dot{x}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right) \cos(\theta(t)) \\
 \dot{y}(t) = \frac{R}{2} \left( \omega_R(t)+\omega_L(t) \right)\sin(\theta(t)) \\
 \dot{\theta}(t) = \frac{R}{L} \left( \omega_R(t)-\omega_L(t) \right)
 \end{cases}
-$
+}$
 \end{columns}
 \vspace{5mm}
 \begin{columns}
@@ -328,34 +331,92 @@ L'ostacolo da bypassare é quello, se c'è, che si trova nel tubo ad una distanz
 
 %30 secondi
 \begin{frame}{Risultati}
-\framesubtitle{Tre ostacoli in movimento}
-\centering
-\graphicspath{ {../simulazioni/treostacoli1} }
-\animategraphics[loop,width=8cm]{20}{snap}{1}{253}
-\end{frame}
-
-%30 secondi
-\begin{frame}{Risultati}
 \framesubtitle{Cinque ostacoli in movimento}
 \centering
-\graphicspath{ {../simulazioni/treostacoli1} }
-\animategraphics[loop,width=8cm]{20}{snap}{1}{253}
-\end{frame}
-
-%30 secondi
-\begin{frame}{Risultati}
-\framesubtitle{Tredici ostacoli fissi}
-\centering
-\graphicspath{ {../simulazioni/moltiostacoli} }
-\animategraphics[loop,width=8cm]{10}{snap}{1}{322}
+\graphicspath{ {../simulazioni/cinqueostacoli} }
+\begin{columns}
+\column{0.5\textwidth}
+\animategraphics[loop,width=\textwidth]{30}{snap}{1}{304}
+\column{0.5\textwidth}
+Dati
+\begin{itemize}
+\item Assi cartesiani in metri
+\item $R_v = 1.5m$
+\item $R_T = 2m$
+\item $R_i = 0.5m \ \forall i$
+\item $r(0) = [5,0]$
+\item $G = [8,10]$
+\end{itemize}
+Osservazioni
+\begin{itemize}
+\item Scelta verso cruciale
+\item Distanza di sicurezza dall'ostacolo proporzionale ad un ``indice di invasività"
+\item Switching da bypassante di $O_i$ a bypassante di $O_j$
+\end{itemize}
+\end{columns}
 \end{frame}
 
 %30 secondi
 \begin{frame}{Risultati}
 \framesubtitle{Rischio minimo locale}
+\begin{columns}
+\column{0.5\textwidth}
 \centering
-\graphicspath{ {../simulazioni/treostacoli1} }
-\animategraphics[loop,width=8cm]{20}{snap}{1}{253}
+\graphicspath{ {../simulazioni/minimilocali} }
+\animategraphics[loop,width=0.9\textwidth]{30}{snap}{1}{221}
+\column{0.5\textwidth}
+\centering
+\graphicspath{ {../simulazioni/minimiLocaliMesh} }
+\animategraphics[loop,width=0.9\textwidth]{30}{snap}{1}{200}
+\end{columns}
+\vspace{2mm}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
+\textbf{Algoritmo con switching}\\
+Il minimo locale non esiste e il robot passa con disinvoltura tra i due ostacoli
+\column{0.5\textwidth}
+\centering
+\textbf{Algoritmo con metodo classico}\\
+Il robot si ferma prima di attraversare il ``varco" a causa di un annullamento di $-\nabla U_{tot}$
+\end{columns}
+
+\end{frame}
+
+%30 secondi
+\begin{frame}{Risultati}
+\framesubtitle{Quindici ostacoli fermi}
+\centering
+\graphicspath{ {../simulazioni/moltiostacoli} }
+\begin{columns}
+\column{0.5\textwidth}
+\animategraphics[loop,width=\textwidth]{30}{snap}{1}{327}
+\column{0.5\textwidth}
+\begin{itemize}
+\item L'algoritmo é performante anche con un elevato numero di ostacoli in proporzione alla dimensione dell'ambiente
+\item La traiettoria é ottima rispetto al tempo per raggiungere il goal e i vincoli dati dagli ostacoli presenti
+\end{itemize}
+\end{columns}
+\end{frame}
+
+%30 secondi
+\begin{frame}{Conclusioni}
+\begin{block}{Riassunto}
+\begin{itemize}
+\item Algoritmo di path planning basato su switching che non causa rischio di minimi locali
+\item Strategie di switching che assicurano assenza di discontinuità di velocità
+\item Legge di controllo in tempo finito per differential drive
+\item Software modulare e ausilio di design pattern
+\end{itemize}
+\end{block}
+
+\begin{block}{Espansioni}
+\begin{itemize}
+\item Ostacoli che cambiano velocità o di forma diversa
+\item Path planning multi agente
+\end{itemize}
+\end{block}
+
 \end{frame}
 
 \end{document}

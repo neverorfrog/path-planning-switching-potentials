@@ -46,7 +46,7 @@ classdef ClassicalRobot < Robot
                 %Refreshing the error
                 e = norm([obj.xc,obj.yc]-obj.grid.goal); tsim = tsim + obj.tspan; pause(0);
                 %Creazione sequenza png della figura
-%                 samples = samples + 1; obj.pngSequence(samples);
+                samples = samples + 1; obj.pngSequence(samples);
             end
         end
         
@@ -83,12 +83,12 @@ classdef ClassicalRobot < Robot
         function pngSequence(~,samples)
             %Creazione sequenza png della figura 1
             figure(1);
-            filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/minimiLocaliQuiver/pic%d.png', samples);
-            saveas(gcf, filename);
+            filename = sprintf("SwitchingPotentials/Latex/simulazioni/minimiLocaliMesh/snap%d.png", samples);
+            exportgraphics(gca,filename,'Resolution',300)
             %Creazione sequenza png della figura 2
             figure(2);
-            filename = sprintf('SwitchingPotentials/Latex/presentazione/figure/minimiLocaliMesh/pic%d.png', samples);
-            saveas(gcf, filename);
+            filename = sprintf("SwitchingPotentials/Latex/simulazioni/minimiLocaliQuiver/snap%d.png", samples);
+            exportgraphics(gca,filename,'Resolution',300)
         end
     end
 end

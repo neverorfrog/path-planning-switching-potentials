@@ -32,11 +32,14 @@ classdef VirtualBypassing < Bypassing
             d = double(sqrt(xOmega.^2 + yOmega.^2));
             %3. Decido quale circonferenza va bene per il verso di bypass
             boolclock = oSense == "clock";
-            bool1 = abs(norm(xOmega))>0.01 && sign(xOmega(1))==sign(xOmega(2));
-            bool2 = abs(norm(yOmega))>0.01 && sign(yOmega(1))==sign(yOmega(2));
+            signX = sign(xOmega); signY = sign(yOmega);
+            bool1 = abs(norm(xOmega))>0.01 && signX(1) == signX(2);
+            bool2 = abs(norm(yOmega))>0.01 && signY(1)==signY(2);
             if bool1 || bool2 %Ho due circonferenze dallo stesso lato
-                if boolclock && bool1 && sign(xOmega(1)) == 1 || ...
-                        ~boolclock && bool1 && sign(xOmega(1)) == -1
+                if boolclock && bool1 && sign(sin(angle)) == signX(1) || ...
+                        ~boolclock && bool1 && sign(sin(angle)) ~= signX(1) || ...
+                        boolclock && sign(sin(angle))==0 && signY(1) == -1 || ...
+                        ~boolclock && sign(sin(angle))==0 && signY(1) == 1
                     success = 0;
                     return;
                 else
@@ -105,7 +108,7 @@ classdef VirtualBypassing < Bypassing
             Rphi = [cos(phi-pi/2) sin(phi-pi/2) ; cos(phi) sin(phi)];
             vphi = Rphi*obstacle.v;
             thetaphi = Rphi*[cos(thetar),sin(thetar)]';
-                %È fermo
+            %È fermo
             if obstacle.v(1) == 0 && obstacle.v(2) == 0
                 if cos(atan2(thetaphi(2),thetaphi(1))) > 0
                     sense = "counterclock";
@@ -122,7 +125,7 @@ classdef VirtualBypassing < Bypassing
             end
             
             %Calcolo h
-            thetar = atan2(robot.grid.goal(2) - yr, robot.grid.goal(1) - xr);
+%             thetar = atan2(robot.grid.goal(2) - yr, robot.grid.goal(1) - xr);
             Rtheta = [cos(thetar-pi/2) sin(thetar-pi/2) ; cos(thetar) sin(thetar)];
             vtheta= Rtheta*obstacle.v;
             alphavtheta = atan2(vtheta(2),vtheta(1));
