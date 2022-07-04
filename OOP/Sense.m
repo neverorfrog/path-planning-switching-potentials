@@ -1,17 +1,20 @@
 classdef Sense
     
     methods
-        %% Method that looks in a radius rv and a tube T(t) if there are any obstacles
+        
+        
         function dObstacle = scan(obj,robot)
-            rx = robot.xc; ry = robot.yc; rv = robot.rv;
+            %             rx = robot.xc; ry = robot.yc; rv = robot.rv;
             n = length(robot.grid.obstacles);
             distances = zeros(1,n) + inf;
             dObstacles = cell(1,n);
             tube = obj.tube(robot);
             for j = 1 : n
                 o = robot.grid.obstacles(j);
-                distance = norm([rx ry] - [o.xc o.yc]);
-                if distance <= rv && obj.intube(tube,o)
+                %                 distance = norm([rx ry] - [o.xc o.yc]);
+                %                 inradius = distance <= rv
+                [inradius,distance] = obj.invisionradius(tube,o);
+                if inradius && obj.intube(robot,o)
                     dObstacles{j} = o;
                     distances(j) = distance;
                 end
@@ -22,7 +25,16 @@ classdef Sense
         end
     end
     
+    
     methods(Access=private)
+        
+        function [result,distance] = invisionradius(~,robot,obstacle)
+            phi = atan2(robot.yc - obstacle.yc , robot.xc - obstacle.xc);
+            nearestpoint = [obstacle.xc obstacle.yc] + obstacle.raggio*[cos(phi) sin(phi)];
+            distance = norm(nearestpoint - [robot.xc robot.yc]);
+            result = distance < robot.rv;
+        end
+        
         %% Method that builds the tube T(t)
         function tube = tube(~,robot)
             pose = robot.getPose(); rx = pose(1); ry = pose(2);
@@ -45,7 +57,7 @@ classdef Sense
             %Plotting
             persistent plotobj1; persistent plotobj2; persistent plotobj3;
             delete(plotobj1); delete(plotobj2); delete(plotobj3);
-            plotobj1 = plot([x1,x2,],[y1,y2],"b"); 
+            plotobj1 = plot([x1,x2,],[y1,y2],"b");
             plotobj2 = plot([x4,x3],[y4,y3],"b");
             plotobj3 = plot([x4,x1],[y4,y1],"b");
             
