@@ -196,27 +196,19 @@ $\rightarrow$
 %1 minuto
 \begin{frame}{Modulo di pianificazione}
 \framesubtitle{Switching: assenza di discontinuità}
-
 \begin{columns}
-\column{0.5\textwidth}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
+\includegraphics[width=\textwidth]{circonferenze.png}
+\column{0.4\textwidth}
 \centering
 \includegraphics[width=0.7\textwidth]{statechartbypassante.png}
 \end{columns}
-\vspace{5mm}
-\begin{columns}
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.3\textwidth]{circonferenze.png}
-\column{0.5\textwidth}
-\centering
+\vspace*{5mm}
 \begin{itemize}
-\item Ostacolo fermato in $\tau$
-\item Ausilio di ostacolo virtuale
-\item Condizioni di tangenza sulle curve di livello del potenziale bypassante
+\item $U_b$ calcolato nell'istante $\tau$ di rilevamento dell'ostacolo
+\item Ausilio di un ostacolo virtuale con potenziale $U_{\Omega}$
+\item Condizioni di tangenza tra le curve di livello di $U_b$ e $U_{\Omega}$
 \end{itemize}
-\end{columns}
-
 \end{frame}
 
 %20 secondi
@@ -259,7 +251,7 @@ si assicura che la velocità del robot converga a $v_{\nabla}(t)$ in t finito
 \begin{frame}{Modulo di azione}
 \framesubtitle{Modello cinematico}
 \begin{columns}
-\column{0.45\textwidth}
+\column{0.5\textwidth}
 \centering
 $
 \begin{cases}
@@ -268,10 +260,10 @@ $
 \dot{\theta}(t) = \omega(t)
 \end{cases}
 $
-\column{0.02\textwidth}
+\column{0.01\textwidth}
 \centering
-$\Rightarrow$
-\column{0.53\textwidth}
+$ \Rightarrow $
+\column{0.5\textwidth}
 \centering
 $
 \begin{cases}
@@ -289,7 +281,7 @@ $
 \centering
 Dettaglio: velocità delle ruote \\
 \vspace*{1mm}
-$
+\(
 {\begin{bmatrix}
 \omega_R(t) \\
 \omega_L(t)
@@ -301,7 +293,8 @@ $
 \begin{bmatrix}
 v(t) \\
 \omega(t)
-\end{bmatrix}}$
+\end{bmatrix}}
+\)
 \end{columns}
 \end{frame}
 

@@ -197,22 +197,18 @@ $\rightarrow$
 \begin{frame}{Modulo di pianificazione}
 \framesubtitle{Switching: assenza di discontinuità}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
+\includegraphics[width=\textwidth]{circonferenze.png}
+\column{0.4\textwidth}
 \centering
-\hspace*{-5mm}
-\includegraphics[width=1.1\textwidth]{circonferenze.png}
-\column{0.5\textwidth}
-\centering
-\begin{figure}
-\includegraphics[width=0.8\textwidth]{statechartbypassante.png}
-\end{figure}
-\vspace{10mm}
-\begin{itemize}
-\item Ostacolo fermato in $\tau$
-\item Ausilio di ostacolo virtuale
-\item Condizioni di tangenza sulle curve di livello del potenziale bypassante
-\end{itemize}
+\includegraphics[width=0.7\textwidth]{statechartbypassante.png}
 \end{columns}
+\vspace*{5mm}
+\begin{itemize}
+\item $U_b$ calcolato nell'istante $\tau$ di rilevamento dell'ostacolo
+\item Ausilio di un ostacolo virtuale con potenziale $U_{\Omega}$
+\item Condizioni di tangenza tra le curve di livello di $U_b$ e $U_{\Omega}$
+\end{itemize}
 \end{frame}
 
 %20 secondi
@@ -233,7 +229,7 @@ $\rightarrow$
 \item Nello specifico $v(t)$ velocità lineare e $\omega(t)$ velocità angolare
 \item Velocità di riferimento é $v_{\nabla}(t) \triangleq -\nabla U(r,G)$
 \end{itemize}
-\vspace{2mm}
+\vspace{5mm}
 Imponendo
 \begin{equation}
 v(t) = M_v \cos(\theta_{\nabla}(t) - \theta_r(t))
@@ -241,11 +237,13 @@ v(t) = M_v \cos(\theta_{\nabla}(t) - \theta_r(t))
 \begin{equation}
 \omega(t) = K_{\omega}(\theta_{\nabla}(t) - \theta_r(t))
 \end{equation}
-dove \(M_v=\begin{Vmatrix}v_{\nabla}(t)\end{Vmatrix}\), \(\theta_{\nabla}=\angle v_{\nabla}(t)\) e \\
-\(K_{\omega}(t)= \begin{cases}
+dove \(M_v=\begin{Vmatrix}v_{\nabla}(t)\end{Vmatrix}\), \(\theta_{\nabla}=\angle v_{\nabla}(t)\) e \\ \vspace*{1mm}
+${K_{\omega}(t)= \begin{cases}
 \frac{\dot{\theta}_{\nabla}(t) + K_c|\theta_{\nabla}(t)-\theta_r(t)|^{\nu} \cdot sign(\theta_{\nabla}(t) - \theta_r(t))}{\theta_{\nabla}(t) - \theta_r(t)} \ &|\theta_{\nabla}(t)-\theta_r(t)| \geq \xi \\
 0 \ &altrimenti
-\end{cases}\)
+\end{cases}}$ \\
+\vspace*{1mm}
+si assicura che la velocità del robot converga a $v_{\nabla}(t)$ in t finito
 \end{frame}
 
 \renewcommand{\arraystretch}{1.5}
@@ -253,7 +251,7 @@ dove \(M_v=\begin{Vmatrix}v_{\nabla}(t)\end{Vmatrix}\), \(\theta_{\nabla}=\angle
 \begin{frame}{Modulo di azione}
 \framesubtitle{Modello cinematico}
 \begin{columns}
-\column{0.45\textwidth}
+\column{0.5\textwidth}
 \centering
 $
 \begin{cases}
@@ -262,10 +260,10 @@ $
 \dot{\theta}(t) = \omega(t)
 \end{cases}
 $
-\column{0.02\textwidth}
+\column{0.01\textwidth}
 \centering
-$\Rightarrow$
-\column{0.53\textwidth}
+$ \Rightarrow $
+\column{0.5\textwidth}
 \centering
 $
 \begin{cases}
@@ -282,7 +280,8 @@ $
 \column{0.5\textwidth}
 \centering
 Dettaglio: velocità delle ruote \\
-$
+\vspace*{1mm}
+\(
 {\begin{bmatrix}
 \omega_R(t) \\
 \omega_L(t)
@@ -294,7 +293,8 @@ $
 \begin{bmatrix}
 v(t) \\
 \omega(t)
-\end{bmatrix}}$
+\end{bmatrix}}
+\)
 \end{columns}
 \end{frame}
 

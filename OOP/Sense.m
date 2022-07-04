@@ -28,7 +28,7 @@ classdef Sense
             pose = robot.getPose(); rx = pose(1); ry = pose(2);
             grid = robot.grid;
             G = grid.goal;
-            rm = 2;
+            rm = 2.5;
             angle = atan2(G(2)-ry,G(1)-rx);
             
             deltaX = rm/2*sin(angle); deltaY = rm/2*cos(angle);
@@ -43,10 +43,11 @@ classdef Sense
             tube.m34 = (y4-y3)/(x4-x3); tube.q34 = tube.m34*x3 - y3;
             
             %Plotting
-            persistent plotobj1; persistent plotobj2;
-            delete(plotobj1); delete(plotobj2);
-            plotobj1 = plot([x1,x2],[y1,y2],"b"); 
+            persistent plotobj1; persistent plotobj2; persistent plotobj3;
+            delete(plotobj1); delete(plotobj2); delete(plotobj3);
+            plotobj1 = plot([x1,x2,],[y1,y2],"b"); 
             plotobj2 = plot([x4,x3],[y4,y3],"b");
+            plotobj3 = plot([x4,x1],[y4,y1],"b");
             
             tube.x1 = x1; tube.x4 = x4; tube.angle = angle;
         end
