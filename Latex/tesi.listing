@@ -1,5 +1,0 @@
-if ~obj.paraboloidal && norm([rx,ry]-obj.grid.goal) < 1
-	obj.agradX = obj.grid.goal(1)-obj.grid.X;
-	obj.agradY = obj.grid.goal(2)-obj.grid.Y;
-	obj.setGrad(obj.agradX,obj.agradY);
-end
